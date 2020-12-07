@@ -1,15 +1,8 @@
-//
-//  City.swift
-//  WeatherPlannerDemo
-//
-//  Created by Alen Sebalj on 07.12.2020..
-//
-
 import Foundation
 
 struct City: Decodable {
     
-    struct WeatherInfo: Decodable{
+    struct WeatherInfo: Decodable {
         let id: Int
         let main: String
         let description: String

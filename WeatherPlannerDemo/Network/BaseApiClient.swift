@@ -1,10 +1,3 @@
-//
-//  BaseApiClient.swift
-//  WeatherPlannerDemo
-//
-//  Created by Alen Sebalj on 07.12.2020..
-//
-
 import Foundation
 
 public class BaseApiClient: ApiClientProtocol {
@@ -30,20 +23,18 @@ public class BaseApiClient: ApiClientProtocol {
         path: String,
         method: HTTPMethod,
         parameters: ParamsType? = nil,
-        resultHandler: @escaping (Result<ResultType, ApiError>) -> ()
+        resultHandler: @escaping (Result<ResultType, ApiError>) -> Void
     ) {
         let request = buildRequest(path: path, method: method, parameters: parameters)
 
-        let urlTask = urlSession.dataTask(with: request) {  (data, response, error) in
+        let urlTask = urlSession.dataTask(with: request) { [weak self] (data, response, error) in
             guard
                 let httpReponse = response as? HTTPURLResponse,
-                //when [weak self], self if always nil ???
-                //let self = self,
+                let self = self,
                 let statusCode = HttpStatusCode(rawValue: httpReponse.statusCode)
             else { return }
             
             if let error = self.mapToApiError(status: statusCode){
-                print("Request failed with error: \(error)")
                 resultHandler(.failure(error))
                 return
             }
@@ -63,7 +54,7 @@ public class BaseApiClient: ApiClientProtocol {
         path: String,
         method: HTTPMethod,
         parameters: ParamsType? = nil,
-        resultHandler: @escaping (Result<Bool, ApiError>) -> ()
+        resultHandler: @escaping (Result<Bool, ApiError>) -> Void
     ) {
         let request = buildRequest(path: path, method: method, parameters: parameters)
 
@@ -75,7 +66,6 @@ public class BaseApiClient: ApiClientProtocol {
             else { return }
             
             if let error = self.mapToApiError(status: statusCode){
-                print("Request failed with error: \(error)")
                 resultHandler(.failure(error))
                 return
             }
@@ -116,16 +106,16 @@ public class BaseApiClient: ApiClientProtocol {
 
     private func parse<ResultType: Decodable>(data: Data?) -> ResultType? {
         guard let data = data else {
-            print("Data does not exist...")
+            Logger.print(string: "Data does not exist...")
             return nil
         }
 
         do {
             let dataString = String(decoding: data, as: UTF8.self)
-            print("Got data: \(dataString)")
+            Logger.print(string: "Got data: \(dataString)")
             return try JSONDecoder().decode(ResultType.self, from: data)
         } catch {
-            print("Unexpected error on decoding data to \(ResultType.self)! (\(error)")
+            Logger.print(string: "Unexpected error on decoding data to \(ResultType.self)! (\(error)")
             return nil
         }
     }

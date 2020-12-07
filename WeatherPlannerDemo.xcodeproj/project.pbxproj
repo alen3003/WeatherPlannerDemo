@@ -25,6 +25,7 @@
 		B453CA2E257E5529003D5227 /* WeatherResponseLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453CA2D257E5529003D5227 /* WeatherResponseLanguage.swift */; };
 		B453CA34257E5673003D5227 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453CA33257E5673003D5227 /* City.swift */; };
 		B453CA3F257E6617003D5227 /* NetworkModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453CA3E257E6617003D5227 /* NetworkModule.swift */; };
+		B453CA47257E7DF2003D5227 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453CA46257E7DF2003D5227 /* Logger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		B453CA2D257E5529003D5227 /* WeatherResponseLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponseLanguage.swift; sourceTree = "<group>"; };
 		B453CA33257E5673003D5227 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		B453CA3E257E6617003D5227 /* NetworkModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkModule.swift; sourceTree = "<group>"; };
+		B453CA46257E7DF2003D5227 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 			children = (
 				B453CA25257E54EA003D5227 /* MeasurementUnit.swift */,
 				B453CA2D257E5529003D5227 /* WeatherResponseLanguage.swift */,
+				B453CA46257E7DF2003D5227 /* Logger.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				B453C9F0257E37EA003D5227 /* HttpStatusCode.swift in Sources */,
 				B453CA1D257E4EBE003D5227 /* CityQueryParameters.swift in Sources */,
 				B453C9F1257E37EA003D5227 /* ApiError.swift in Sources */,
+				B453CA47257E7DF2003D5227 /* Logger.swift in Sources */,
 				B453C9A8257E2010003D5227 /* SceneDelegate.swift in Sources */,
 				B453CA2E257E5529003D5227 /* WeatherResponseLanguage.swift in Sources */,
 				B453CA3F257E6617003D5227 /* NetworkModule.swift in Sources */,

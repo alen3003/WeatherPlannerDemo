@@ -1,10 +1,3 @@
-//
-//  ApiEndpoints.swift
-//  WeatherPlannerDemo
-//
-//  Created by Alen Sebalj on 07.12.2020..
-//
-
 import Foundation
 
 enum ApiEndpoints: String {

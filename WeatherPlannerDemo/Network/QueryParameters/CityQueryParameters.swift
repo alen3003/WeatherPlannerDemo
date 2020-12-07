@@ -1,16 +1,13 @@
-//
-//  CityQueryParameters.swift
-//  WeatherPlannerDemo
-//
-//  Created by Alen Sebalj on 07.12.2020..
-//
-
 import Foundation
 
-struct CityQueryParameters: QueryParameters {
-    let q: String
+struct CityQueryParameters: QueryParameters, CustomReflectable {
+    let cityName: String
     let appid: String = ApiKey.main.rawValue
-    var units: String = MeasurementUnit.metric.rawValue
-    var lang: String = WeatherResponseLanguage.en.rawValue
+    var unitSystem: String = MeasurementUnit.metric.rawValue
+    var language: String = WeatherResponseLanguage.en.rawValue
+    
+    var customMirror: Mirror {
+        return Mirror(self, children: ["q": cityName, "appid": appid, "units": unitSystem, "lang": language])
+    }
 }
 
