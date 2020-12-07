@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		B453C9A6257E2010003D5227 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453C9A5257E2010003D5227 /* AppDelegate.swift */; };
 		B453C9A8257E2010003D5227 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453C9A7257E2010003D5227 /* SceneDelegate.swift */; };
-		B453C9AA257E2010003D5227 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453C9A9257E2010003D5227 /* ViewController.swift */; };
-		B453C9AD257E2010003D5227 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B453C9AB257E2010003D5227 /* Main.storyboard */; };
 		B453C9AF257E2011003D5227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B453C9AE257E2011003D5227 /* Assets.xcassets */; };
 		B453C9B2257E2011003D5227 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B453C9B0257E2011003D5227 /* LaunchScreen.storyboard */; };
 		B453C9BD257E2011003D5227 /* WeatherPlannerDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453C9BC257E2011003D5227 /* WeatherPlannerDemoTests.swift */; };
@@ -38,8 +36,6 @@
 		B453C9A2257E2010003D5227 /* WeatherPlannerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherPlannerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B453C9A5257E2010003D5227 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B453C9A7257E2010003D5227 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B453C9A9257E2010003D5227 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B453C9AC257E2010003D5227 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B453C9AE257E2011003D5227 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B453C9B1257E2011003D5227 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B453C9B3257E2011003D5227 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,10 +97,7 @@
 			children = (
 				B453C9A5257E2010003D5227 /* AppDelegate.swift */,
 				B453C9A7257E2010003D5227 /* SceneDelegate.swift */,
-				B453C9A9257E2010003D5227 /* ViewController.swift */,
-				B453C9AB257E2010003D5227 /* Main.storyboard */,
-				B453C9AE257E2011003D5227 /* Assets.xcassets */,
-				B453C9B0257E2011003D5227 /* LaunchScreen.storyboard */,
+				B453C9D8257E203A003D5227 /* Supporting Files */,
 				B453C9B3257E2011003D5227 /* Info.plist */,
 			);
 			path = WeatherPlannerDemo;
@@ -126,6 +119,15 @@
 				B453C9C9257E2011003D5227 /* Info.plist */,
 			);
 			path = WeatherPlannerDemoUITests;
+			sourceTree = "<group>";
+		};
+		B453C9D8257E203A003D5227 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B453C9AE257E2011003D5227 /* Assets.xcassets */,
+				B453C9B0257E2011003D5227 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +235,6 @@
 			files = (
 				B453C9B2257E2011003D5227 /* LaunchScreen.storyboard in Resources */,
 				B453C9AF257E2011003D5227 /* Assets.xcassets in Resources */,
-				B453C9AD257E2010003D5227 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +259,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B453C9AA257E2010003D5227 /* ViewController.swift in Sources */,
 				B453C9A6257E2010003D5227 /* AppDelegate.swift in Sources */,
 				B453C9A8257E2010003D5227 /* SceneDelegate.swift in Sources */,
 			);
@@ -296,14 +296,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B453C9AB257E2010003D5227 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B453C9AC257E2010003D5227 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B453C9B0257E2011003D5227 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
