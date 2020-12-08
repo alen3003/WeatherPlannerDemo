@@ -14,7 +14,7 @@ public class BaseApiClient: ApiClientProtocol {
         path: String,
         queryParameters: [String : String]?,
         memberType: ResultType.Type,
-        resultHandler: @escaping (Result<ResultType, ApiError>) -> ()
+        resultHandler: @escaping (Result<ResultType, ApiError>) -> Void
     ) {
         executeAndReturn(path: path, method: .get, parameters: queryParameters, resultHandler: resultHandler)
     }
