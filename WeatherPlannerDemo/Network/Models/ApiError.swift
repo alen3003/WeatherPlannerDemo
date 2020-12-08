@@ -1,5 +1,4 @@
 public enum ApiError: Error {
-
     case general
     case noData
     case invalidContentType
@@ -9,5 +8,4 @@ public enum ApiError: Error {
     case notFound
     case unauthorized
     case serverError
-
 }

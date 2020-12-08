@@ -1,5 +1,4 @@
 enum HttpStatusCode: Int {
-
     case ok = 200
     case created = 201
     case accepted = 202
@@ -17,5 +16,4 @@ enum HttpStatusCode: Int {
     case badGateway = 502
     case serviceUnavailable = 503
     case gatewayTimeout = 504
-
 }

@@ -2,7 +2,12 @@ import Foundation
 
 public protocol ApiClientProtocol {
 
-    func get<ResultType: Decodable>(path: String, queryParameters: [String: String]?, memberType: ResultType.Type, resultHandler: @escaping (Result<ResultType, ApiError>) -> Void)
+    func get<ResultType: Decodable>(
+        path: String,
+        queryParameters: [String: String]?,
+        memberType: ResultType.Type,
+        resultHandler: @escaping (Result<ResultType, ApiError>) -> Void
+    )
 
 }
 
@@ -11,7 +16,12 @@ public protocol ApiClientProtocol {
  */
 public extension ApiClientProtocol {
 
-    func get<ResultType: Decodable>(path: String, queryParameters: [String: String]? = nil, memberType: ResultType.Type, resultHandler: @escaping (Result<ResultType, ApiError>) -> Void){
+    func get<ResultType: Decodable>(
+        path: String,
+        queryParameters: [String: String]? = nil,
+        memberType: ResultType.Type,
+        resultHandler: @escaping (Result<ResultType, ApiError>) -> Void
+    ) {
         return get(path: path, queryParameters: queryParameters, memberType: memberType, resultHandler: resultHandler)
     }
     
