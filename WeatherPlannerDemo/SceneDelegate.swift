@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  WeatherPlannerDemo
-//
-//  Created by Alen Sebalj on 07.12.2020..
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

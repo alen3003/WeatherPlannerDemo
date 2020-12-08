@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  WeatherPlannerDemo
-//
-//  Created by Alen Sebalj on 07.12.2020..
-//
-
 import UIKit
 
 @main
@@ -14,6 +7,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let networkModuleClient = NetworkModule().registerClient()
+        let cityParameters = CityQueryParameters(cityName: "zagreb",
+                                                 unitSystem: MeasurementUnit.metric.rawValue,
+                                                 language: WeatherResponseLanguage.hr.rawValue).propertyPairs()
+        networkModuleClient.get(path: ApiEndpoints.weather.rawValue, queryParameters: cityParameters, memberType: City.self) { (result) in
+            switch result{
+            case .success(let city):
+                print(city.name)
+            case .failure(_):
+                break
+            }
+        }
         return true
     }
 
