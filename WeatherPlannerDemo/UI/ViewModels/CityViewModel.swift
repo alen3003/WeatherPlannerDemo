@@ -4,12 +4,12 @@ class CityViewModel {
     
     let city: City
     
-    var name: String {
+    var cityName: String {
         return city.name
     }
     
-    var weatherDescription: String {
-        return city.weather.description
+    var weatherDescription: String? {
+        return city.weather.first?.description.capitalized
     }
     
     var temperature: String {

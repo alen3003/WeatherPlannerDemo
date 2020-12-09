@@ -7,6 +7,8 @@ final class CityListViewModelList {
     var cities: [CityViewModel] = []
     var coordinate: CLLocationCoordinate2D?
     
+    private var citiesInRange = 20
+    
     private let networkClient: ApiClientProtocol
     weak var delegate: Completable?
     
@@ -26,7 +28,7 @@ final class CityListViewModelList {
         let parameters = CitiesInCircleParameters(
             latitude: "\(coordinate.latitude)",
             longitude: "\(coordinate.longitude)",
-            radius: "\(10)",
+            radius: "\(citiesInRange)",
             language: WeatherResponseLanguage.hr.rawValue
         ).propertyPairs()
         
