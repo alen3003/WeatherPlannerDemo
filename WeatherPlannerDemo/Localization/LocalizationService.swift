@@ -3,6 +3,12 @@ import Foundation
 enum LocalizationKey: String {
     case helloMessage
     
+    case airQualityGood
+    case airQualityFair
+    case airQualityModerate
+    case airQualityPoor
+    case airQualityVeryPoor
+    
     var string: String {
         return rawValue.localized()
     }

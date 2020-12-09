@@ -1,1 +1,7 @@
 "helloMessage" = "Weather Planner";
+
+"airQualityGood" = "Good";
+"airQualityFair" = "Fair";
+"airQualityModerate" = "Moderate";
+"airQualityPoor" = "Poor";
+"airQualityVeryPoor" = "Very Poor";

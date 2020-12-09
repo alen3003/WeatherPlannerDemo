@@ -9,7 +9,7 @@ class CityViewModel {
     }
     
     var weatherDescription: String? {
-        return city.weather.first?.description.capitalized
+        return city.weather.first?.description.capitalizingFirstLetter()
     }
     
     var temperature: String {

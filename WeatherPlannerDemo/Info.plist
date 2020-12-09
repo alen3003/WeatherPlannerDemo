@@ -6,6 +6,8 @@
 	<string>Weather Planner wants to see what is the weather like around you</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Weather Planner wants to see what is the weather like around you</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Weather Planner wants to see what is the weather like around you</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

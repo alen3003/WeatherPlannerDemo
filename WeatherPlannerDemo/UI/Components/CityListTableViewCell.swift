@@ -2,7 +2,7 @@ import UIKit
 
 class CityListTableViewCell: UITableViewCell {
     
-    static let reuseIdentifier = String(describing: self)
+    static let reuseIdentifier = String(describing: CityListTableViewCell.self)
     
     var backgroundImageView: UIImageView!
     var descriptionLabel: UILabel!
@@ -10,7 +10,6 @@ class CityListTableViewCell: UITableViewCell {
     var temperatureLabel: UILabel!
     var innerStackView: UIStackView!
     var stackView: UIStackView!
-    
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
