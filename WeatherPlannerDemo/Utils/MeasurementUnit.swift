@@ -9,4 +9,5 @@ enum MeasurementUnit: String {
 enum MeasurementUnitDescription: String {
     case velocityBasic = "m/s"
     case airPollutionLevel = "μg/m³"
+    case celsius = "°"
 }

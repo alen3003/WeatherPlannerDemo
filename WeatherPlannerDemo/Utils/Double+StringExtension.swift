@@ -7,8 +7,8 @@ extension Double {
 }
 
 extension String {
-    func appendMeasuringUnit(_ unit: MeasurementUnitDescription) -> String {
-        return "\(self) \(unit.rawValue)"
+    func appendMeasuringUnit(_ unit: MeasurementUnitDescription, spacing: Bool = true) -> String {
+        return "\(self)\(spacing ? " ": "")\(unit.rawValue)"
     }
     
     func capitalizingFirstLetter() -> String {
