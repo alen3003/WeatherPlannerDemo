@@ -18,6 +18,8 @@ extension CityDetailsViewController: ConstructViewsProtocol {
         navigationItem.title = cityDetailsViewModelList.title
         
         view.backgroundColor = .white
+        
+        cityDetailsTableView.separatorStyle = .none
     }
     
     func defineLayoutForViews() {

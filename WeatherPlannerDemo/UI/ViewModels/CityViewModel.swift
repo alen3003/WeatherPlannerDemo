@@ -17,15 +17,15 @@ class CityViewModel {
     }
     
     var minTemperature: String {
-        return "\(Int(city.main.temp_min))°"
+        return "\(LocalizationKey.minTemp.string) \(Int(city.main.temp_min))°"
     }
     
     var maxTemperature: String {
-        return "\(Int(city.main.temp_max))°"
+        return "\(LocalizationKey.maxTemp.string) \(Int(city.main.temp_max))°"
     }
     
     var windSpeed: String {
-        return "\(city.wind.speed) m/s"
+        return "\(LocalizationKey.windSpeed.string) \(city.wind.speed)".appendMeasuringUnit(.velocityBasic)
     }
     
     init(city: City) {

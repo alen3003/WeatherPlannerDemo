@@ -2,6 +2,6 @@ import UIKit
 
 class Colors {
     
-    static let skyBlue = UIColor.init(red: 201/255, green: 240/255, blue: 246/255, alpha: 1)
+    static let skyBlue = UIColor.init(red: 41/255, green: 38/255, blue: 97/255, alpha: 1)
     
 }

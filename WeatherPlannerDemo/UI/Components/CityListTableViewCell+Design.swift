@@ -28,15 +28,15 @@ extension CityListTableViewCell: ConstructViewsProtocol {
         selectionStyle = .none
         
         backgroundImageView.layer.masksToBounds = true
-        backgroundImageView.layer.cornerRadius = 8
+        backgroundImageView.layer.cornerRadius = 15
         
         descriptionLabel.textColor = .white
         cityNameLabel.textColor = .white
         temperatureLabel.textColor = .white
         
-        descriptionLabel.font = .boldSystemFont(ofSize: 40)
+        descriptionLabel.font = .boldSystemFont(ofSize: 35)
         cityNameLabel.font = .boldSystemFont(ofSize: 20)
-        temperatureLabel.font = .boldSystemFont(ofSize: 100)
+        temperatureLabel.font = .boldSystemFont(ofSize: 80)
         
         innerStackView.alignment = .center
         innerStackView.axis = .vertical

@@ -25,11 +25,16 @@ class CityDetailsViewController: UIViewController {
         
         cityDetailsViewModelList.delegate = self
         
+        registerTableViewCells()
+        
         cityDetailsViewModelList.fetchPollutionInfo()
     }
     
     private func registerTableViewCells() {
-        
+        cityDetailsTableView.register(
+            CityDetailsTableViewCell.self,
+            forCellReuseIdentifier: CityDetailsTableViewCell.reuseIdentifier
+        )
     }
     
 }
@@ -44,11 +49,19 @@ extension CityDetailsViewController: Completable {
 
 extension CityDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return cityDetailsViewModelList.airPollutionViewModel?.airPollutionData().count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = cityDetailsTableView.dequeueReusableCell(
+                withIdentifier: CityDetailsTableViewCell.reuseIdentifier,
+                for: indexPath) as? CityDetailsTableViewCell,
+              let airPollutionViewModel = cityDetailsViewModelList.airPollutionViewModel
+        else { return UITableViewCell() }
+        
+        cell.set(airPollutionViewModel.airPollutionData()[indexPath.row])
+        
+        return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -58,10 +71,10 @@ extension CityDetailsViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 30
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 300
+        return 250
     }
 }
