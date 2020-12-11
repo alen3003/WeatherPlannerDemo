@@ -41,6 +41,7 @@
 		B453CABC257FC0ED003D5227 /* Completable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453CABB257FC0ED003D5227 /* Completable.swift */; };
 		B453CAC1257FC50D003D5227 /* CityListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453CAC0257FC50D003D5227 /* CityListTableViewCell.swift */; };
 		B453CAC6257FC57F003D5227 /* CityListTableViewCell+Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453CAC5257FC57F003D5227 /* CityListTableViewCell+Design.swift */; };
+		B453CB90258399B1003D5227 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453CB8F258399B1003D5227 /* Fonts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		B453CABB257FC0ED003D5227 /* Completable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Completable.swift; sourceTree = "<group>"; };
 		B453CAC0257FC50D003D5227 /* CityListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListTableViewCell.swift; sourceTree = "<group>"; };
 		B453CAC5257FC57F003D5227 /* CityListTableViewCell+Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CityListTableViewCell+Design.swift"; sourceTree = "<group>"; };
+		B453CB8F258399B1003D5227 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		DB6AE98C9E668CB646B04414 /* Pods_WeatherPlannerDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherPlannerDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E40A4CE7D6B8137F6761D3A7 /* Pods_WeatherPlannerDemo_WeatherPlannerDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherPlannerDemo_WeatherPlannerDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -253,6 +255,7 @@
 				B453CA46257E7DF2003D5227 /* Logger.swift */,
 				B453CA73257F9623003D5227 /* ConstructViewsProtocol.swift */,
 				B453CABB257FC0ED003D5227 /* Completable.swift */,
+				B453CB8F258399B1003D5227 /* Fonts.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 				B453CA88257F9731003D5227 /* CityListViewController.swift in Sources */,
 				B453CAB2257FB15D003D5227 /* CitiesInCircleParameters.swift in Sources */,
 				B453CA3F257E6617003D5227 /* NetworkModule.swift in Sources */,
+				B453CB90258399B1003D5227 /* Fonts.swift in Sources */,
 				B453CA26257E54EA003D5227 /* MeasurementUnit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

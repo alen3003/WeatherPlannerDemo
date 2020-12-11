@@ -36,10 +36,11 @@ final class CityListViewModelList {
                           queryParameters: parameters,
                           memberType: CitiesInCircle.self
         ) { [weak self] (result) in
+            guard let self = self else { return }
             switch result {
             case .success(let cities):
-                cities.list.forEach({ self?.cities.append(CityViewModel(city: $0)) })
-                self?.delegate?.didUpdateDataSource()
+                cities.list.forEach({ self.cities.append(CityViewModel(city: $0)) })
+                self.delegate?.didUpdateDataSource()
             case .failure(let error):
                 Logger.print(string: "Failed fetching data - \(error.localizedDescription)")
             }

@@ -10,7 +10,6 @@ class CityListTableViewCell: UITableViewCell {
     var temperatureLabel: UILabel!
     var innerStackView: UIStackView!
     var stackView: UIStackView!
-    
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

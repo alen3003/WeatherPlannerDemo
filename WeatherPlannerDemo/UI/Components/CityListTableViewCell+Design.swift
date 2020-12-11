@@ -19,9 +19,7 @@ extension CityListTableViewCell: ConstructViewsProtocol {
         
         innerStackView = UIStackView(arrangedSubviews: [descriptionLabel, cityNameLabel])
         stackView = UIStackView(arrangedSubviews: [innerStackView, temperatureLabel])
-        
         contentView.addSubview(stackView)
-
     }
     
     func styleViews() {
@@ -34,9 +32,9 @@ extension CityListTableViewCell: ConstructViewsProtocol {
         cityNameLabel.textColor = .white
         temperatureLabel.textColor = .white
         
-        descriptionLabel.font = .boldSystemFont(ofSize: 40)
-        cityNameLabel.font = .boldSystemFont(ofSize: 20)
-        temperatureLabel.font = .boldSystemFont(ofSize: 100)
+        descriptionLabel.font = Font.systemBold40
+        cityNameLabel.font = Font.systemBold20
+        temperatureLabel.font = Font.systemBold100
         
         innerStackView.alignment = .center
         innerStackView.axis = .vertical
