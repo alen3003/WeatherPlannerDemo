@@ -34,9 +34,9 @@ extension CityListTableViewCell: ConstructViewsProtocol {
         cityNameLabel.textColor = .white
         temperatureLabel.textColor = .white
         
-        descriptionLabel.font = .boldSystemFont(ofSize: 35)
-        cityNameLabel.font = .boldSystemFont(ofSize: 20)
-        temperatureLabel.font = .boldSystemFont(ofSize: 80)
+        descriptionLabel.font = Font.systemBold40
+        cityNameLabel.font = Font.systemBold20
+        temperatureLabel.font = Font.systemBold100
         
         innerStackView.alignment = .center
         innerStackView.axis = .vertical
