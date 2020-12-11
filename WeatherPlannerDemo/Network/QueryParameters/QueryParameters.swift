@@ -4,8 +4,7 @@ protocol QueryParameters {
     func propertyPairs() -> [String: String]
 }
 
-extension QueryParameters
-{
+extension QueryParameters {
     func propertyPairs() -> [String: String] {
         var pairs: [String: String] = [:]
         let mirror = Mirror(reflecting: self)
@@ -15,4 +14,3 @@ extension QueryParameters
         return pairs
     }
 }
-

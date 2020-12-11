@@ -12,7 +12,7 @@ public class BaseApiClient: ApiClientProtocol {
     
     public func get<ResultType: Decodable>(
         path: String,
-        queryParameters: [String : String]?,
+        queryParameters: [String: String]?,
         memberType: ResultType.Type,
         resultHandler: @escaping (Result<ResultType, ApiError>) -> Void
     ) {
@@ -34,7 +34,7 @@ public class BaseApiClient: ApiClientProtocol {
                 let statusCode = HttpStatusCode(rawValue: httpReponse.statusCode)
             else { return }
             
-            if let error = self.mapToApiError(status: statusCode){
+            if let error = self.mapToApiError(status: statusCode) {
                 resultHandler(.failure(error))
                 return
             }
@@ -58,14 +58,14 @@ public class BaseApiClient: ApiClientProtocol {
     ) {
         let request = buildRequest(path: path, method: method, parameters: parameters)
 
-        let urlTask = urlSession.dataTask(with: request) { [weak self] (data, response, error) in
+        let urlTask = urlSession.dataTask(with: request) { [weak self] (_, response, error) in
             guard
                 let httpReponse = response as? HTTPURLResponse,
                 let self = self,
                 let statusCode = HttpStatusCode(rawValue: httpReponse.statusCode)
             else { return }
             
-            if let error = self.mapToApiError(status: statusCode){
+            if let error = self.mapToApiError(status: statusCode) {
                 resultHandler(.failure(error))
                 return
             }
