@@ -30,9 +30,9 @@ extension CityListTableViewCell: ConstructViewsProtocol {
         backgroundImageView.layer.masksToBounds = true
         backgroundImageView.layer.cornerRadius = 15
         
-        descriptionLabel.textColor = .white
-        cityNameLabel.textColor = .white
-        temperatureLabel.textColor = .white
+        descriptionLabel.textColor = Color.systemWhite
+        cityNameLabel.textColor = Color.systemWhite
+        temperatureLabel.textColor = Color.systemWhite
         
         descriptionLabel.font = Font.systemBold40
         cityNameLabel.font = Font.systemBold20

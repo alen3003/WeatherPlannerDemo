@@ -26,16 +26,16 @@ extension CityDetailsHeaderView: ConstructViewsProtocol {
     }
     
     func styleViews() {
-        tintColor = .white
+        tintColor = .clear
         
-        backgroundOverlay.backgroundColor = Colors.darkBlue
+        backgroundOverlay.backgroundColor = Color.darkBlue
         backgroundOverlay.layer.masksToBounds = true
         backgroundOverlay.layer.cornerRadius = 15
         
-        temperatureLabel.textColor = .white
-        maxTempLabel.textColor = .white
-        minTempLabel.textColor = .white
-        windspeedLabel.textColor = .white
+        temperatureLabel.textColor = Color.systemWhite
+        maxTempLabel.textColor = Color.systemWhite
+        minTempLabel.textColor = Color.systemWhite
+        windspeedLabel.textColor = Color.systemWhite
         
         temperatureLabel.font = Font.systemBold80
         maxTempLabel.font = Font.system15

@@ -23,9 +23,9 @@ extension CityDetailsTableViewCell: ConstructViewsProtocol {
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
-        nameLabel.textColor = .black
-        markLabel.textColor = .black
-        valueLabel.textColor = .black
+        nameLabel.textColor = Color.systemLabel
+        markLabel.textColor = Color.systemLabel
+        valueLabel.textColor = Color.systemLabel
         
         nameLabel.font = Font.systemSemibold14
         markLabel.font = Font.systemSemibold14
