@@ -39,10 +39,3 @@ extension LocalizationKey {
         return LocalizationKey(rawValue: string)
     }
 }
-
-extension String {
-    func localized() -> String {
-      let localizedString = NSLocalizedString(self, comment: "")
-      return localizedString
-    }
-}

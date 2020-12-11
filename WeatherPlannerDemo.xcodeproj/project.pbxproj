@@ -325,8 +325,8 @@
 		B453CA72257F9396003D5227 /* ViewModelLists */ = {
 			isa = PBXGroup;
 			children = (
-				B453CBC02583A407003D5227 /* CityDetailsViewModelList.swift */,
 				B453CA99257FA430003D5227 /* CityListViewModelList.swift */,
+				B453CBC02583A407003D5227 /* CityDetailsViewModelList.swift */,
 			);
 			path = ViewModelLists;
 			sourceTree = "<group>";
