@@ -30,10 +30,14 @@ final class CityDetailsViewModelList {
                           queryParameters: parameters,
                           memberType: AirPollutionWrapper.self
         ) { [weak self] (result) in
-            guard let self = self else { return }
             switch result {
             case .success(let airPollutionList):
-                guard let airPollution = airPollutionList.list.first else { return }
+                guard
+                    let self = self,
+                    let airPollution = airPollutionList.list.first
+                else {
+                    return
+                }
                 self.airPollutionViewModel = AirPollutionViewModel(airPollution: airPollution)
                 self.delegate?.didUpdateDataSource()
             case .failure(let error):
