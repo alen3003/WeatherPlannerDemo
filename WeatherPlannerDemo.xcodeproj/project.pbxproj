@@ -291,13 +291,13 @@
 			isa = PBXGroup;
 			children = (
 				B453CBA72583A383003D5227 /* AirPollutionViewModel+Extension.swift */,
-				B453CBA62583A383003D5227 /* Colors.swift */,
 				B453CBA82583A383003D5227 /* Double+StringExtension.swift */,
 				B453CA25257E54EA003D5227 /* MeasurementUnit.swift */,
 				B453CA2D257E5529003D5227 /* WeatherResponseLanguage.swift */,
 				B453CA46257E7DF2003D5227 /* Logger.swift */,
 				B453CA73257F9623003D5227 /* ConstructViewsProtocol.swift */,
 				B453CABB257FC0ED003D5227 /* Completable.swift */,
+				B453CBA62583A383003D5227 /* Colors.swift */,
 				B453CB8F258399B1003D5227 /* Fonts.swift */,
 			);
 			path = Utils;
