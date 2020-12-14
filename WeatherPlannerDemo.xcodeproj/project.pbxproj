@@ -55,7 +55,7 @@
 		B453CB2B258230DA003D5227 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		B453CB3325823102003D5227 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		B453CB90258399B1003D5227 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453CB8F258399B1003D5227 /* Fonts.swift */; };
-		B453CBA92583A383003D5227 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453CBA62583A383003D5227 /* Colors.swift */; };
+		B453CBA92583A383003D5227 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453CBA62583A383003D5227 /* Color.swift */; };
 		B453CBAA2583A383003D5227 /* AirPollutionViewModel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453CBA72583A383003D5227 /* AirPollutionViewModel+Extension.swift */; };
 		B453CBAB2583A383003D5227 /* Double+StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453CBA82583A383003D5227 /* Double+StringExtension.swift */; };
 		B453CBB02583A3C0003D5227 /* AirPollutionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453CBAF2583A3C0003D5227 /* AirPollutionViewModel.swift */; };
@@ -133,7 +133,7 @@
 		B453CAC0257FC50D003D5227 /* CityListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListTableViewCell.swift; sourceTree = "<group>"; };
 		B453CAC5257FC57F003D5227 /* CityListTableViewCell+Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CityListTableViewCell+Design.swift"; sourceTree = "<group>"; };
 		B453CB8F258399B1003D5227 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
-		B453CBA62583A383003D5227 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		B453CBA62583A383003D5227 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		B453CBA72583A383003D5227 /* AirPollutionViewModel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AirPollutionViewModel+Extension.swift"; sourceTree = "<group>"; };
 		B453CBA82583A383003D5227 /* Double+StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+StringExtension.swift"; sourceTree = "<group>"; };
 		B453CBAF2583A3C0003D5227 /* AirPollutionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirPollutionViewModel.swift; sourceTree = "<group>"; };
@@ -297,7 +297,7 @@
 				B453CA46257E7DF2003D5227 /* Logger.swift */,
 				B453CA73257F9623003D5227 /* ConstructViewsProtocol.swift */,
 				B453CABB257FC0ED003D5227 /* Completable.swift */,
-				B453CBA62583A383003D5227 /* Colors.swift */,
+				B453CBA62583A383003D5227 /* Color.swift */,
 				B453CB8F258399B1003D5227 /* Fonts.swift */,
 			);
 			path = Utils;
@@ -688,7 +688,7 @@
 				B453CAC6257FC57F003D5227 /* CityListTableViewCell+Design.swift in Sources */,
 				B453CA9F257FA47E003D5227 /* CityViewModel.swift in Sources */,
 				B453CAED25810394003D5227 /* (null) in Sources */,
-				B453CBA92583A383003D5227 /* Colors.swift in Sources */,
+				B453CBA92583A383003D5227 /* Color.swift in Sources */,
 				B453CABC257FC0ED003D5227 /* Completable.swift in Sources */,
 				B453CA47257E7DF2003D5227 /* Logger.swift in Sources */,
 				B453CAB7257FB58E003D5227 /* CitiesInCircle.swift in Sources */,

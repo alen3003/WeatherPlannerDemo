@@ -26,7 +26,7 @@ extension CityDetailsHeaderView: ConstructViewsProtocol {
     }
     
     func styleViews() {
-        tintColor = .clear
+        tintColor = Color.systemClear
         
         backgroundOverlay.backgroundColor = Color.darkBlue
         backgroundOverlay.layer.masksToBounds = true
