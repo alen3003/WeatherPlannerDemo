@@ -8,12 +8,11 @@ final class CityDetailsPresenter {
     var airPollutionDetails: [AirPollutionDetailsViewModel] = []
     
     weak var delegate: Completable?
+    private var cityDetailsUseCase: CityDetailsUseCase
     
-    private let networkClient: ApiClientProtocol
-    
-    init(networkClient: ApiClientProtocol = NetworkModule().registerClient(), cityViewModel: CityViewModel) {
+    init(withDependencies dependencies: AppDependencies = AppDependencies(), cityViewModel: CityViewModel) {
         self.cityViewModel = cityViewModel
-        self.networkClient = networkClient
+        self.cityDetailsUseCase = dependencies.cityDetailsUseCase
         setControllerTitle()
     }
     
@@ -22,30 +21,11 @@ final class CityDetailsPresenter {
     }
     
     func fetchPollutionInfo() {
-        
-        let parameters = AirPollutionQueryParameters(
-            latitude: "\(cityViewModel.coordination.lat)",
-            longitude: "\(cityViewModel.coordination.lon)"
-        ).propertyPairs()
-        
-        networkClient.get(path: ApiEndpoints.airPollution.rawValue,
-                          queryParameters: parameters,
-                          memberType: AirPollutionWrapper.self
-        ) { [weak self] (result) in
-            switch result {
-            case .success(let airPollutionList):
-                guard
-                    let self = self,
-                    let airPollution = airPollutionList.list.first
-                else {
-                    return
-                }
-                let airPollutionViewModel = AirPollutionViewModel(airPollution: airPollution)
-                self.airPollutionDetails = airPollutionViewModel.airPollutionDetailsViewModel
-                self.delegate?.didUpdateDataSource()
-            case .failure(let error):
-                Logger.print(string: "Failed fetching data - \(error.localizedDescription)")
-            }
+        cityDetailsUseCase.fetchPollutionInfo(
+            coordination: cityViewModel.coordination) { [weak self] (viewModels) in
+            guard let self = self else { return }
+            self.airPollutionDetails.append(contentsOf: viewModels)
+            self.delegate?.didUpdateDataSource()
         }
     }
 }
