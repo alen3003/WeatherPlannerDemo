@@ -5,6 +5,7 @@ enum ApiEndpoints: String {
     case base = "http://api.openweathermap.org/data/2.5"
     case weather = "/weather"
     case citiesInCircle = "/find"
+    case airPollution = "/air_pollution"
 
 }
 

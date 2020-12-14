@@ -1,1 +1,27 @@
 "helloMessage" = "Weather Planner";
+
+"windSpeed" = "Wind speed:";
+"maxTemp" = "Max:";
+"minTemp" = "Min:";
+
+"airQualityGood" = "Good";
+"airQualityFair" = "Fair";
+"airQualityModerate" = "Moderate";
+"airQualityPoor" = "Poor";
+"airQualityVeryPoor" = "Very Poor";
+
+"airQualityIndex" = "Air quality index";
+"carbonMonoxide" = "Carbon monoxide";
+"nitrogenOxide" = "Nitrogen oxide";
+"nitrogenDioxide" = "Nitrogen dioxide";
+"ozone" = "Ozone";
+"sulfurDioxide" = "Sulfur dioxide";
+"ammonia" = "Ammonia";
+
+"airQualityMark" = "aqi";
+"carbonMonoxideMark" = "CO";
+"nitrogenOxideMark" = "NO";
+"nitrogenDioxideMark" = "NO₂";
+"ozoneMark" = "O₃";
+"sulfurDioxideMark" = "SO₂";
+"ammoniaMark" = "NH₃";

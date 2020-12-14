@@ -21,9 +21,15 @@ struct City: Decodable {
         let deg: Float
     }
     
+    struct Coordination: Decodable {
+        let lat: Float
+        let lon: Float
+    }
+    
     let id: Int
     let weather: [WeatherInfo]
     let main: TemperatureInfo
     let wind: WindInfo
     let name: String
+    let coord: Coordination
 }

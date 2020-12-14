@@ -5,12 +5,11 @@ final class CityListViewModelList {
     
     var title: String?
     var cities: [CityViewModel] = []
-    var coordinate: CLLocationCoordinate2D?
-    
-    private var citiesInRange = 20
-    
-    private let networkClient: ApiClientProtocol
     weak var delegate: Completable?
+    
+    private var citiesInRange = 30
+    private var coordinate: CLLocationCoordinate2D?
+    private let networkClient: ApiClientProtocol
     
     init(networkClient: ApiClientProtocol = NetworkModule().registerClient()) {
         self.networkClient = networkClient
@@ -25,7 +24,7 @@ final class CityListViewModelList {
         
         guard let coordinate = coordinate else { return }
        
-        let parameters = CitiesInCircleParameters(
+        let parameters = CitiesInCircleQueryParameters(
             latitude: "\(coordinate.latitude)",
             longitude: "\(coordinate.longitude)",
             radius: "\(citiesInRange)",
@@ -48,9 +47,8 @@ final class CityListViewModelList {
     }
     
     func setLocation(coordinate: CLLocationCoordinate2D) {
-        if self.coordinate == nil {
-            self.coordinate = coordinate
-            fetchCitiesInCircle()
-        }
+        guard self.coordinate == nil else { return }
+        self.coordinate = coordinate
+        fetchCitiesInCircle()
     }
 }

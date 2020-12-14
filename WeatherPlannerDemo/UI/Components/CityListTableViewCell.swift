@@ -2,7 +2,7 @@ import UIKit
 
 class CityListTableViewCell: UITableViewCell {
     
-    static let reuseIdentifier = String(describing: self)
+    static let reuseIdentifier = String(describing: CityListTableViewCell.self)
     
     var backgroundImageView: UIImageView!
     var descriptionLabel: UILabel!

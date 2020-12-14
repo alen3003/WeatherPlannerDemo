@@ -19,18 +19,20 @@ extension CityListTableViewCell: ConstructViewsProtocol {
         
         innerStackView = UIStackView(arrangedSubviews: [descriptionLabel, cityNameLabel])
         stackView = UIStackView(arrangedSubviews: [innerStackView, temperatureLabel])
+        
         contentView.addSubview(stackView)
+
     }
     
     func styleViews() {
         selectionStyle = .none
         
         backgroundImageView.layer.masksToBounds = true
-        backgroundImageView.layer.cornerRadius = 8
+        backgroundImageView.layer.cornerRadius = 15
         
-        descriptionLabel.textColor = .white
-        cityNameLabel.textColor = .white
-        temperatureLabel.textColor = .white
+        descriptionLabel.textColor = Color.systemWhite
+        cityNameLabel.textColor = Color.systemWhite
+        temperatureLabel.textColor = Color.systemWhite
         
         descriptionLabel.font = Font.systemBold40
         cityNameLabel.font = Font.systemBold20

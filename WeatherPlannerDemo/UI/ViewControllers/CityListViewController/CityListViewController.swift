@@ -3,8 +3,9 @@ import CoreLocation
 
 class CityListViewController: UIViewController {
     
-    let cityListViewModelList: CityListViewModelList
     var citiesTableView: UITableView!
+    
+    let cityListViewModelList: CityListViewModelList
     var locationManager: CLLocationManager?
     
     init() {
@@ -92,5 +93,11 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 350
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewModel = cityListViewModelList.cities[indexPath.row]
+        let cityDetailsViewController = CityDetailsViewController(cityViewModel: viewModel)
+        self.navigationController?.pushViewController(cityDetailsViewController, animated: true)
     }
 }
