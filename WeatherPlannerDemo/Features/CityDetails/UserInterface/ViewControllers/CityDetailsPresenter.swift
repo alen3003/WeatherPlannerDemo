@@ -1,10 +1,12 @@
 import Foundation
 
-final class CityDetailsViewModelList {
+final class CityDetailsPresenter {
     
     var title: String?
+    
     var cityViewModel: CityViewModel
     var airPollutionDetails: [AirPollutionDetailsViewModel] = []
+    
     weak var delegate: Completable?
     
     private let networkClient: ApiClientProtocol

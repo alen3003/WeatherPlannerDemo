@@ -1,7 +1,7 @@
 import Foundation
 import CoreLocation
 
-final class CityListViewModelList {
+final class CityListPresenter {
     
     var title: String?
     var cities: [CityViewModel] = []

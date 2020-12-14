@@ -15,7 +15,7 @@ extension CityDetailsViewController: ConstructViewsProtocol {
     }
     
     func styleViews() {
-        navigationItem.title = cityDetailsViewModelList.title
+        navigationItem.title = presenter.title
         
         cityDetailsTableView.separatorStyle = .none
     }

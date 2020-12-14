@@ -16,7 +16,7 @@ extension CityListViewController: ConstructViewsProtocol {
     
     func styleViews() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = cityListViewModelList.title
+        navigationItem.title = presenter.title
         
         citiesTableView.separatorStyle = .none
     }

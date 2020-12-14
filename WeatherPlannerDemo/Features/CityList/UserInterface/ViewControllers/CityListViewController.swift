@@ -5,11 +5,11 @@ class CityListViewController: UIViewController {
     
     var citiesTableView: UITableView!
     
-    let cityListViewModelList: CityListViewModelList
+    let presenter: CityListPresenter
     var locationManager: CLLocationManager?
     
-    init() {
-        cityListViewModelList = CityListViewModelList()
+    init(presenter: CityListPresenter) {
+        self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -25,7 +25,7 @@ class CityListViewController: UIViewController {
         citiesTableView.delegate = self
         citiesTableView.dataSource = self
         
-        cityListViewModelList.delegate = self
+        presenter.delegate = self
         
         locationManager = CLLocationManager()
         locationManager?.delegate = self
@@ -63,7 +63,7 @@ class CityListViewController: UIViewController {
 
 extension CityListViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        cityListViewModelList.setLocation(coordinate: locations[0].coordinate)
+        presenter.setLocation(coordinate: locations[0].coordinate)
     }
 }
 
@@ -77,7 +77,7 @@ extension CityListViewController: Completable {
 
 extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cityListViewModelList.cities.count
+        return presenter.cities.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -86,7 +86,7 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
                 for: indexPath) as? CityListTableViewCell
         else { return UITableViewCell() }
         
-        cell.set(viewModel: cityListViewModelList.cities[indexPath.row])
+        cell.set(viewModel: presenter.cities[indexPath.row])
         
         return cell
     }
@@ -96,8 +96,8 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewModel = cityListViewModelList.cities[indexPath.row]
-        let cityDetailsViewController = CityDetailsViewController(cityViewModel: viewModel)
+        let cityDetailsPresenter = CityDetailsPresenter(cityViewModel: presenter.cities[indexPath.row])
+        let cityDetailsViewController = CityDetailsViewController(cityDetailsPresenter: cityDetailsPresenter)
         self.navigationController?.pushViewController(cityDetailsViewController, animated: true)
     }
 }
