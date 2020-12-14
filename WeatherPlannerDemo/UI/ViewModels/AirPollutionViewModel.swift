@@ -2,13 +2,13 @@ import Foundation
 
 class AirPollutionViewModel {
 
+    let carbonMonoxideLevel: String
+    let nitrogenOxideLevel: String
+    let nitrogenDioxideLevel: String
+    let ozoneLevel: String
+    let sulfurDioxideLevel: String
+    let ammoniaLevel: String
     var airQualityIndex: String?
-    var carbonMonoxideLevel: String
-    var nitrogenOxideLevel: String
-    var nitrogenDioxideLevel: String
-    var ozoneLevel: String
-    var sulfurDioxideLevel: String
-    var ammoniaLevel: String
     
     lazy var airPollutionDetailsViewModel: [AirPollutionDetailsViewModel] = {
         return airPollutionDetails()

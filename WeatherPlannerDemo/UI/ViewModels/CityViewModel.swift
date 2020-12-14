@@ -2,13 +2,13 @@ import Foundation
 
 class CityViewModel {
 
-    var coordination: City.Coordination
-    var cityName: String
-    var weatherDescription: String?
-    var temperature: String
-    var minTemperature: String
-    var maxTemperature: String
-    var windSpeed: String
+    let coordination: City.Coordination
+    let cityName: String
+    let weatherDescription: String?
+    let temperature: String
+    let minTemperature: String
+    let maxTemperature: String
+    let windSpeed: String
     
     init(city: City) {
         self.coordination = city.coord
