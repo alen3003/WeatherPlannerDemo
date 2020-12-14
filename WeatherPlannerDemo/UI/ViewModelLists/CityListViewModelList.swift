@@ -47,9 +47,8 @@ final class CityListViewModelList {
     }
     
     func setLocation(coordinate: CLLocationCoordinate2D) {
-        if self.coordinate == nil {
-            self.coordinate = coordinate
-            fetchCitiesInCircle()
-        }
+        guard self.coordinate == nil else { return }
+        self.coordinate = coordinate
+        fetchCitiesInCircle()
     }
 }

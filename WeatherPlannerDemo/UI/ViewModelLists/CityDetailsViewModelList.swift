@@ -4,7 +4,7 @@ final class CityDetailsViewModelList {
     
     var title: String?
     var cityViewModel: CityViewModel
-    var airPollutionViewModel: AirPollutionViewModel?
+    var airPollutionDetails: [AirPollutionDetailsViewModel] = []
     weak var delegate: Completable?
     
     private let networkClient: ApiClientProtocol
@@ -22,8 +22,8 @@ final class CityDetailsViewModelList {
     func fetchPollutionInfo() {
         
         let parameters = AirPollutionQueryParameters(
-            latitude: "\(cityViewModel.city.coord.lat)",
-            longitude: "\(cityViewModel.city.coord.lon)"
+            latitude: "\(cityViewModel.coordination.lat)",
+            longitude: "\(cityViewModel.coordination.lon)"
         ).propertyPairs()
         
         networkClient.get(path: ApiEndpoints.airPollution.rawValue,
@@ -38,7 +38,8 @@ final class CityDetailsViewModelList {
                 else {
                     return
                 }
-                self.airPollutionViewModel = AirPollutionViewModel(airPollution: airPollution)
+                let airPollutionViewModel = AirPollutionViewModel(airPollution: airPollution)
+                self.airPollutionDetails = airPollutionViewModel.airPollutionDetailsViewModel
                 self.delegate?.didUpdateDataSource()
             case .failure(let error):
                 Logger.print(string: "Failed fetching data - \(error.localizedDescription)")

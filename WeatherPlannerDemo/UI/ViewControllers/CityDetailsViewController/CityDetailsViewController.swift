@@ -33,8 +33,7 @@ class CityDetailsViewController: UIViewController {
     private func registerTableViewCells() {
         cityDetailsTableView.register(
             CityDetailsTableViewCell.self,
-            forCellReuseIdentifier: CityDetailsTableViewCell.reuseIdentifier
-        )
+            forCellReuseIdentifier: CityDetailsTableViewCell.reuseIdentifier)
     }
     
 }
@@ -49,17 +48,16 @@ extension CityDetailsViewController: Completable {
 
 extension CityDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cityDetailsViewModelList.airPollutionViewModel?.airPollutionData().count ?? 0
+        return cityDetailsViewModelList.airPollutionDetails.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = cityDetailsTableView.dequeueReusableCell(
                 withIdentifier: CityDetailsTableViewCell.reuseIdentifier,
-                for: indexPath) as? CityDetailsTableViewCell,
-              let airPollutionViewModel = cityDetailsViewModelList.airPollutionViewModel
+                for: indexPath) as? CityDetailsTableViewCell
         else { return UITableViewCell() }
         
-        cell.set(airPollutionViewModel.airPollutionData()[indexPath.row])
+        cell.set(cityDetailsViewModelList.airPollutionDetails[indexPath.row])
         
         return cell
     }
