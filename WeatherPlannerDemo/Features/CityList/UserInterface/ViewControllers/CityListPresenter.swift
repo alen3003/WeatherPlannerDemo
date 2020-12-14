@@ -30,7 +30,10 @@ final class CityListPresenter {
     private func fetchWeather() {
         guard let coordinate = coordinate else { return }
         
-        cityListUseCase.fetchCitiesInCircle(coordinate, range: citiesInRange) { [weak self] (citiesInRange) in
+        cityListUseCase.fetchCitiesInCircle(
+            coordinate,
+            range: citiesInRange
+        ) { [weak self] (citiesInRange) in
             guard let self = self else { return }
             citiesInRange.list.forEach({ self.cities.append(CityViewModel(city: $0)) })
             self.delegate?.didUpdateDataSource()

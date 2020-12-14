@@ -22,7 +22,8 @@ final class CityDetailsPresenter {
     
     func fetchPollutionInfo() {
         cityDetailsUseCase.fetchPollutionInfo(
-            coordination: cityViewModel.coordination) { [weak self] (viewModels) in
+            coordination: cityViewModel.coordination
+        ) { [weak self] (viewModels) in
             guard let self = self else { return }
             self.airPollutionDetails.append(contentsOf: viewModels)
             self.delegate?.didUpdateDataSource()
