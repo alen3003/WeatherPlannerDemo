@@ -317,12 +317,11 @@
 			children = (
 				B453C9A5257E2010003D5227 /* AppDelegate.swift */,
 				B453C9A7257E2010003D5227 /* SceneDelegate.swift */,
-				B4881A5A2587B2F300AEEB27 /* AppDependencies.swift */,
+				B4ACAF942588D3C9008141E1 /* Dependencies */,
 				B4881A0525879FE900AEEB27 /* FoundationExtensions */,
 				B453C9DC257E3543003D5227 /* Network */,
 				B4881A0F2587A14100AEEB27 /* UserInterface */,
 				B453CAA3257FAC01003D5227 /* Localization */,
-				B4881A5F2587B3A800AEEB27 /* CityDependenciesProtocol.swift */,
 				B453CA25257E54EA003D5227 /* MeasurementUnit.swift */,
 				B453CA2D257E5529003D5227 /* WeatherResponseLanguage.swift */,
 			);
@@ -608,6 +607,15 @@
 				B4881A642587B41600AEEB27 /* CityDetailsUseCase.swift */,
 			);
 			path = CityDetailsUseCase;
+			sourceTree = "<group>";
+		};
+		B4ACAF942588D3C9008141E1 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				B4881A5A2587B2F300AEEB27 /* AppDependencies.swift */,
+				B4881A5F2587B3A800AEEB27 /* CityDependenciesProtocol.swift */,
+			);
+			path = Dependencies;
 			sourceTree = "<group>";
 		};
 		DD8E86819EBB2B3B158E4ED6 /* Pods */ = {
