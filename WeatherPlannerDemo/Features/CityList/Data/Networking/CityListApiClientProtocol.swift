@@ -1,7 +1,7 @@
 import Foundation
 
-protocol CityListRepositoryProtocol {
-    func fetchCitiesFromNetwork(
+protocol CityListApiClientProtocol {
+    func fetchCitiesInCircle(
         _ coordinate: City.Coordination,
         range: Int,
         resultHandler: @escaping (_ cities: CitiesInCircle) -> Void

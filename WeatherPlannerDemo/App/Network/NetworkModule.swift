@@ -2,8 +2,11 @@ import Foundation
 
 public class NetworkModule {
 
-    func registerClient() -> ApiClientProtocol {
-        return BaseApiClient(baseUrl: ApiEndpoints.base.rawValue, urlSession: URLSession.shared)
+    func registerCityListApiClient() -> CityListApiClientProtocol {
+        return CityListApiClient(baseUrl: ApiEndpoints.base.rawValue)
     }
 
+    func registerCityDetailsApiClient() -> CityDetailsApiClientProtocol {
+        return CityDetailsApiClient(baseUrl: ApiEndpoints.base.rawValue)
+    }
 }

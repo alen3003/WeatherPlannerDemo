@@ -3,11 +3,9 @@ import Foundation
 public class BaseApiClient: ApiClientProtocol {
     
     private let baseUrl: String
-    private let urlSession: URLSession
     
-    public init(baseUrl: String, urlSession: URLSession) {
+    public init(baseUrl: String) {
         self.baseUrl = baseUrl
-        self.urlSession = urlSession
     }
     
     public func get<ResultType: Decodable>(
@@ -27,7 +25,7 @@ public class BaseApiClient: ApiClientProtocol {
     ) {
         let request = buildRequest(path: path, method: method, parameters: parameters)
 
-        let urlTask = urlSession.dataTask(with: request) { [weak self] (data, response, error) in
+        let urlTask = URLSession.shared.dataTask(with: request) { [weak self] (data, response, error) in
             guard
                 let httpReponse = response as? HTTPURLResponse,
                 let self = self,
@@ -58,7 +56,7 @@ public class BaseApiClient: ApiClientProtocol {
     ) {
         let request = buildRequest(path: path, method: method, parameters: parameters)
 
-        let urlTask = urlSession.dataTask(with: request) { [weak self] (_, response, error) in
+        let urlTask = URLSession.shared.dataTask(with: request) { [weak self] (_, response, error) in
             guard
                 let httpReponse = response as? HTTPURLResponse,
                 let self = self,

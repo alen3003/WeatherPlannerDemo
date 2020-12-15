@@ -22,8 +22,8 @@ struct City: Decodable {
     }
     
     struct Coordination: Decodable {
-        let lat: Float
-        let lon: Float
+        let lat: Double
+        let lon: Double
     }
     
     let id: Int

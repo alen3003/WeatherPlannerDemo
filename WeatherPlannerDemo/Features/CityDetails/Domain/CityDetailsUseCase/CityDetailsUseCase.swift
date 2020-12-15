@@ -1,5 +1,4 @@
 import Foundation
-import CoreLocation
 
 class CityDetailsUseCase {
     private let cityDetailsRepository: CityDetailsRepository
@@ -8,10 +7,10 @@ class CityDetailsUseCase {
         self.cityDetailsRepository = cityDetailsRepository
     }
     
-    func fetchPollutionInfo(
+    func getPollutionInfo(
         coordination: City.Coordination,
         resultHandler: @escaping (_ airPollutionDetailsViewModel: [AirPollutionDetailsViewModel]) -> Void
     ) {
-        cityDetailsRepository.fetchPollutionInfo(coordination: coordination, resultHandler: resultHandler)
+        cityDetailsRepository.fetchPollutionInfoFromNetwork(coordination: coordination, resultHandler: resultHandler)
     }
 }
