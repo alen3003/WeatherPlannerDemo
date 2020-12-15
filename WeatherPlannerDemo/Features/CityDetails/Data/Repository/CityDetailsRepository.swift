@@ -4,7 +4,7 @@ class CityDetailsRepository: CityDetailsRepositoryProtocol {
 
     private let networkClient: CityDetailsApiClientProtocol
     
-    init(networkClient: CityDetailsApiClientProtocol = NetworkModule().registerCityDetailsApiClient()) {
+    init(networkClient: CityDetailsApiClientProtocol) {
         self.networkClient = networkClient
     }
 

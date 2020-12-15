@@ -10,7 +10,7 @@ final class CityDetailsPresenter {
     weak var delegate: Completable?
     private var cityDetailsUseCase: CityDetailsUseCase
     
-    init(withDependencies dependencies: AppDependencies = AppDependencies(), cityViewModel: CityViewModel) {
+    init(withDependencies dependencies: AppDependencies, cityViewModel: CityViewModel) {
         self.cityViewModel = cityViewModel
         self.cityDetailsUseCase = dependencies.cityDetailsUseCase
         setControllerTitle()

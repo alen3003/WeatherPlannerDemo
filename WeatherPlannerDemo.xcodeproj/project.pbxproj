@@ -81,6 +81,8 @@
 		B4ACAFA12588EA01008141E1 /* CityListApiClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAFA02588EA01008141E1 /* CityListApiClientProtocol.swift */; };
 		B4ACAFA62588F1F1008141E1 /* CityDetailsApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAFA52588F1F1008141E1 /* CityDetailsApiClient.swift */; };
 		B4ACAFAB2588F204008141E1 /* CityDetailsApiClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAFAA2588F204008141E1 /* CityDetailsApiClientProtocol.swift */; };
+		B4ACAFB12588FACC008141E1 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAFB02588FACC008141E1 /* AppCoordinator.swift */; };
+		B4ACAFB92588FAD7008141E1 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAFB82588FAD7008141E1 /* CoordinatorProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +174,8 @@
 		B4ACAFA02588EA01008141E1 /* CityListApiClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListApiClientProtocol.swift; sourceTree = "<group>"; };
 		B4ACAFA52588F1F1008141E1 /* CityDetailsApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailsApiClient.swift; sourceTree = "<group>"; };
 		B4ACAFAA2588F204008141E1 /* CityDetailsApiClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailsApiClientProtocol.swift; sourceTree = "<group>"; };
+		B4ACAFB02588FACC008141E1 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		B4ACAFB82588FAD7008141E1 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		DB6AE98C9E668CB646B04414 /* Pods_WeatherPlannerDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherPlannerDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E40A4CE7D6B8137F6761D3A7 /* Pods_WeatherPlannerDemo_WeatherPlannerDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherPlannerDemo_WeatherPlannerDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -325,6 +329,7 @@
 			children = (
 				B453C9A5257E2010003D5227 /* AppDelegate.swift */,
 				B453C9A7257E2010003D5227 /* SceneDelegate.swift */,
+				B4ACAFAF2588FA86008141E1 /* Coordinators */,
 				B4ACAF942588D3C9008141E1 /* Dependencies */,
 				B4881A0525879FE900AEEB27 /* FoundationExtensions */,
 				B453C9DC257E3543003D5227 /* Network */,
@@ -630,6 +635,15 @@
 			path = Dependencies;
 			sourceTree = "<group>";
 		};
+		B4ACAFAF2588FA86008141E1 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				B4ACAFB02588FACC008141E1 /* AppCoordinator.swift */,
+				B4ACAFB82588FAD7008141E1 /* CoordinatorProtocol.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
 		DD8E86819EBB2B3B158E4ED6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -927,6 +941,7 @@
 				B453CBB52583A3D6003D5227 /* AirPollution.swift in Sources */,
 				B453C9F1257E37EA003D5227 /* ApiError.swift in Sources */,
 				B453CAC6257FC57F003D5227 /* CityListTableViewCell+Design.swift in Sources */,
+				B4ACAFB12588FACC008141E1 /* AppCoordinator.swift in Sources */,
 				B453CA9F257FA47E003D5227 /* CityViewModel.swift in Sources */,
 				B4881A652587B41600AEEB27 /* CityDetailsUseCase.swift in Sources */,
 				B453CAED25810394003D5227 /* (null) in Sources */,
@@ -961,6 +976,7 @@
 				B453CA3F257E6617003D5227 /* NetworkModule.swift in Sources */,
 				B4ACAFA12588EA01008141E1 /* CityListApiClientProtocol.swift in Sources */,
 				B453CBB02583A3C0003D5227 /* AirPollutionViewModel.swift in Sources */,
+				B4ACAFB92588FAD7008141E1 /* CoordinatorProtocol.swift in Sources */,
 				B453CB90258399B1003D5227 /* Font.swift in Sources */,
 				B4ACAFA62588F1F1008141E1 /* CityDetailsApiClient.swift in Sources */,
 				B453CBAA2583A383003D5227 /* AirPollutionViewModel+Extension.swift in Sources */,

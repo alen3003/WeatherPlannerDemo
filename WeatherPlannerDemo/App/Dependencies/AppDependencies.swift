@@ -4,6 +4,7 @@ class AppDependencies: CityDependenciesProtocol {
     
     var cityListUseCase: CityListUseCase!
     var cityDetailsUseCase: CityDetailsUseCase!
+    let networkModule = NetworkModule()
     
     init() {
         cityListUseCase = buildCityListUseCase()
@@ -11,10 +12,12 @@ class AppDependencies: CityDependenciesProtocol {
     }
     
     func buildCityListUseCase() -> CityListUseCase {
-        return CityListUseCase(cityListRepository: CityListRepository())
+        let networkClient = networkModule.registerCityListApiClient()
+        return CityListUseCase(cityListRepository: CityListRepository(networkClient: networkClient))
     }
     
     func buildCityDetilsUseCase() -> CityDetailsUseCase {
-        return CityDetailsUseCase(cityDetailsRepository: CityDetailsRepository())
+        let networkClient = networkModule.registerCityDetailsApiClient()
+        return CityDetailsUseCase(cityDetailsRepository: CityDetailsRepository(networkClient: networkClient))
     }
 }

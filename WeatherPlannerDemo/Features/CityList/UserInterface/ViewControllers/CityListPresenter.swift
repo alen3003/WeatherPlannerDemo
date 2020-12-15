@@ -8,12 +8,14 @@ final class CityListPresenter {
     
     weak var delegate: Completable?
     private var cityListUseCase: CityListUseCase
+    weak var coordinator: CoordinatorProtocol?
     
     private var citiesInRange = 30
     private var coordinate: CLLocationCoordinate2D?
     
-    init(withDependencies dependencies: AppDependencies = AppDependencies()) {
+    init(withDependencies dependencies: AppDependencies, coordinator: CoordinatorProtocol) {
         self.cityListUseCase = dependencies.cityListUseCase
+        self.coordinator = coordinator
         setControllerTitle()
     }
     
@@ -25,6 +27,11 @@ final class CityListPresenter {
         guard self.coordinate == nil else { return }
         self.coordinate = coordinate
         fetchWeather()
+    }
+    
+    func pushCityDetailsViewController(indexPath: IndexPath) {
+        let viewModel = cities[indexPath.row]
+        coordinator?.pushCityDetailsViewController(viewModel: viewModel)
     }
     
     private func fetchWeather() {

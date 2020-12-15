@@ -3,7 +3,7 @@ import Foundation
 class CityListRepository: CityListRepositoryProtocol {
     private let networkClient: CityListApiClientProtocol
     
-    init(networkClient: CityListApiClientProtocol = NetworkModule().registerCityListApiClient()) {
+    init(networkClient: CityListApiClientProtocol) {
         self.networkClient = networkClient
     }
     
