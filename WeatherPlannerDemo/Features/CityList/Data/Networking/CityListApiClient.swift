@@ -27,4 +27,5 @@ final class CityListApiClient: BaseApiClient, CityListApiClientProtocol {
             }
         }
     }
+    
 }

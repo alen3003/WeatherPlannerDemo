@@ -1,6 +1,7 @@
 import Foundation
 
 final class CityDetailsApiClient: BaseApiClient, CityDetailsApiClientProtocol {
+    
     func fetchPollutionInfo(
         coordination: City.Coordination,
         resultHandler: @escaping ([AirPollutionDetailsViewModel]) -> Void) {
@@ -23,4 +24,5 @@ final class CityDetailsApiClient: BaseApiClient, CityDetailsApiClientProtocol {
             }
         }
     }
+    
 }
