@@ -12,7 +12,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         
-        let cityListViewController = CityListViewController()
+        let cityListViewController = CityListViewController(presenter: CityListPresenter())
         let cityListNavigationController = UINavigationController(rootViewController: cityListViewController)
         window?.rootViewController = cityListNavigationController
         window?.makeKeyAndVisible()

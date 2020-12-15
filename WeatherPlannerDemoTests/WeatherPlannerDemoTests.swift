@@ -1,10 +1,3 @@
-//
-//  WeatherPlannerDemoTests.swift
-//  WeatherPlannerDemoTests
-//
-//  Created by Alen Sebalj on 07.12.2020..
-//
-
 import XCTest
 @testable import WeatherPlannerDemo
 

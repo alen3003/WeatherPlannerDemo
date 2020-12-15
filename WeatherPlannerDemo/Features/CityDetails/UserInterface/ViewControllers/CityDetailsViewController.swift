@@ -4,10 +4,10 @@ class CityDetailsViewController: UIViewController {
     
     var cityDetailsTableView: UITableView!
     
-    let cityDetailsViewModelList: CityDetailsViewModelList
+    let presenter: CityDetailsPresenter
     
-    init(cityViewModel: CityViewModel) {
-        cityDetailsViewModelList = CityDetailsViewModelList(cityViewModel: cityViewModel)
+    init(cityDetailsPresenter: CityDetailsPresenter) {
+        self.presenter = cityDetailsPresenter
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -23,11 +23,11 @@ class CityDetailsViewController: UIViewController {
         cityDetailsTableView.delegate = self
         cityDetailsTableView.dataSource = self
         
-        cityDetailsViewModelList.delegate = self
+        presenter.delegate = self
         
         registerTableViewCells()
         
-        cityDetailsViewModelList.fetchPollutionInfo()
+        presenter.fetchPollutionInfo()
     }
     
     private func registerTableViewCells() {
@@ -48,7 +48,7 @@ extension CityDetailsViewController: Completable {
 
 extension CityDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cityDetailsViewModelList.airPollutionDetails.count
+        return presenter.airPollutionDetails.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,14 +57,14 @@ extension CityDetailsViewController: UITableViewDelegate, UITableViewDataSource 
                 for: indexPath) as? CityDetailsTableViewCell
         else { return UITableViewCell() }
         
-        cell.set(cityDetailsViewModelList.airPollutionDetails[indexPath.row])
+        cell.set(presenter.airPollutionDetails[indexPath.row])
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = CityDetailsHeaderView()
-        headerView.set(viewModel: cityDetailsViewModelList.cityViewModel)
+        headerView.set(viewModel: presenter.cityViewModel)
         return headerView
     }
     
