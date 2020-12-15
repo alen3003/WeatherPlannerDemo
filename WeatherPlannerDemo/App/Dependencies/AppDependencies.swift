@@ -4,7 +4,7 @@ class AppDependencies: CityDependenciesProtocol {
     
     var cityListUseCase: CityListUseCase!
     var cityDetailsUseCase: CityDetailsUseCase!
-    let networkModule = NetworkModule()
+    private let networkModule = NetworkModule()
     
     init() {
         cityListUseCase = buildCityListUseCase()
