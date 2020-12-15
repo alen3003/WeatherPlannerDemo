@@ -287,8 +287,6 @@
 		B453C9DC257E3543003D5227 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				B453CA02257E3858003D5227 /* ApiClientProtocol.swift */,
-				B453CA07257E38EF003D5227 /* BaseApiClient.swift */,
 				B453CA0C257E481A003D5227 /* ApiEndpoints.swift */,
 				B453CA3E257E6617003D5227 /* NetworkModule.swift */,
 			);
@@ -323,8 +321,10 @@
 				B4881A0525879FE900AEEB27 /* FoundationExtensions */,
 				B453C9DC257E3543003D5227 /* Network */,
 				B4881A0F2587A14100AEEB27 /* UserInterface */,
-				B453CA46257E7DF2003D5227 /* Logger.swift */,
+				B453CAA3257FAC01003D5227 /* Localization */,
 				B4881A5F2587B3A800AEEB27 /* CityDependenciesProtocol.swift */,
+				B453CA25257E54EA003D5227 /* MeasurementUnit.swift */,
+				B453CA2D257E5529003D5227 /* WeatherResponseLanguage.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -333,11 +333,9 @@
 			isa = PBXGroup;
 			children = (
 				B4881A382587A6EB00AEEB27 /* Network */,
-				B453CAA3257FAC01003D5227 /* Localization */,
-				B453CA25257E54EA003D5227 /* MeasurementUnit.swift */,
-				B453CA2D257E5529003D5227 /* WeatherResponseLanguage.swift */,
 				B453CA73257F9623003D5227 /* ConstructViewsProtocol.swift */,
 				B453CABB257FC0ED003D5227 /* Completable.swift */,
+				B453CA46257E7DF2003D5227 /* Logger.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -373,6 +371,7 @@
 			children = (
 				B4881A122587A37100AEEB27 /* UserInterface */,
 				B4881A262587A4C400AEEB27 /* Data */,
+				B4ACAF802588D037008141E1 /* Domain */,
 			);
 			path = CityList;
 			sourceTree = "<group>";
@@ -382,6 +381,7 @@
 			children = (
 				B4881A1C2587A42000AEEB27 /* UserInterface */,
 				B4881A272587A4DE00AEEB27 /* Data */,
+				B4ACAF862588D0C5008141E1 /* Domain */,
 			);
 			path = CityDetails;
 			sourceTree = "<group>";
@@ -469,6 +469,9 @@
 			children = (
 				B4881A302587A6A700AEEB27 /* Networking */,
 				B4881A282587A61400AEEB27 /* Models */,
+				B4ACAF7A2588CFA9008141E1 /* ManagedModels */,
+				B4ACAF7C2588D007008141E1 /* CoreData */,
+				B4ACAF7B2588CFCB008141E1 /* Repository */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -478,6 +481,9 @@
 			children = (
 				B4881A372587A6CC00AEEB27 /* Networking */,
 				B4881A2C2587A61F00AEEB27 /* Models */,
+				B4ACAF872588D0E9008141E1 /* ManagedModels */,
+				B4ACAF882588D0F8008141E1 /* CoreData */,
+				B4ACAF892588D107008141E1 /* Repository */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -502,9 +508,6 @@
 		B4881A302587A6A700AEEB27 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				B4881A482587AD1200AEEB27 /* CityListUseCase.swift */,
-				B4881A4D2587AD9B00AEEB27 /* CityListRepository.swift */,
-				B4881A552587AE2700AEEB27 /* CityListRepositoryProtocol.swift */,
 				B40064332587BBD500129DE6 /* QueryParameters */,
 			);
 			path = Networking;
@@ -513,9 +516,6 @@
 		B4881A372587A6CC00AEEB27 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				B4881A642587B41600AEEB27 /* CityDetailsUseCase.swift */,
-				B4881A692587B45800AEEB27 /* CityDetailsRepository.swift */,
-				B4881A6E2587B48A00AEEB27 /* CityDetailsRepositoryProtocol.swift */,
 				B40064362587BC8400129DE6 /* QueryParameters */,
 			);
 			path = Networking;
@@ -524,10 +524,90 @@
 		B4881A382587A6EB00AEEB27 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				B453CA02257E3858003D5227 /* ApiClientProtocol.swift */,
+				B453CA07257E38EF003D5227 /* BaseApiClient.swift */,
 				B453C9F8257E37F7003D5227 /* Models */,
 				B453CA17257E4E57003D5227 /* QueryParameters+Extension.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		B4ACAF7A2588CFA9008141E1 /* ManagedModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ManagedModels;
+			sourceTree = "<group>";
+		};
+		B4ACAF7B2588CFCB008141E1 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				B4881A4D2587AD9B00AEEB27 /* CityListRepository.swift */,
+				B4881A552587AE2700AEEB27 /* CityListRepositoryProtocol.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		B4ACAF7C2588D007008141E1 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		B4ACAF802588D037008141E1 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				B4ACAF812588D060008141E1 /* CityListUseCase */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		B4ACAF812588D060008141E1 /* CityListUseCase */ = {
+			isa = PBXGroup;
+			children = (
+				B4881A482587AD1200AEEB27 /* CityListUseCase.swift */,
+			);
+			path = CityListUseCase;
+			sourceTree = "<group>";
+		};
+		B4ACAF862588D0C5008141E1 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				B4ACAF8D2588D129008141E1 /* CityDetailsUseCase */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		B4ACAF872588D0E9008141E1 /* ManagedModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ManagedModels;
+			sourceTree = "<group>";
+		};
+		B4ACAF882588D0F8008141E1 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		B4ACAF892588D107008141E1 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				B4881A692587B45800AEEB27 /* CityDetailsRepository.swift */,
+				B4881A6E2587B48A00AEEB27 /* CityDetailsRepositoryProtocol.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		B4ACAF8D2588D129008141E1 /* CityDetailsUseCase */ = {
+			isa = PBXGroup;
+			children = (
+				B4881A642587B41600AEEB27 /* CityDetailsUseCase.swift */,
+			);
+			path = CityDetailsUseCase;
 			sourceTree = "<group>";
 		};
 		DD8E86819EBB2B3B158E4ED6 /* Pods */ = {
