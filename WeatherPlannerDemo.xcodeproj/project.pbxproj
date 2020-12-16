@@ -79,6 +79,15 @@
 		B48D172F2587673B00511C47 /* AirPollutionDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48D172E2587673B00511C47 /* AirPollutionDetailsViewModel.swift */; };
 		B48EA6852589FC3D00F87C65 /* CityListUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48EA6842589FC3D00F87C65 /* CityListUseCaseProtocol.swift */; };
 		B48EA68A258A075500F87C65 /* CityDetailsUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48EA689258A075500F87C65 /* CityDetailsUseCaseProtocol.swift */; };
+		B48EA696258A225A00F87C65 /* WeatherPlannerModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B48EA694258A225A00F87C65 /* WeatherPlannerModel.xcdatamodeld */; };
+		B48EA6FD258A3DCC00F87C65 /* CDWeather+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48EA6FC258A3DCC00F87C65 /* CDWeather+CoreDataClass.swift */; };
+		B48EA708258A3E8F00F87C65 /* CDTemperature+CoreDataClass.swift 14-09-16-791.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48EA706258A3E8F00F87C65 /* CDTemperature+CoreDataClass.swift 14-09-16-791.swift */; };
+		B48EA728258A3F9100F87C65 /* CDAirPollution+CoreDataClass.swift 14-12-28-156.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48EA727258A3F9100F87C65 /* CDAirPollution+CoreDataClass.swift 14-12-28-156.swift */; };
+		B48EA73C258A400200F87C65 /* CDCoordination+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48EA73B258A400200F87C65 /* CDCoordination+CoreDataClass.swift */; };
+		B48EA74E258A405900F87C65 /* CDWind+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48EA74D258A405900F87C65 /* CDWind+CoreDataClass.swift */; };
+		B48EA756258A408200F87C65 /* CDCity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48EA755258A408200F87C65 /* CDCity+CoreDataClass.swift */; };
+		B48EA75B258A40AC00F87C65 /* CDCitiesInCircle+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48EA75A258A40AB00F87C65 /* CDCitiesInCircle+CoreDataClass.swift */; };
+		B48EA763258A422A00F87C65 /* CDStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48EA762258A422A00F87C65 /* CDStack.swift */; };
 		B4ACAF9C2588E276008141E1 /* CityListApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAF9B2588E276008141E1 /* CityListApiClient.swift */; };
 		B4ACAFA12588EA01008141E1 /* CityListApiClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAFA02588EA01008141E1 /* CityListApiClientProtocol.swift */; };
 		B4ACAFA62588F1F1008141E1 /* CityDetailsApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAFA52588F1F1008141E1 /* CityDetailsApiClient.swift */; };
@@ -174,6 +183,15 @@
 		B48D172E2587673B00511C47 /* AirPollutionDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPollutionDetailsViewModel.swift; sourceTree = "<group>"; };
 		B48EA6842589FC3D00F87C65 /* CityListUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListUseCaseProtocol.swift; sourceTree = "<group>"; };
 		B48EA689258A075500F87C65 /* CityDetailsUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailsUseCaseProtocol.swift; sourceTree = "<group>"; };
+		B48EA695258A225A00F87C65 /* WeatherPlannerModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WeatherPlannerModel.xcdatamodel; sourceTree = "<group>"; };
+		B48EA6FC258A3DCC00F87C65 /* CDWeather+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDWeather+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B48EA706258A3E8F00F87C65 /* CDTemperature+CoreDataClass.swift 14-09-16-791.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDTemperature+CoreDataClass.swift 14-09-16-791.swift"; sourceTree = "<group>"; };
+		B48EA727258A3F9100F87C65 /* CDAirPollution+CoreDataClass.swift 14-12-28-156.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDAirPollution+CoreDataClass.swift 14-12-28-156.swift"; sourceTree = "<group>"; };
+		B48EA73B258A400200F87C65 /* CDCoordination+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDCoordination+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B48EA74D258A405900F87C65 /* CDWind+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDWind+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B48EA755258A408200F87C65 /* CDCity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDCity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B48EA75A258A40AB00F87C65 /* CDCitiesInCircle+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDCitiesInCircle+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B48EA762258A422A00F87C65 /* CDStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDStack.swift; sourceTree = "<group>"; };
 		B4ACAF9B2588E276008141E1 /* CityListApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListApiClient.swift; sourceTree = "<group>"; };
 		B4ACAFA02588EA01008141E1 /* CityListApiClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListApiClientProtocol.swift; sourceTree = "<group>"; };
 		B4ACAFA52588F1F1008141E1 /* CityDetailsApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailsApiClient.swift; sourceTree = "<group>"; };
@@ -341,6 +359,8 @@
 				B453CAA3257FAC01003D5227 /* Localization */,
 				B453CA25257E54EA003D5227 /* MeasurementUnit.swift */,
 				B453CA2D257E5529003D5227 /* WeatherResponseLanguage.swift */,
+				B48EA694258A225A00F87C65 /* WeatherPlannerModel.xcdatamodeld */,
+				B48EA762258A422A00F87C65 /* CDStack.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -555,6 +575,12 @@
 		B4ACAF7A2588CFA9008141E1 /* ManagedModels */ = {
 			isa = PBXGroup;
 			children = (
+				B48EA75A258A40AB00F87C65 /* CDCitiesInCircle+CoreDataClass.swift */,
+				B48EA755258A408200F87C65 /* CDCity+CoreDataClass.swift */,
+				B48EA74D258A405900F87C65 /* CDWind+CoreDataClass.swift */,
+				B48EA73B258A400200F87C65 /* CDCoordination+CoreDataClass.swift */,
+				B48EA706258A3E8F00F87C65 /* CDTemperature+CoreDataClass.swift 14-09-16-791.swift */,
+				B48EA6FC258A3DCC00F87C65 /* CDWeather+CoreDataClass.swift */,
 			);
 			path = ManagedModels;
 			sourceTree = "<group>";
@@ -603,6 +629,7 @@
 		B4ACAF872588D0E9008141E1 /* ManagedModels */ = {
 			isa = PBXGroup;
 			children = (
+				B48EA727258A3F9100F87C65 /* CDAirPollution+CoreDataClass.swift 14-12-28-156.swift */,
 			);
 			path = ManagedModels;
 			sourceTree = "<group>";
@@ -923,13 +950,16 @@
 				B453CA08257E38EF003D5227 /* BaseApiClient.swift in Sources */,
 				B453CAF725810857003D5227 /* (null) in Sources */,
 				B453CBC62583A41F003D5227 /* AirPollutionQueryParameters.swift in Sources */,
+				B48EA74E258A405900F87C65 /* CDWind+CoreDataClass.swift in Sources */,
 				B453CB0125810DB8003D5227 /* (null) in Sources */,
 				B453C9A6257E2010003D5227 /* AppDelegate.swift in Sources */,
+				B48EA75B258A40AC00F87C65 /* CDCitiesInCircle+CoreDataClass.swift in Sources */,
 				B453CA03257E3858003D5227 /* ApiClientProtocol.swift in Sources */,
 				B453CAFC25810B6E003D5227 /* (null) in Sources */,
 				B453CAC1257FC50D003D5227 /* CityListTableViewCell.swift in Sources */,
 				B4881A602587B3A800AEEB27 /* CityDependenciesProtocol.swift in Sources */,
 				B453CB0F25811BAE003D5227 /* (null) in Sources */,
+				B48EA728258A3F9100F87C65 /* CDAirPollution+CoreDataClass.swift 14-12-28-156.swift in Sources */,
 				B453CAF22581058C003D5227 /* (null) in Sources */,
 				B453CB1425811BDC003D5227 /* (null) in Sources */,
 				B453CA0D257E481A003D5227 /* ApiEndpoints.swift in Sources */,
@@ -971,12 +1001,16 @@
 				B453CBCF2583A438003D5227 /* CityDetailsTableViewCell.swift in Sources */,
 				B453CAD52580EF3A003D5227 /* (null) in Sources */,
 				B4881A4E2587AD9B00AEEB27 /* CityListRepository.swift in Sources */,
+				B48EA6FD258A3DCC00F87C65 /* CDWeather+CoreDataClass.swift in Sources */,
 				B453CB3325823102003D5227 /* (null) in Sources */,
+				B48EA763258A422A00F87C65 /* CDStack.swift in Sources */,
 				B453CAA5257FAC27003D5227 /* LocalizationService.swift in Sources */,
 				B453CA74257F9623003D5227 /* ConstructViewsProtocol.swift in Sources */,
 				B453CBD12583A438003D5227 /* CityDetailsHeaderView.swift in Sources */,
 				B453CA95257FA06B003D5227 /* CityListViewController+Design.swift in Sources */,
+				B48EA756258A408200F87C65 /* CDCity+CoreDataClass.swift in Sources */,
 				B453CA2E257E5529003D5227 /* WeatherResponseLanguage.swift in Sources */,
+				B48EA696258A225A00F87C65 /* WeatherPlannerModel.xcdatamodeld in Sources */,
 				B453CA88257F9731003D5227 /* CityListViewController.swift in Sources */,
 				B4881A562587AE2700AEEB27 /* CityListRepositoryProtocol.swift in Sources */,
 				B453CAB2257FB15D003D5227 /* CitiesInCircleQueryParameters.swift in Sources */,
@@ -989,6 +1023,8 @@
 				B4ACAFA62588F1F1008141E1 /* CityDetailsApiClient.swift in Sources */,
 				B453CBAA2583A383003D5227 /* AirPollutionViewModel+Extension.swift in Sources */,
 				B453CA26257E54EA003D5227 /* MeasurementUnit.swift in Sources */,
+				B48EA708258A3E8F00F87C65 /* CDTemperature+CoreDataClass.swift 14-09-16-791.swift in Sources */,
+				B48EA73C258A400200F87C65 /* CDCoordination+CoreDataClass.swift in Sources */,
 				B453CBD02583A438003D5227 /* CityDetailsTableViewCell+Design.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1320,6 +1356,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B48EA694258A225A00F87C65 /* WeatherPlannerModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B48EA695258A225A00F87C65 /* WeatherPlannerModel.xcdatamodel */,
+			);
+			currentVersion = B48EA695258A225A00F87C65 /* WeatherPlannerModel.xcdatamodel */;
+			path = WeatherPlannerModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B453C99A257E2010003D5227 /* Project object */;
 }
