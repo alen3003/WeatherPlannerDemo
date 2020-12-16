@@ -1,18 +1,17 @@
 import Foundation
-import CoreLocation
 
-class CityListUseCase {
-    private let cityListRepository: CityListRepository
+class CityListUseCase: CityListUseCaseProtocol {
+    private let cityListRepository: CityListRepositoryProtocol
     
-    init(cityListRepository: CityListRepository) {
+    init(cityListRepository: CityListRepositoryProtocol) {
         self.cityListRepository = cityListRepository
     }
     
-    func fetchCitiesInCircle(
-        _ coordinate: CLLocationCoordinate2D,
+    func getCitiesInCircle(
+        _ coordinate: City.Coordination,
         range: Int,
         resultHandler: @escaping (_ cities: CitiesInCircle) -> Void
     ) {
-        cityListRepository.fetchCitiesInCircle(coordinate, range: range, resultHandler: resultHandler)
+        cityListRepository.fetchCities(coordinate, range: range, resultHandler: resultHandler)
     }
 }

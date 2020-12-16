@@ -8,11 +8,11 @@ final class CityDetailsPresenter {
     var airPollutionDetails: [AirPollutionDetailsViewModel] = []
     
     weak var delegate: Completable?
-    private var cityDetailsUseCase: CityDetailsUseCase
+    private var cityDetailsUseCase: CityDetailsUseCaseProtocol
     
-    init(withDependencies dependencies: AppDependencies = AppDependencies(), cityViewModel: CityViewModel) {
+    init(cityDetailsUseCase: CityDetailsUseCaseProtocol, cityViewModel: CityViewModel) {
         self.cityViewModel = cityViewModel
-        self.cityDetailsUseCase = dependencies.cityDetailsUseCase
+        self.cityDetailsUseCase = cityDetailsUseCase
         setControllerTitle()
     }
     
@@ -21,11 +21,10 @@ final class CityDetailsPresenter {
     }
     
     func fetchPollutionInfo() {
-        cityDetailsUseCase.fetchPollutionInfo(
-            coordination: cityViewModel.coordination
-        ) { [weak self] (viewModels) in
+        cityDetailsUseCase.getPollutionInfo(coordination: cityViewModel.coordination) { [weak self] (airPollution) in
             guard let self = self else { return }
-            self.airPollutionDetails.append(contentsOf: viewModels)
+            let airPollutionDetailsViewModel = AirPollutionViewModel(airPollution: airPollution).airPollutionDetails()
+            self.airPollutionDetails.append(contentsOf: airPollutionDetailsViewModel)
             self.delegate?.didUpdateDataSource()
         }
     }

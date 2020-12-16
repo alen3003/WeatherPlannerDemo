@@ -1,6 +1,6 @@
 import Foundation
 
 protocol CityDependenciesProtocol {
-    func buildCityListUseCase() -> CityListUseCase
-    func buildCityDetilsUseCase() -> CityDetailsUseCase
+    func buildCityListUseCase() -> CityListUseCaseProtocol
+    func buildCityDetilsUseCase() -> CityDetailsUseCaseProtocol
 }

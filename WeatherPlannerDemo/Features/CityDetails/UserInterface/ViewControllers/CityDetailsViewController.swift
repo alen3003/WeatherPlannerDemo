@@ -6,8 +6,8 @@ class CityDetailsViewController: UIViewController {
     
     let presenter: CityDetailsPresenter
     
-    init(cityDetailsPresenter: CityDetailsPresenter) {
-        self.presenter = cityDetailsPresenter
+    init(presenter: CityDetailsPresenter) {
+        self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
     
