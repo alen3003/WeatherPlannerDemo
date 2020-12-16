@@ -1,9 +1,9 @@
 import Foundation
 
-class CityListUseCase {
-    private let cityListRepository: CityListRepository
+class CityListUseCase: CityListUseCaseProtocol {
+    private let cityListRepository: CityListRepositoryProtocol
     
-    init(cityListRepository: CityListRepository) {
+    init(cityListRepository: CityListRepositoryProtocol) {
         self.cityListRepository = cityListRepository
     }
     
@@ -12,6 +12,6 @@ class CityListUseCase {
         range: Int,
         resultHandler: @escaping (_ cities: CitiesInCircle) -> Void
     ) {
-        cityListRepository.fetchCitiesFromNetwork(coordinate, range: range, resultHandler: resultHandler)
+        cityListRepository.fetchCities(coordinate, range: range, resultHandler: resultHandler)
     }
 }

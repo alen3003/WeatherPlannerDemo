@@ -77,6 +77,8 @@
 		B4881A6A2587B45800AEEB27 /* CityDetailsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4881A692587B45800AEEB27 /* CityDetailsRepository.swift */; };
 		B4881A6F2587B48A00AEEB27 /* CityDetailsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4881A6E2587B48A00AEEB27 /* CityDetailsRepositoryProtocol.swift */; };
 		B48D172F2587673B00511C47 /* AirPollutionDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48D172E2587673B00511C47 /* AirPollutionDetailsViewModel.swift */; };
+		B48EA6852589FC3D00F87C65 /* CityListUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48EA6842589FC3D00F87C65 /* CityListUseCaseProtocol.swift */; };
+		B48EA68A258A075500F87C65 /* CityDetailsUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48EA689258A075500F87C65 /* CityDetailsUseCaseProtocol.swift */; };
 		B4ACAF9C2588E276008141E1 /* CityListApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAF9B2588E276008141E1 /* CityListApiClient.swift */; };
 		B4ACAFA12588EA01008141E1 /* CityListApiClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAFA02588EA01008141E1 /* CityListApiClientProtocol.swift */; };
 		B4ACAFA62588F1F1008141E1 /* CityDetailsApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAFA52588F1F1008141E1 /* CityDetailsApiClient.swift */; };
@@ -170,6 +172,8 @@
 		B4881A692587B45800AEEB27 /* CityDetailsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailsRepository.swift; sourceTree = "<group>"; };
 		B4881A6E2587B48A00AEEB27 /* CityDetailsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailsRepositoryProtocol.swift; sourceTree = "<group>"; };
 		B48D172E2587673B00511C47 /* AirPollutionDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPollutionDetailsViewModel.swift; sourceTree = "<group>"; };
+		B48EA6842589FC3D00F87C65 /* CityListUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListUseCaseProtocol.swift; sourceTree = "<group>"; };
+		B48EA689258A075500F87C65 /* CityDetailsUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailsUseCaseProtocol.swift; sourceTree = "<group>"; };
 		B4ACAF9B2588E276008141E1 /* CityListApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListApiClient.swift; sourceTree = "<group>"; };
 		B4ACAFA02588EA01008141E1 /* CityListApiClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListApiClientProtocol.swift; sourceTree = "<group>"; };
 		B4ACAFA52588F1F1008141E1 /* CityDetailsApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailsApiClient.swift; sourceTree = "<group>"; };
@@ -583,6 +587,7 @@
 			isa = PBXGroup;
 			children = (
 				B4881A482587AD1200AEEB27 /* CityListUseCase.swift */,
+				B48EA6842589FC3D00F87C65 /* CityListUseCaseProtocol.swift */,
 			);
 			path = CityListUseCase;
 			sourceTree = "<group>";
@@ -622,6 +627,7 @@
 			isa = PBXGroup;
 			children = (
 				B4881A642587B41600AEEB27 /* CityDetailsUseCase.swift */,
+				B48EA689258A075500F87C65 /* CityDetailsUseCaseProtocol.swift */,
 			);
 			path = CityDetailsUseCase;
 			sourceTree = "<group>";
@@ -932,6 +938,7 @@
 				B453CBBC2583A3F0003D5227 /* CityDetailsViewController.swift in Sources */,
 				B453C9EF257E37EA003D5227 /* HttpMethod.swift in Sources */,
 				B453CA34257E5673003D5227 /* City.swift in Sources */,
+				B48EA68A258A075500F87C65 /* CityDetailsUseCaseProtocol.swift in Sources */,
 				B4ACAF9C2588E276008141E1 /* CityListApiClient.swift in Sources */,
 				B453CADA2580EF52003D5227 /* (null) in Sources */,
 				B453C9F0257E37EA003D5227 /* HttpStatusCode.swift in Sources */,
@@ -954,6 +961,7 @@
 				B453CAB7257FB58E003D5227 /* CitiesInCircle.swift in Sources */,
 				B4881A492587AD1200AEEB27 /* CityListUseCase.swift in Sources */,
 				B453C9A8257E2010003D5227 /* SceneDelegate.swift in Sources */,
+				B48EA6852589FC3D00F87C65 /* CityListUseCaseProtocol.swift in Sources */,
 				B4881A5B2587B2F300AEEB27 /* AppDependencies.swift in Sources */,
 				B453CBAB2583A383003D5227 /* Double+StringExtension.swift in Sources */,
 				B453CBC12583A407003D5227 /* CityDetailsPresenter.swift in Sources */,

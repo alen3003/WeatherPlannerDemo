@@ -1,16 +1,16 @@
 import Foundation
 
-class CityDetailsUseCase {
-    private let cityDetailsRepository: CityDetailsRepository
+class CityDetailsUseCase: CityDetailsUseCaseProtocol {
+    private let cityDetailsRepository: CityDetailsRepositoryProtocol
     
-    init(cityDetailsRepository: CityDetailsRepository) {
+    init(cityDetailsRepository: CityDetailsRepositoryProtocol) {
         self.cityDetailsRepository = cityDetailsRepository
     }
     
     func getPollutionInfo(
         coordination: City.Coordination,
-        resultHandler: @escaping (_ airPollutionDetailsViewModel: [AirPollutionDetailsViewModel]) -> Void
+        resultHandler: @escaping (_ airPollutionDetailsViewModel: AirPollution) -> Void
     ) {
-        cityDetailsRepository.fetchPollutionInfoFromNetwork(coordination: coordination, resultHandler: resultHandler)
+        cityDetailsRepository.fetchPollutionInfo(coordination: coordination, resultHandler: resultHandler)
     }
 }

@@ -4,7 +4,7 @@ final class CityDetailsApiClient: BaseApiClient, CityDetailsApiClientProtocol {
     
     func fetchPollutionInfo(
         coordination: City.Coordination,
-        resultHandler: @escaping ([AirPollutionDetailsViewModel]) -> Void) {
+        resultHandler: @escaping (AirPollution) -> Void) {
         let parameters = AirPollutionQueryParameters(
             latitude: "\(coordination.lat)",
             longitude: "\(coordination.lon)"
@@ -17,8 +17,7 @@ final class CityDetailsApiClient: BaseApiClient, CityDetailsApiClientProtocol {
             switch result {
             case .success(let airPollutionList):
                 guard let airPollution = airPollutionList.list.first else { return }
-                let airPollutionViewModel = AirPollutionViewModel(airPollution: airPollution)
-                resultHandler(airPollutionViewModel.airPollutionDetailsViewModel)
+                resultHandler(airPollution)
             case .failure(let error):
                 Logger.print(string: "Failed fetching data - \(error.localizedDescription)")
             }

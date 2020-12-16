@@ -7,7 +7,7 @@ class CityListRepository: CityListRepositoryProtocol {
         self.networkClient = networkClient
     }
     
-    func fetchCitiesFromNetwork(
+    func fetchCities(
         _ coordinate: City.Coordination,
         range: Int,
         resultHandler: @escaping (CitiesInCircle) -> Void

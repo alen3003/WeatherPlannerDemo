@@ -8,9 +8,9 @@ class CityDetailsRepository: CityDetailsRepositoryProtocol {
         self.networkClient = networkClient
     }
 
-    func fetchPollutionInfoFromNetwork(
+    func fetchPollutionInfo(
         coordination: City.Coordination,
-        resultHandler: @escaping (_ airPollutionDetailsViewModel: [AirPollutionDetailsViewModel]) -> Void
+        resultHandler: @escaping (_ airPollutionDetailsViewModel: AirPollution) -> Void
     ) {
         networkClient.fetchPollutionInfo(coordination: coordination, resultHandler: resultHandler)
     }

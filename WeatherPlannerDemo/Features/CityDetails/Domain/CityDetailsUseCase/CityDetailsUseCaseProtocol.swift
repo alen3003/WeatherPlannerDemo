@@ -1,7 +1,7 @@
 import Foundation
 
-protocol CityDetailsRepositoryProtocol {
-    func fetchPollutionInfo(
+protocol CityDetailsUseCaseProtocol {
+    func getPollutionInfo(
         coordination: City.Coordination,
         resultHandler: @escaping (_ airPollutionDetailsViewModel: AirPollution) -> Void
     )

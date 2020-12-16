@@ -21,12 +21,16 @@ class AppCoordinator: CoordinatorProtocol {
     }
     
     private func createCityListController() -> CityListViewController {
-        let presenter = CityListPresenter(withDependencies: appDependencies, coordinator: self)
+        let presenter = CityListPresenter(
+            cityListUseCase: appDependencies.buildCityListUseCase(),
+            coordinator: self)
         return CityListViewController(presenter: presenter)
     }
     
     private func createCityDetailsViewController(viewModel: CityViewModel) -> CityDetailsViewController {
-        let presenter = CityDetailsPresenter(withDependencies: appDependencies, cityViewModel: viewModel)
+        let presenter = CityDetailsPresenter(
+            cityDetailsUseCase: appDependencies.buildCityDetilsUseCase(),
+            cityViewModel: viewModel)
         return CityDetailsViewController(presenter: presenter)
     }
 }

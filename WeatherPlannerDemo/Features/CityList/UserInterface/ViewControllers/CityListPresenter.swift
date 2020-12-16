@@ -7,14 +7,14 @@ final class CityListPresenter {
     var cities: [CityViewModel] = []
     
     weak var delegate: Completable?
-    private var cityListUseCase: CityListUseCase
+    private var cityListUseCase: CityListUseCaseProtocol
     weak var coordinator: CoordinatorProtocol?
     
     private var citiesInRange = 30
     private var coordinate: CLLocationCoordinate2D?
     
-    init(withDependencies dependencies: AppDependencies, coordinator: CoordinatorProtocol) {
-        self.cityListUseCase = dependencies.cityListUseCase
+    init(cityListUseCase: CityListUseCaseProtocol, coordinator: CoordinatorProtocol) {
+        self.cityListUseCase = cityListUseCase
         self.coordinator = coordinator
         setControllerTitle()
     }
