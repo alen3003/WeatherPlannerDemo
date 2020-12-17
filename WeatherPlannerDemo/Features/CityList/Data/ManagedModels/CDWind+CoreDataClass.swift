@@ -10,4 +10,9 @@ public class CDWind: NSManagedObject {
     @NSManaged public var deg: Float
     @NSManaged public var speed: Float
     @NSManaged public var city: CDCity?
+    
+    func populate(wind: City.WindInfo) {
+        self.deg = wind.deg
+        self.speed = wind.speed
+    }
 }

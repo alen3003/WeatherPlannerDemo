@@ -21,4 +21,16 @@ class CityViewModel {
             .appendMeasuringUnit(.celsius, spacing: false)
         self.windSpeed = "\(LocalizationKey.windSpeed.string) \(city.wind.speed)".appendMeasuringUnit(.velocityBasic)
     }
+    
+    init(city: CDCity) {
+        self.coordination = City.Coordination(lat: city.coordination.latitude, lon: city.coordination.longitude)
+        self.cityName = city.name
+        self.weatherDescription = city.weather.weatherDescription
+        self.temperature = "\(Int(city.temperature.temp))".appendMeasuringUnit(.celsius, spacing: false)
+        self.minTemperature = "\(LocalizationKey.minTemp.string) \(Int(city.temperature.tempMin))"
+            .appendMeasuringUnit(.celsius, spacing: false)
+        self.maxTemperature = "\(LocalizationKey.maxTemp.string) \(Int(city.temperature.tempMax))"
+            .appendMeasuringUnit(.celsius, spacing: false)
+        self.windSpeed = "\(LocalizationKey.windSpeed.string) \(city.wind.speed)".appendMeasuringUnit(.velocityBasic)
+    }
 }

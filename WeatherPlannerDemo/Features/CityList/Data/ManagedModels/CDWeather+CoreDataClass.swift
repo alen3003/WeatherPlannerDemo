@@ -8,7 +8,13 @@ public class CDWeather: NSManagedObject {
     }
 
     @NSManaged public var id: Int32
-    @NSManaged public var title: String?
+    @NSManaged public var title: String
     @NSManaged public var weatherDescription: String?
     @NSManaged public var city: CDCity?
+    
+    func populate(weather: City.WeatherInfo) {
+        self.id = Int32(weather.id)
+        self.title = weather.main
+        self.weatherDescription = weather.description
+    }
 }

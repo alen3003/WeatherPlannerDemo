@@ -10,4 +10,9 @@ public class CDCoordination: NSManagedObject {
     @NSManaged public var latitude: Double
     @NSManaged public var longitude: Double
     @NSManaged public var city: CDCity?
+    
+    func populate(coordination: City.Coordination) {
+        self.latitude = coordination.lat
+        self.longitude = coordination.lon
+    }
 }
