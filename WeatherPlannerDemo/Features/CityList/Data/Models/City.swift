@@ -41,7 +41,7 @@ extension City {
         self.weather = [WeatherInfo(
                             id: Int(cdCity.weather.id),
                             main: cdCity.weather.title,
-                            description: cdCity.weather.description)]
+                            description: cdCity.weather.weatherDescription)]
         self.main = TemperatureInfo(temp: cdCity.temperature.temp,
                                     feels_like: cdCity.temperature.feelsLike,
                                     temp_min: cdCity.temperature.tempMin,

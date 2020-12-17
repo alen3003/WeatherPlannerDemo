@@ -23,7 +23,7 @@ class CityListRepository: CityListRepositoryProtocol {
         resultHandler: @escaping (CitiesInCircle) -> Void
     ) {
         switch reachability?.connection {
-        case .none?:
+        case .unavailable:
             fetchCities(resultHandler: resultHandler)
         default:
             self.networkClient.fetchCitiesInCircle(coordinate, range: range) { [weak self] (cities) in
@@ -37,6 +37,7 @@ class CityListRepository: CityListRepositoryProtocol {
     }
     
     private func saveCitiesAndFetch(cities: CitiesInCircle, resultHandler: @escaping (CitiesInCircle) -> Void) {
+        coreDataService.deleteCities()
         coreDataService.createCitiesFrom(cities: cities.list)
         coreDataService.saveChangesSync()
         fetchCities(resultHandler: resultHandler)

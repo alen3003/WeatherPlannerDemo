@@ -10,7 +10,7 @@ final class CityListPresenter {
     private var cityListUseCase: CityListUseCaseProtocol
     weak var coordinator: CoordinatorProtocol?
     
-    private var citiesInRange = 30
+    private var citiesInRange = 5
     private var coordinate: CLLocationCoordinate2D?
     
     init(cityListUseCase: CityListUseCaseProtocol, coordinator: CoordinatorProtocol) {

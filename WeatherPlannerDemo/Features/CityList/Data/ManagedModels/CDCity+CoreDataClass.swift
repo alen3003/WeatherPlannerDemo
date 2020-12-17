@@ -16,13 +16,14 @@ public class CDCity: NSManagedObject {
     @NSManaged public var wind: CDWind
     @NSManaged public var citiesInCircle: CDCitiesInCircle?
     
-    func populate(city: City, context: NSManagedObjectContext) {
+    func populate(city: City, citiesInCircle: CDCitiesInCircle, context: NSManagedObjectContext) {
         self.id = Int32(city.id)
         self.name = city.name
         self.coordination = createCoordination(coordination: city.coord, context: context)
         self.temperature = createTemperature(temperature: city.main, context: context)
         self.weather = createWeather(weather: city.weather[0], context: context)
         self.wind = createWind(wind: city.wind, context: context)
+        self.citiesInCircle = citiesInCircle
     }
 }
 

@@ -10,6 +10,7 @@ class CoreDataService: CoreDataServiceProtocol {
     
     func fetchCities() -> [CDCity] {
         let request: NSFetchRequest<CDCity> = CDCity.fetchRequest()
+        request.returnsObjectsAsFaults = false
         var cdCities: [CDCity] = []
         
         do {
@@ -20,14 +21,29 @@ class CoreDataService: CoreDataServiceProtocol {
         return cdCities
     }
     
+    func deleteCities() {
+        let request: NSFetchRequest<CDCity> = CDCity.fetchRequest()
+        request.returnsObjectsAsFaults = false
+        do {
+            let results = try cdStack.context.fetch(request)
+            for object in results {
+                //guard let objectData = object as? NSManagedObject else {continue}
+                cdStack.context.delete(object)
+            }
+        } catch let error {
+            print("Detele all data error :", error)
+        }
+    }
+    
     @discardableResult
-    func createCitiesFrom(cities: [City]) -> [CDCity]? {
-        let cdCities: [CDCity] = cities.map({
+    func createCitiesFrom(cities: [City]) -> CDCitiesInCircle? {
+        let citiesInCircle = CDCitiesInCircle(context: cdStack.context)
+        cities.forEach({
             let city = CDCity(context: cdStack.context)
-            city.populate(city: $0, context: cdStack.context)
-            return city
+            city.populate(city: $0, citiesInCircle: citiesInCircle, context: cdStack.context)
+            citiesInCircle.addToCities(city)
         })
-        return cdCities
+        return citiesInCircle
     }
     
     func saveChangesAsync() {
