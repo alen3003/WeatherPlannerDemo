@@ -14,7 +14,7 @@ class CityListRepository: CityListRepositoryProtocol {
         self.coreDataService = coreDataService
         self.reachability = reachability
         
-        startReachability()
+        reachability?.startReachability()
     }
     
     func fetchCities(
@@ -26,14 +26,10 @@ class CityListRepository: CityListRepositoryProtocol {
         case .unavailable:
             fetchCities(resultHandler: resultHandler)
         default:
-            self.networkClient.fetchCitiesInCircle(coordinate, range: range) { [weak self] (cities) in
+            networkClient.fetchCitiesInCircle(coordinate, range: range) { [weak self] (cities) in
                 self?.saveCitiesAndFetch(cities: cities, resultHandler: resultHandler)
             }
         }
-    }
-    
-    private func startReachability() {
-        reachability?.startReachability()
     }
     
     private func saveCitiesAndFetch(cities: CitiesInCircle, resultHandler: @escaping (CitiesInCircle) -> Void) {

@@ -1,5 +1,5 @@
 import Foundation
 
-protocol CDStackProtocol {
-    func saveChanges()
+protocol CoreDataStackProtocol {
+    func saveContext()
 }

@@ -1,7 +1,7 @@
 import Foundation
 import CoreData
 
-class CDStack: CDStackProtocol {
+class CoreDataStack: CoreDataStackProtocol {
     
     var containerName: String
     
@@ -23,15 +23,9 @@ class CDStack: CDStackProtocol {
         return container
     }()
     
-    public func saveChanges() {
-        saveContext()
-    }
-}
-
-extension CDStack {
-    private func saveContext() {
+    func saveContext() {
         if context.hasChanges {
-            context.perform {
+            context.performAndWait {
                 do {
                     try self.context.save()
                 } catch let error {

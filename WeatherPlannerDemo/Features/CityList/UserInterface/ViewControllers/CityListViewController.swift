@@ -96,6 +96,6 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.pushCityDetailsViewController(indexPath: indexPath)
+        presenter.openDetails(cityViewModel: presenter.cities[indexPath.row])
     }
 }

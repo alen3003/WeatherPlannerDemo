@@ -19,12 +19,12 @@ class AppDependencies: CityDependenciesProtocol {
         return NetworkModule()
     }()
     
-    lazy var cdStack: CDStack = {
-        return CDStack(containerName: "WeatherPlannerModel")
+    lazy var coreDataStack: CoreDataStack = {
+        return CoreDataStack(containerName: "WeatherPlannerModel")
     }()
     
     lazy var coreDataService: CoreDataService = {
-        return CoreDataService(cdStack: cdStack)
+        return CoreDataService(coreDataStack: coreDataStack)
     }()
     
     init() {
