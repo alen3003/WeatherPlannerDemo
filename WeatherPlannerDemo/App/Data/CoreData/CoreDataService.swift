@@ -15,7 +15,7 @@ class CoreDataService: CoreDataServiceProtocol {
         do {
             return try coreDataStack.context.fetch(request)
         } catch let error {
-            Logger.print(string: "Failed faching data from database: \(error.localizedDescription)")
+            Logger.print(string: "Failed fetching data from database: \(error.localizedDescription)")
             return []
         }
     }
@@ -28,7 +28,7 @@ class CoreDataService: CoreDataServiceProtocol {
         do {
             return try coreDataStack.context.fetch(request).first ?? CDCity()
         } catch let error {
-            Logger.print(string: "Failed faching data from database: \(error.localizedDescription)")
+            Logger.print(string: "Failed fetching data from database: \(error.localizedDescription)")
             return CDCity()
         }
     }
@@ -41,35 +41,8 @@ class CoreDataService: CoreDataServiceProtocol {
         do {
             return try coreDataStack.context.fetch(request).first
         } catch let error {
-            Logger.print(string: "Failed faching data from database: \(error.localizedDescription)")
+            Logger.print(string: "Failed fetching data from database: \(error.localizedDescription)")
             return nil
-        }
-    }
-    
-    func deleteCities() {
-        let request: NSFetchRequest<CDCity> = CDCity.fetchRequest()
-        request.returnsObjectsAsFaults = false
-        do {
-            let results = try coreDataStack.context.fetch(request)
-            for object in results {
-                coreDataStack.context.delete(object)
-            }
-        } catch let error {
-            Logger.print(string: "Detele all data error: \(error.localizedDescription)")
-        }
-    }
-    
-    func deleteAirPollutionsForCity(_ city: CDCity) {
-        let request: NSFetchRequest<CDAirPollution> = CDAirPollution.fetchRequest()
-        request.predicate = Predicates.airPollutionPredicate(city)
-        request.returnsObjectsAsFaults = false
-        do {
-            let results = try coreDataStack.context.fetch(request)
-            for object in results {
-                coreDataStack.context.delete(object)
-            }
-        } catch let error {
-            Logger.print(string: "Detele all data error: \(error.localizedDescription)")
         }
     }
     
@@ -88,6 +61,33 @@ class CoreDataService: CoreDataServiceProtocol {
         airPollution.populate(airPollution: pollution, city: city, context: coreDataStack.context)
         city?.airPollution = airPollution
         return airPollution
+    }
+    
+    func deleteCities() {
+        let request: NSFetchRequest<CDCity> = CDCity.fetchRequest()
+        request.returnsObjectsAsFaults = false
+        do {
+            let results = try coreDataStack.context.fetch(request)
+            for object in results {
+                coreDataStack.context.delete(object)
+            }
+        } catch let error {
+            Logger.print(string: "Detele cities data error: \(error.localizedDescription)")
+        }
+    }
+    
+    func deleteAirPollutionsForCity(_ city: CDCity) {
+        let request: NSFetchRequest<CDAirPollution> = CDAirPollution.fetchRequest()
+        request.predicate = Predicates.airPollutionPredicate(city)
+        request.returnsObjectsAsFaults = false
+        do {
+            let results = try coreDataStack.context.fetch(request)
+            for object in results {
+                coreDataStack.context.delete(object)
+            }
+        } catch let error {
+            Logger.print(string: "Detele air pollution data error: \(error.localizedDescription)")
+        }
     }
     
     func saveChangesAsync() {
