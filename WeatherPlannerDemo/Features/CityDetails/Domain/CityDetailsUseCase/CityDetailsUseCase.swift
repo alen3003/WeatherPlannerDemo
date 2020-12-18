@@ -9,8 +9,12 @@ class CityDetailsUseCase: CityDetailsUseCaseProtocol {
     
     func getPollutionInfo(
         coordination: City.Coordination,
+        cityID: Int,
         resultHandler: @escaping (_ airPollutionDetailsViewModel: AirPollution) -> Void
     ) {
-        cityDetailsRepository.fetchPollutionInfo(coordination: coordination, resultHandler: resultHandler)
+        cityDetailsRepository.fetchPollutionInfo(
+            coordination: coordination,
+            cityID: cityID,
+            resultHandler: resultHandler)
     }
 }

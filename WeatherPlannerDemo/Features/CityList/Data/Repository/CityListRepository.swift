@@ -14,7 +14,7 @@ class CityListRepository: CityListRepositoryProtocol {
         self.coreDataService = coreDataService
         self.reachability = reachability
         
-        reachability?.startReachability()
+        self.reachability?.startReachability()
     }
     
     func fetchCities(

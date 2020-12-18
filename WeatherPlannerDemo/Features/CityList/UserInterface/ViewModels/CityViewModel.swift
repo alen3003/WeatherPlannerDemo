@@ -1,7 +1,8 @@
 import Foundation
 
 class CityViewModel {
-
+    
+    let cityID: Int
     let coordination: City.Coordination
     let cityName: String
     let weatherDescription: String?
@@ -11,6 +12,7 @@ class CityViewModel {
     let windSpeed: String
     
     init(city: City) {
+        self.cityID = city.id
         self.coordination = city.coord
         self.cityName = city.name
         self.weatherDescription = city.weather.first?.description.capitalizingFirstLetter()
@@ -23,6 +25,7 @@ class CityViewModel {
     }
     
     init(city: CDCity) {
+        self.cityID = Int(city.id)
         self.coordination = City.Coordination(lat: city.coordination.latitude, lon: city.coordination.longitude)
         self.cityName = city.name
         self.weatherDescription = city.weather.weatherDescription

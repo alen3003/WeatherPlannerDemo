@@ -10,6 +10,7 @@
 		09CF9761AF028028BFAFC68B /* Pods_WeatherPlannerDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB6AE98C9E668CB646B04414 /* Pods_WeatherPlannerDemoTests.framework */; };
 		5AF2BC8878F3C00C0C9823E2 /* Pods_WeatherPlannerDemo_WeatherPlannerDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40A4CE7D6B8137F6761D3A7 /* Pods_WeatherPlannerDemo_WeatherPlannerDemoUITests.framework */; };
 		87C945DCF90E289CA788F9ED /* Pods_WeatherPlannerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A36063A48192A785255E7EE /* Pods_WeatherPlannerDemo.framework */; };
+		B42EA113258CBA0F00FF6DEB /* Predicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42EA112258CBA0F00FF6DEB /* Predicates.swift */; };
 		B453C9A6257E2010003D5227 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453C9A5257E2010003D5227 /* AppDelegate.swift */; };
 		B453C9A8257E2010003D5227 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453C9A7257E2010003D5227 /* SceneDelegate.swift */; };
 		B453C9AF257E2011003D5227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B453C9AE257E2011003D5227 /* Assets.xcassets */; };
@@ -124,6 +125,7 @@
 		77987F981F640C3C2B9CDF74 /* Pods-WeatherPlannerDemo-WeatherPlannerDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherPlannerDemo-WeatherPlannerDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-WeatherPlannerDemo-WeatherPlannerDemoUITests/Pods-WeatherPlannerDemo-WeatherPlannerDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A8AFFCF5F4FF99AFC91B75E5 /* Pods-WeatherPlannerDemo-WeatherPlannerDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherPlannerDemo-WeatherPlannerDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-WeatherPlannerDemo-WeatherPlannerDemoUITests/Pods-WeatherPlannerDemo-WeatherPlannerDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B3314DDE04066065537C384C /* Pods-WeatherPlannerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherPlannerDemo.release.xcconfig"; path = "Target Support Files/Pods-WeatherPlannerDemo/Pods-WeatherPlannerDemo.release.xcconfig"; sourceTree = "<group>"; };
+		B42EA112258CBA0F00FF6DEB /* Predicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Predicates.swift; sourceTree = "<group>"; };
 		B453C9A2257E2010003D5227 /* WeatherPlannerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherPlannerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B453C9A5257E2010003D5227 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B453C9A7257E2010003D5227 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -697,6 +699,7 @@
 				B48EA694258A225A00F87C65 /* WeatherPlannerModel.xcdatamodeld */,
 				B4C9C9FF258B75CB0022F99C /* CoreDataService.swift */,
 				B4C9CA07258B75E30022F99C /* CoreDataServiceProtocol.swift */,
+				B42EA112258CBA0F00FF6DEB /* Predicates.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -1067,6 +1070,7 @@
 				B4ACAFA62588F1F1008141E1 /* CityDetailsApiClient.swift in Sources */,
 				B453CBAA2583A383003D5227 /* AirPollutionViewModel+Extension.swift in Sources */,
 				B453CA26257E54EA003D5227 /* MeasurementUnit.swift in Sources */,
+				B42EA113258CBA0F00FF6DEB /* Predicates.swift in Sources */,
 				B48EA708258A3E8F00F87C65 /* CDTemperature+CoreDataClass.swift in Sources */,
 				B48EA73C258A400200F87C65 /* CDCoordination+CoreDataClass.swift in Sources */,
 				B453CBD02583A438003D5227 /* CityDetailsTableViewCell+Design.swift in Sources */,

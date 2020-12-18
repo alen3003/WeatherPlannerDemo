@@ -15,4 +15,15 @@ public class CDAirPollution: NSManagedObject {
     @NSManaged public var o3: Double
     @NSManaged public var so2: Double
     @NSManaged public var city: CDCity?
+    
+    func populate(airPollution: AirPollution, city: CDCity?, context: NSManagedObjectContext) {
+        self.aqi = Int16(airPollution.main.aqi)
+        self.co = airPollution.components.co
+        self.nh3 = airPollution.components.nh3
+        self.no = airPollution.components.no
+        self.no2 = airPollution.components.no2
+        self.o3 = airPollution.components.o3
+        self.so2 = airPollution.components.so2
+        self.city = city
+    }
 }

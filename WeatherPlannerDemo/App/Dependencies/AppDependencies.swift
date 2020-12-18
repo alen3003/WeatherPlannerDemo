@@ -44,6 +44,11 @@ class AppDependencies: CityDependenciesProtocol {
     
     func buildCityDetilsUseCase() -> CityDetailsUseCaseProtocol {
         let networkClient = networkModule.registerCityDetailsApiClient()
-        return CityDetailsUseCase(cityDetailsRepository: CityDetailsRepository(networkClient: networkClient))
+        let repository = CityDetailsRepository(
+            networkClient: networkClient,
+            coreDataService: coreDataService,
+            reachability: reachability)
+        
+        return CityDetailsUseCase(cityDetailsRepository: repository)
     }
 }
