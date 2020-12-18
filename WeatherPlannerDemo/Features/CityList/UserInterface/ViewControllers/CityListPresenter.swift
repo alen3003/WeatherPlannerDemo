@@ -42,9 +42,9 @@ final class CityListPresenter {
         
         let coordinate = City.Coordination(lat: lat, lon: lon)
         
-        cityListUseCase.getCitiesInCircle(coordinate, range: citiesInRange) { [weak self] (citiesInRange) in
+        cityListUseCase.getCitiesInCircle(coordinate, range: citiesInRange) { [weak self] (cities) in
             guard let self = self else { return }
-            citiesInRange.list.forEach({ self.cities.append(CityViewModel(city: $0)) })
+            cities.forEach({ self.cities.append(CityViewModel(city: $0)) })
             self.delegate?.didUpdateDataSource()
         }
     }

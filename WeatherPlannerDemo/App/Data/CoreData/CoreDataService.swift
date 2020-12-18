@@ -34,14 +34,14 @@ class CoreDataService: CoreDataServiceProtocol {
     }
     
     @discardableResult
-    func createCitiesFrom(cities: [City]) -> CDCitiesInCircle? {
-        let citiesInCircle = CDCitiesInCircle(context: coreDataStack.context)
-        cities.forEach({
+    func createCitiesFrom(cities: [City]) -> [CDCity]? {
+        let cities: [CDCity] = cities.map({
             let city = CDCity(context: coreDataStack.context)
-            city.populate(city: $0, citiesInCircle: citiesInCircle, context: coreDataStack.context)
-            citiesInCircle.addToCities(city)
+            city.populate(city: $0, context: coreDataStack.context)
+            return city
         })
-        return citiesInCircle
+
+        return cities
     }
     
     func saveChangesAsync() {

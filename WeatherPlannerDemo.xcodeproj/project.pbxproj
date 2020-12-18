@@ -86,7 +86,6 @@
 		B48EA73C258A400200F87C65 /* CDCoordination+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48EA73B258A400200F87C65 /* CDCoordination+CoreDataClass.swift */; };
 		B48EA74E258A405900F87C65 /* CDWind+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48EA74D258A405900F87C65 /* CDWind+CoreDataClass.swift */; };
 		B48EA756258A408200F87C65 /* CDCity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48EA755258A408200F87C65 /* CDCity+CoreDataClass.swift */; };
-		B48EA75B258A40AC00F87C65 /* CDCitiesInCircle+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48EA75A258A40AB00F87C65 /* CDCitiesInCircle+CoreDataClass.swift */; };
 		B48EA763258A422A00F87C65 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48EA762258A422A00F87C65 /* CoreDataStack.swift */; };
 		B4ACAF9C2588E276008141E1 /* CityListApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAF9B2588E276008141E1 /* CityListApiClient.swift */; };
 		B4ACAFA12588EA01008141E1 /* CityListApiClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAFA02588EA01008141E1 /* CityListApiClientProtocol.swift */; };
@@ -98,7 +97,6 @@
 		B4C9CA00258B75CB0022F99C /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9C9FF258B75CB0022F99C /* CoreDataService.swift */; };
 		B4C9CA08258B75E30022F99C /* CoreDataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9CA07258B75E30022F99C /* CoreDataServiceProtocol.swift */; };
 		B4F5D3D0258B86F200F511C4 /* CDStackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5D3CF258B86F200F511C4 /* CDStackProtocol.swift */; };
-		B4F5D3D5258B8EE300F511C4 /* NSManagedObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5D3D4258B8EE300F511C4 /* NSManagedObject+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -195,7 +193,6 @@
 		B48EA73B258A400200F87C65 /* CDCoordination+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDCoordination+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B48EA74D258A405900F87C65 /* CDWind+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDWind+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B48EA755258A408200F87C65 /* CDCity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDCity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		B48EA75A258A40AB00F87C65 /* CDCitiesInCircle+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDCitiesInCircle+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B48EA762258A422A00F87C65 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		B4ACAF9B2588E276008141E1 /* CityListApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListApiClient.swift; sourceTree = "<group>"; };
 		B4ACAFA02588EA01008141E1 /* CityListApiClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListApiClientProtocol.swift; sourceTree = "<group>"; };
@@ -207,7 +204,6 @@
 		B4C9C9FF258B75CB0022F99C /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		B4C9CA07258B75E30022F99C /* CoreDataServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceProtocol.swift; sourceTree = "<group>"; };
 		B4F5D3CF258B86F200F511C4 /* CDStackProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDStackProtocol.swift; sourceTree = "<group>"; };
-		B4F5D3D4258B8EE300F511C4 /* NSManagedObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Extension.swift"; sourceTree = "<group>"; };
 		DB6AE98C9E668CB646B04414 /* Pods_WeatherPlannerDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherPlannerDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E40A4CE7D6B8137F6761D3A7 /* Pods_WeatherPlannerDemo_WeatherPlannerDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherPlannerDemo_WeatherPlannerDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -586,7 +582,6 @@
 		B4ACAF7A2588CFA9008141E1 /* ManagedModels */ = {
 			isa = PBXGroup;
 			children = (
-				B48EA75A258A40AB00F87C65 /* CDCitiesInCircle+CoreDataClass.swift */,
 				B48EA755258A408200F87C65 /* CDCity+CoreDataClass.swift */,
 				B48EA74D258A405900F87C65 /* CDWind+CoreDataClass.swift */,
 				B48EA73B258A400200F87C65 /* CDCoordination+CoreDataClass.swift */,
@@ -719,7 +714,6 @@
 			children = (
 				B4F5D3CF258B86F200F511C4 /* CDStackProtocol.swift */,
 				B48EA762258A422A00F87C65 /* CoreDataStack.swift */,
-				B4F5D3D4258B8EE300F511C4 /* NSManagedObject+Extension.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -1000,7 +994,6 @@
 				B48EA74E258A405900F87C65 /* CDWind+CoreDataClass.swift in Sources */,
 				B453CB0125810DB8003D5227 /* (null) in Sources */,
 				B453C9A6257E2010003D5227 /* AppDelegate.swift in Sources */,
-				B48EA75B258A40AC00F87C65 /* CDCitiesInCircle+CoreDataClass.swift in Sources */,
 				B453CA03257E3858003D5227 /* ApiClientProtocol.swift in Sources */,
 				B453CAFC25810B6E003D5227 /* (null) in Sources */,
 				B453CAC1257FC50D003D5227 /* CityListTableViewCell.swift in Sources */,
@@ -1041,7 +1034,6 @@
 				B4881A492587AD1200AEEB27 /* CityListUseCase.swift in Sources */,
 				B453C9A8257E2010003D5227 /* SceneDelegate.swift in Sources */,
 				B48EA6852589FC3D00F87C65 /* CityListUseCaseProtocol.swift in Sources */,
-				B4F5D3D5258B8EE300F511C4 /* NSManagedObject+Extension.swift in Sources */,
 				B4881A5B2587B2F300AEEB27 /* AppDependencies.swift in Sources */,
 				B453CBAB2583A383003D5227 /* Double+StringExtension.swift in Sources */,
 				B453CBC12583A407003D5227 /* CityDetailsPresenter.swift in Sources */,

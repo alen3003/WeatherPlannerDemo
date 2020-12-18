@@ -38,16 +38,25 @@ extension City {
     init(cdCity: CDCity) {
         self.id = Int(cdCity.id)
         self.name = cdCity.name
-        self.weather = [WeatherInfo(
-                            id: Int(cdCity.weather.id),
-                            main: cdCity.weather.title,
-                            description: cdCity.weather.weatherDescription)]
-        self.main = TemperatureInfo(temp: cdCity.temperature.temp,
-                                    feels_like: cdCity.temperature.feelsLike,
-                                    temp_min: cdCity.temperature.tempMin,
-                                    temp_max: cdCity.temperature.tempMax,
-                                    humidity: cdCity.temperature.humidity)
+        self.weather = [City.weatherInfo(cdCity)]
+        self.main = City.temperatureInfo(cdCity)
         self.wind = WindInfo(speed: cdCity.wind.speed, deg: cdCity.wind.deg)
         self.coord = Coordination(lat: cdCity.coordination.latitude, lon: cdCity.coordination.longitude)
+    }
+    
+    private static func weatherInfo(_ city: CDCity) -> WeatherInfo {
+        return WeatherInfo(
+            id: Int(city.weather.id),
+            main: city.weather.title,
+            description: city.weather.weatherDescription)
+    }
+    
+    private static func temperatureInfo(_ city: CDCity) -> TemperatureInfo {
+        return TemperatureInfo(
+            temp: city.temperature.temp,
+            feels_like: city.temperature.feelsLike,
+            temp_min: city.temperature.tempMin,
+            temp_max: city.temperature.tempMax,
+            humidity: city.temperature.humidity)
     }
 }

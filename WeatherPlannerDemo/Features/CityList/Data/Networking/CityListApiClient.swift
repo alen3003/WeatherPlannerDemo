@@ -5,7 +5,7 @@ final class CityListApiClient: BaseApiClient, CityListApiClientProtocol {
     func fetchCitiesInCircle(
         _ coordinate: City.Coordination,
         range: Int,
-        resultHandler: @escaping (_ cities: CitiesInCircle) -> Void
+        resultHandler: @escaping (_ cities: [City]) -> Void
     ) {
         let parameters = CitiesInCircleQueryParameters(
             latitude: "\(coordinate.lat)",
@@ -21,7 +21,7 @@ final class CityListApiClient: BaseApiClient, CityListApiClientProtocol {
         ) { (result) in
             switch result {
             case .success(let cities):
-                resultHandler(cities)
+                resultHandler(cities.list)
             case .failure(let error):
                 Logger.print(string: "Failed fetching data - \(error.localizedDescription)")
             }

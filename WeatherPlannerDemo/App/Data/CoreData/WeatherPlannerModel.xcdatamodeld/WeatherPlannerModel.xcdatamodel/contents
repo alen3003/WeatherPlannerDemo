@@ -10,15 +10,10 @@
         <attribute name="so2" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="city" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDCity" inverseName="airPollution" inverseEntity="CDCity"/>
     </entity>
-    <entity name="CDCitiesInCircle" representedClassName="CDCitiesInCircle" syncable="YES">
-        <attribute name="count" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="cities" toMany="YES" deletionRule="Cascade" destinationEntity="CDCity" inverseName="citiesInCircle" inverseEntity="CDCity"/>
-    </entity>
     <entity name="CDCity" representedClassName="CDCity" syncable="YES">
         <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String"/>
         <relationship name="airPollution" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CDAirPollution" inverseName="city" inverseEntity="CDAirPollution"/>
-        <relationship name="citiesInCircle" maxCount="1" deletionRule="Cascade" destinationEntity="CDCitiesInCircle" inverseName="cities" inverseEntity="CDCitiesInCircle"/>
         <relationship name="coordination" maxCount="1" deletionRule="Cascade" destinationEntity="CDCoordination" inverseName="city" inverseEntity="CDCoordination"/>
         <relationship name="temperature" maxCount="1" deletionRule="Cascade" destinationEntity="CDTemperature" inverseName="city" inverseEntity="CDTemperature"/>
         <relationship name="weather" maxCount="1" deletionRule="Cascade" destinationEntity="CDWeather" inverseName="city" inverseEntity="CDWeather"/>
@@ -50,8 +45,7 @@
     </entity>
     <elements>
         <element name="CDAirPollution" positionX="93.694580078125" positionY="-204.7257080078125" width="128" height="149"/>
-        <element name="CDCitiesInCircle" positionX="-351.1416015625" positionY="-130.1334228515625" width="128" height="59"/>
-        <element name="CDCity" positionX="-86.7491455078125" positionY="-21.43524169921875" width="128" height="149"/>
+        <element name="CDCity" positionX="-86.7491455078125" positionY="-21.43524169921875" width="128" height="134"/>
         <element name="CDCoordination" positionX="314.604248046875" positionY="-27.4822998046875" width="128" height="74"/>
         <element name="CDTemperature" positionX="433.060546875" positionY="104.06640625" width="128" height="119"/>
         <element name="CDWeather" positionX="-6.049072265625" positionY="254.5767211914062" width="128" height="89"/>

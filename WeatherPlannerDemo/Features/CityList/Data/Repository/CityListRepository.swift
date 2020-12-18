@@ -20,7 +20,7 @@ class CityListRepository: CityListRepositoryProtocol {
     func fetchCities(
         _ coordinate: City.Coordination,
         range: Int,
-        resultHandler: @escaping (CitiesInCircle) -> Void
+        resultHandler: @escaping ([City]) -> Void
     ) {
         switch reachability?.connection {
         case .unavailable:
@@ -32,16 +32,15 @@ class CityListRepository: CityListRepositoryProtocol {
         }
     }
     
-    private func saveCitiesAndFetch(cities: CitiesInCircle, resultHandler: @escaping (CitiesInCircle) -> Void) {
+    private func saveCitiesAndFetch(cities: [City], resultHandler: @escaping ([City]) -> Void) {
         coreDataService.deleteCities()
-        coreDataService.createCitiesFrom(cities: cities.list)
+        coreDataService.createCitiesFrom(cities: cities)
         coreDataService.saveChangesSync()
         fetchCities(resultHandler: resultHandler)
     }
     
-    private func fetchCities(resultHandler: @escaping (CitiesInCircle) -> Void) {
-        let cdCities = coreDataService.fetchCities().map({ City(cdCity: $0) })
-        let citiesInCircle = CitiesInCircle(count: cdCities.count, list: cdCities)
-        resultHandler(citiesInCircle)
+    private func fetchCities(resultHandler: @escaping ([City]) -> Void) {
+        let cities = coreDataService.fetchCities().map({ City(cdCity: $0) })
+        resultHandler(cities)
     }
 }
