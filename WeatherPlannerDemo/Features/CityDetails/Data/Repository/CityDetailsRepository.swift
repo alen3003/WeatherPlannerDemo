@@ -24,8 +24,8 @@ class CityDetailsRepository: CityDetailsRepositoryProtocol {
     ) {
         switch reachability?.connection {
         case .unavailable:
-            let cdCity = coreDataService.fetchCityWithID(cityID)
-            fetchAirPollutionForCity(cdCity, resultHandler: resultHandler)
+            let city = coreDataService.fetchCityWithID(cityID)
+            fetchAirPollutionForCity(city, resultHandler: resultHandler)
         default:
             networkClient.fetchPollutionInfo(coordination: coordination) { [weak self] (airPollution) in
                 self?.saveAirPollutionAndFetch(airPollution: airPollution, cityID: cityID, resultHandler: resultHandler)
@@ -38,11 +38,11 @@ class CityDetailsRepository: CityDetailsRepositoryProtocol {
         cityID: Int,
         resultHandler: @escaping (_ airPollution: AirPollution) -> Void
     ) {
-        let cdCity = coreDataService.fetchCityWithID(cityID)
-        coreDataService.deleteAirPollutionsForCity(cdCity)
-        coreDataService.createAirPollutionFrom(pollution: airPollution, city: cdCity)
+        let city = coreDataService.fetchCityWithID(cityID)
+        coreDataService.deleteAirPollutionsForCity(city)
+        coreDataService.createAirPollutionFrom(pollution: airPollution, city: city)
         coreDataService.saveChangesSync()
-        fetchAirPollutionForCity(cdCity, resultHandler: resultHandler)
+        fetchAirPollutionForCity(city, resultHandler: resultHandler)
     }
     
     private func fetchAirPollutionForCity(

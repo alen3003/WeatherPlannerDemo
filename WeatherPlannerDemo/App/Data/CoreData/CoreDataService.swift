@@ -90,15 +90,7 @@ class CoreDataService: CoreDataServiceProtocol {
         }
     }
     
-    func saveChangesAsync() {
-        coreDataStack.context.perform {
-            self.coreDataStack.saveContext()
-        }
-    }
-    
     func saveChangesSync() {
-        coreDataStack.context.performAndWait {
-            coreDataStack.saveContext()
-        }
+        coreDataStack.saveContext()
     }
 }

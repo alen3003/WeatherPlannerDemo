@@ -13,6 +13,5 @@ protocol CoreDataServiceProtocol {
     @discardableResult
     func createAirPollutionFrom(pollution: AirPollution, city: CDCity?) -> CDAirPollution?
     
-    func saveChangesAsync()
     func saveChangesSync()
 }
