@@ -9,7 +9,8 @@ class CityDetailsRepository: CityDetailsRepositoryProtocol {
     
     init(networkClient: CityDetailsApiClientProtocol,
          coreDataService: CoreDataServiceProtocol,
-         reachability: Reachability?) {
+         reachability: Reachability?
+    ) {
         self.networkClient = networkClient
         self.coreDataService = coreDataService
         self.reachability = reachability

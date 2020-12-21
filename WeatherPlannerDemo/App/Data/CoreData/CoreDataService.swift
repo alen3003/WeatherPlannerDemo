@@ -8,6 +8,8 @@ class CoreDataService: CoreDataServiceProtocol {
         self.coreDataStack = coreDataStack
     }
     
+    //MARK: - Fetches
+    
     func fetchCities() -> [CDCity] {
         let request: NSFetchRequest<CDCity> = CDCity.fetchRequest()
         request.returnsObjectsAsFaults = false
@@ -46,6 +48,8 @@ class CoreDataService: CoreDataServiceProtocol {
         }
     }
     
+    //MARK: - Create CoreData Models
+    
     func createCitiesFrom(cities: [City]) -> [CDCity]? {
         let cities: [CDCity] = cities.map({
             let city = CDCity(context: coreDataStack.context)
@@ -62,6 +66,8 @@ class CoreDataService: CoreDataServiceProtocol {
         city?.airPollution = airPollution
         return airPollution
     }
+    
+    //MARK: - Delete CoreData Models
     
     func deleteCities() {
         let request: NSFetchRequest<CDCity> = CDCity.fetchRequest()
@@ -89,6 +95,8 @@ class CoreDataService: CoreDataServiceProtocol {
             Logger.print(string: "Detele air pollution data error: \(error.localizedDescription)")
         }
     }
+    
+    //MARK: - Save Changes
     
     func saveChangesSync() {
         coreDataStack.saveContext()

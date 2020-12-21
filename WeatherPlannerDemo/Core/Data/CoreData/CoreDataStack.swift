@@ -24,13 +24,12 @@ class CoreDataStack: CoreDataStackProtocol {
     }()
     
     func saveContext() {
-        if context.hasChanges {
-            context.performAndWait {
-                do {
-                    try self.context.save()
-                } catch let error {
-                    Logger.print(string: "Unable to save changes to context: \(error.localizedDescription)")
-                }
+        guard context.hasChanges else { return }
+        context.performAndWait {
+            do {
+                try self.context.save()
+            } catch let error {
+                Logger.print(string: "Unable to save changes to context: \(error.localizedDescription)")
             }
         }
     }
