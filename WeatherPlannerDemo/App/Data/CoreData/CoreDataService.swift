@@ -8,7 +8,7 @@ class CoreDataService: CoreDataServiceProtocol {
         self.coreDataStack = coreDataStack
     }
     
-    //MARK: - Fetches
+    // MARK: - Fetches
     
     func fetchCities() -> [CDCity] {
         let request: NSFetchRequest<CDCity> = CDCity.fetchRequest()
@@ -48,7 +48,7 @@ class CoreDataService: CoreDataServiceProtocol {
         }
     }
     
-    //MARK: - Create CoreData Models
+    // MARK: - Create CoreData Models
     
     func createCitiesFrom(cities: [City]) -> [CDCity]? {
         let cities: [CDCity] = cities.map({
@@ -67,7 +67,7 @@ class CoreDataService: CoreDataServiceProtocol {
         return airPollution
     }
     
-    //MARK: - Delete CoreData Models
+    // MARK: - Delete CoreData Models
     
     func deleteCities() {
         let request: NSFetchRequest<CDCity> = CDCity.fetchRequest()
@@ -96,7 +96,7 @@ class CoreDataService: CoreDataServiceProtocol {
         }
     }
     
-    //MARK: - Save Changes
+    // MARK: - Save Changes
     
     func saveChangesSync() {
         coreDataStack.saveContext()
