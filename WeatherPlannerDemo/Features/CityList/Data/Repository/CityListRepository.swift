@@ -1,5 +1,6 @@
 import Foundation
 import Reachability
+import RxSwift
 
 class CityListRepository: CityListRepositoryProtocol {
     private let networkClient: CityListApiClientProtocol
@@ -17,18 +18,13 @@ class CityListRepository: CityListRepositoryProtocol {
         self.reachability?.startReachability()
     }
     
-    func fetchCities(
-        _ coordinate: City.Coordination,
-        range: Int,
-        resultHandler: @escaping ([City]) -> Void
-    ) {
+    func fetchCities(_ coordinate: City.Coordination, range: Int) -> Observable<CitiesInCircle> {
         switch reachability?.connection {
         case .unavailable:
-            fetchCities(resultHandler: resultHandler)
+            //fetchCities(resultHandler: resultHandler)
+            return Observable<CitiesInCircle>.never()
         default:
-            networkClient.fetchCitiesInCircle(coordinate, range: range) { [weak self] (cities) in
-                self?.saveCitiesAndFetch(cities: cities, resultHandler: resultHandler)
-            }
+            return networkClient.fetchCitiesInCircle(coordinate, range: range)
         }
     }
     

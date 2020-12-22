@@ -1,17 +1,15 @@
-import Foundation
+import RxSwift
 import CoreLocation
 
 final class CityListPresenter {
+
+    var cities: Observable<[CityViewModel]>?
     
-    var title: String?
-    var cities: [CityViewModel] = []
-    
-    weak var delegate: Completable?
-    private var cityListUseCase: CityListUseCaseProtocol
     weak var coordinator: CoordinatorProtocol?
-    
+    private var cityListUseCase: CityListUseCaseProtocol
     private var citiesInRange = 15
     private var coordinate: CLLocationCoordinate2D?
+    var title: String?
     
     init(cityListUseCase: CityListUseCaseProtocol, coordinator: CoordinatorProtocol) {
         self.cityListUseCase = cityListUseCase
@@ -42,10 +40,16 @@ final class CityListPresenter {
         
         let coordinate = City.Coordination(lat: lat, lon: lon)
         
-        cityListUseCase.getCitiesInCircle(coordinate, range: citiesInRange) { [weak self] (cities) in
+        cities = cityListUseCase.getCitiesInCircle(coordinate, range: citiesInRange).map { citiesInCircle in
+            citiesInCircle.list.map({ CityViewModel(city: $0) })
+        }
+        
+        
+        
+        /*cityListUseCase.getCitiesInCircle(coordinate, range: citiesInRange) { [weak self] (cities) in
             guard let self = self else { return }
             cities.forEach({ self.cities.append(CityViewModel(city: $0)) })
             self.delegate?.didUpdateDataSource()
-        }
+        }*/
     }
 }

@@ -1,9 +1,5 @@
-import Foundation
+import RxSwift
 
 protocol CityListRepositoryProtocol {
-    func fetchCities(
-        _ coordinate: City.Coordination,
-        range: Int,
-        resultHandler: @escaping (_ cities: [City]) -> Void
-    )
+    func fetchCities(_ coordinate: City.Coordination, range: Int) -> Observable<CitiesInCircle>
 }

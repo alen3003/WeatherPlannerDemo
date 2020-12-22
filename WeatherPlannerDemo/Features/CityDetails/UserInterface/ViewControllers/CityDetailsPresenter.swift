@@ -7,7 +7,6 @@ final class CityDetailsPresenter {
     var cityViewModel: CityViewModel
     var airPollutionDetails: [AirPollutionDetailsViewModel] = []
     
-    weak var delegate: Completable?
     private var cityDetailsUseCase: CityDetailsUseCaseProtocol
     
     init(cityDetailsUseCase: CityDetailsUseCaseProtocol, cityViewModel: CityViewModel) {
@@ -28,7 +27,6 @@ final class CityDetailsPresenter {
             guard let self = self else { return }
             let airPollutionDetailsViewModel = AirPollutionViewModel(airPollution: airPollution).airPollutionDetails()
             self.airPollutionDetails.append(contentsOf: airPollutionDetailsViewModel)
-            self.delegate?.didUpdateDataSource()
         }
     }
 }

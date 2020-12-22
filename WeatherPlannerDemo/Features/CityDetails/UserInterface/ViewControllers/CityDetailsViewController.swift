@@ -23,8 +23,6 @@ class CityDetailsViewController: UIViewController {
         cityDetailsTableView.delegate = self
         cityDetailsTableView.dataSource = self
         
-        presenter.delegate = self
-        
         registerTableViewCells()
         
         presenter.fetchPollutionInfo()
@@ -36,14 +34,6 @@ class CityDetailsViewController: UIViewController {
             forCellReuseIdentifier: CityDetailsTableViewCell.reuseIdentifier)
     }
     
-}
-
-extension CityDetailsViewController: Completable {
-    func didUpdateDataSource() {
-        DispatchQueue.main.async { [weak self] in
-            self?.cityDetailsTableView.reloadData()
-        }
-    }
 }
 
 extension CityDetailsViewController: UITableViewDelegate, UITableViewDataSource {

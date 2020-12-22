@@ -1,4 +1,6 @@
 import UIKit
+import RxSwift
+import RxCocoa
 import CoreLocation
 
 class CityListViewController: UIViewController {
@@ -7,6 +9,7 @@ class CityListViewController: UIViewController {
     
     let presenter: CityListPresenter
     var locationManager: CLLocationManager?
+    let disposeBag = DisposeBag()
     
     init(presenter: CityListPresenter) {
         self.presenter = presenter
@@ -22,15 +25,11 @@ class CityListViewController: UIViewController {
         
         buildViews()
         
-        citiesTableView.delegate = self
-        citiesTableView.dataSource = self
-        
-        presenter.delegate = self
-        
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         
         registerTableViewCells()
+        //configureDataSource()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,6 +58,17 @@ class CityListViewController: UIViewController {
             forCellReuseIdentifier: CityListTableViewCell.reuseIdentifier
         )
     }
+    
+    private func configureDataSource() {
+        presenter.cities?
+            .observeOn(MainScheduler.instance)
+            .bind(to: citiesTableView.rx.items(
+                    cellIdentifier: CityListTableViewCell.reuseIdentifier,
+                    cellType: CityListTableViewCell.self)
+            ) { _, viewModel, cell in
+                cell.set(viewModel: viewModel)
+            }.disposed(by: disposeBag)
+    }
 }
 
 extension CityListViewController: CLLocationManagerDelegate {
@@ -67,15 +77,7 @@ extension CityListViewController: CLLocationManagerDelegate {
     }
 }
 
-extension CityListViewController: Completable {
-    func didUpdateDataSource() {
-        DispatchQueue.main.async { [weak self] in
-            self?.citiesTableView.reloadData()
-        }
-    }
-}
-
-extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
+/*extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.cities.count
     }
@@ -98,4 +100,4 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.openDetails(cityViewModel: presenter.cities[indexPath.row])
     }
-}
+}*/

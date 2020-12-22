@@ -1,12 +1,9 @@
-import Foundation
+import RxSwift
 
 final class CityListApiClient: BaseApiClient, CityListApiClientProtocol {
     
-    func fetchCitiesInCircle(
-        _ coordinate: City.Coordination,
-        range: Int,
-        resultHandler: @escaping (_ cities: [City]) -> Void
-    ) {
+    func fetchCitiesInCircle( _ coordinate: City.Coordination, range: Int) -> Observable<CitiesInCircle> {
+        
         let parameters = CitiesInCircleQueryParameters(
             latitude: "\(coordinate.lat)",
             longitude: "\(coordinate.lon)",
@@ -14,18 +11,10 @@ final class CityListApiClient: BaseApiClient, CityListApiClientProtocol {
             language: WeatherResponseLanguage.hr.rawValue
         ).propertyPairs()
         
-        self.get(
+        return get(
             path: ApiEndpoints.citiesInCircle.rawValue,
             queryParameters: parameters,
-            memberType: CitiesInCircle.self
-        ) { (result) in
-            switch result {
-            case .success(let cities):
-                resultHandler(cities.list)
-            case .failure(let error):
-                Logger.print(string: "Failed fetching data - \(error.localizedDescription)")
-            }
-        }
+            memberType: CitiesInCircle.self)
     }
     
 }
