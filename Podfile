@@ -8,6 +8,7 @@ target 'WeatherPlannerDemo' do
   # Pods for WeatherPlannerDemo
 pod 'PureLayout'
 pod 'SwiftLint'
+pod 'ReachabilitySwift'
 
   target 'WeatherPlannerDemoTests' do
     inherit! :search_paths

@@ -22,3 +22,21 @@ struct AirPollution: Decodable {
 struct AirPollutionWrapper: Decodable {
     let list: [AirPollution]
 }
+
+extension AirPollution {
+    init(cdAirPollution: CDAirPollution) {
+        self.main = AirQuality(aqi: Int(cdAirPollution.aqi))
+        self.components = AirPollution.airPollutionComponents(cdAirPollution)
+    }
+    
+    private static func airPollutionComponents(_ airPollution: CDAirPollution) -> AirPollutionComponents {
+        return AirPollutionComponents(
+            co: airPollution.co,
+            no: airPollution.no,
+            no2: airPollution.no2,
+            o3: airPollution.o3,
+            so2: airPollution.so2,
+            nh3: airPollution.nh3
+        )
+    }
+}

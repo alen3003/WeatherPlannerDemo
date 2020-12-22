@@ -38,6 +38,9 @@ extension CityListTableViewCell: ConstructViewsProtocol {
         cityNameLabel.font = Font.systemBold20
         temperatureLabel.font = Font.systemBold100
         
+        descriptionLabel.textAlignment = .center
+        descriptionLabel.numberOfLines = 0
+        
         innerStackView.alignment = .center
         innerStackView.axis = .vertical
         
@@ -49,7 +52,9 @@ extension CityListTableViewCell: ConstructViewsProtocol {
     func defineLayoutForViews() {
         backgroundImageView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20))
         
-        stackView.autoCenterInSuperview()
+        stackView.autoAlignAxis(toSuperviewAxis: .horizontal)
+        stackView.autoPinEdge(.left, to: .left, of: contentView, withOffset: 8)
+        stackView.autoPinEdge(.right, to: .right, of: contentView, withOffset: 8)
     }
     
 }

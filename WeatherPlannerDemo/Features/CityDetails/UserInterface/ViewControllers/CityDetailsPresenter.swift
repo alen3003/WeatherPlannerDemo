@@ -21,7 +21,10 @@ final class CityDetailsPresenter {
     }
     
     func fetchPollutionInfo() {
-        cityDetailsUseCase.getPollutionInfo(coordination: cityViewModel.coordination) { [weak self] (airPollution) in
+        cityDetailsUseCase.getPollutionInfo(
+            coordination: cityViewModel.coordination,
+            cityID: cityViewModel.cityID
+        ) { [weak self] (airPollution) in
             guard let self = self else { return }
             let airPollutionDetailsViewModel = AirPollutionViewModel(airPollution: airPollution).airPollutionDetails()
             self.airPollutionDetails.append(contentsOf: airPollutionDetailsViewModel)

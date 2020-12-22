@@ -33,3 +33,30 @@ struct City: Decodable {
     let name: String
     let coord: Coordination
 }
+
+extension City {
+    init(cdCity: CDCity) {
+        self.id = Int(cdCity.id)
+        self.name = cdCity.name
+        self.weather = [City.weatherInfo(cdCity)]
+        self.main = City.temperatureInfo(cdCity)
+        self.wind = WindInfo(speed: cdCity.wind.speed, deg: cdCity.wind.deg)
+        self.coord = Coordination(lat: cdCity.coordination.latitude, lon: cdCity.coordination.longitude)
+    }
+    
+    private static func weatherInfo(_ city: CDCity) -> WeatherInfo {
+        return WeatherInfo(
+            id: Int(city.weather.id),
+            main: city.weather.title,
+            description: city.weather.weatherDescription)
+    }
+    
+    private static func temperatureInfo(_ city: CDCity) -> TemperatureInfo {
+        return TemperatureInfo(
+            temp: city.temperature.temp,
+            feels_like: city.temperature.feelsLike,
+            temp_min: city.temperature.tempMin,
+            temp_max: city.temperature.tempMax,
+            humidity: city.temperature.humidity)
+    }
+}

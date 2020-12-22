@@ -10,7 +10,7 @@ final class CityListPresenter {
     private var cityListUseCase: CityListUseCaseProtocol
     weak var coordinator: CoordinatorProtocol?
     
-    private var citiesInRange = 30
+    private var citiesInRange = 15
     private var coordinate: CLLocationCoordinate2D?
     
     init(cityListUseCase: CityListUseCaseProtocol, coordinator: CoordinatorProtocol) {
@@ -29,9 +29,8 @@ final class CityListPresenter {
         fetchWeather()
     }
     
-    func pushCityDetailsViewController(indexPath: IndexPath) {
-        let viewModel = cities[indexPath.row]
-        coordinator?.pushCityDetailsViewController(viewModel: viewModel)
+    func openDetails(cityViewModel: CityViewModel) {
+        coordinator?.pushCityDetailsViewController(viewModel: cityViewModel)
     }
     
     private func fetchWeather() {
@@ -43,9 +42,9 @@ final class CityListPresenter {
         
         let coordinate = City.Coordination(lat: lat, lon: lon)
         
-        cityListUseCase.getCitiesInCircle(coordinate, range: citiesInRange) { [weak self] (citiesInRange) in
+        cityListUseCase.getCitiesInCircle(coordinate, range: citiesInRange) { [weak self] (cities) in
             guard let self = self else { return }
-            citiesInRange.list.forEach({ self.cities.append(CityViewModel(city: $0)) })
+            cities.forEach({ self.cities.append(CityViewModel(city: $0)) })
             self.delegate?.didUpdateDataSource()
         }
     }
