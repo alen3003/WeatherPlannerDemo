@@ -1,3 +1,3 @@
-protocol Completable: class {
+/*protocol Completable: class {
     func didUpdateDataSource()
-}
+}*/

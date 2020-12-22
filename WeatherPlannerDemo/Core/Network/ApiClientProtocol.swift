@@ -1,13 +1,12 @@
-import Foundation
+import RxSwift
 
 public protocol ApiClientProtocol {
 
     func get<ResultType: Decodable>(
         path: String,
         queryParameters: [String: String]?,
-        memberType: ResultType.Type,
-        resultHandler: @escaping (Result<ResultType, ApiError>) -> Void
-    )
+        memberType: ResultType.Type
+    ) -> Observable<ResultType>
 
 }
 
@@ -19,10 +18,9 @@ public extension ApiClientProtocol {
     func get<ResultType: Decodable>(
         path: String,
         queryParameters: [String: String]? = nil,
-        memberType: ResultType.Type,
-        resultHandler: @escaping (Result<ResultType, ApiError>) -> Void
-    ) {
-        return get(path: path, queryParameters: queryParameters, memberType: memberType, resultHandler: resultHandler)
+        memberType: ResultType.Type
+    ) -> Observable<ResultType> {
+        return get(path: path, queryParameters: queryParameters, memberType: memberType)
     }
     
 }
