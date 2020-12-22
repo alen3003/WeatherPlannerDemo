@@ -14,4 +14,5 @@ protocol CoreDataServiceProtocol {
     func createAirPollutionFrom(pollution: AirPollution, city: CDCity?) -> CDAirPollution?
     
     func saveChangesSync()
+    func saveChangesAsync(onCompleted completed: @escaping (_ success: Bool, _ error: Error?) -> Void)
 }

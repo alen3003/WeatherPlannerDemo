@@ -1,5 +1,6 @@
-import Foundation
+import CoreData
 
 protocol CoreDataStackProtocol {
-    func saveContext()
+    func saveContextSnyc()
+    func saveContextAsync(onCompleted completed: @escaping (_ success: Bool, _ error: Error?) -> Void)
 }

@@ -34,9 +34,12 @@ class CityListRepository: CityListRepositoryProtocol {
     
     private func saveCitiesAndFetch(cities: [City], resultHandler: @escaping ([City]) -> Void) {
         coreDataService.deleteCities()
-        coreDataService.createCitiesFrom(cities: cities)
         coreDataService.saveChangesSync()
-        fetchCities(resultHandler: resultHandler)
+        coreDataService.createCitiesFrom(cities: cities)
+        coreDataService.saveChangesAsync { [weak self] (success, _) in
+            guard success else { return }
+            self?.fetchCities(resultHandler: resultHandler)
+        }
     }
     
     private func fetchCities(resultHandler: @escaping ([City]) -> Void) {

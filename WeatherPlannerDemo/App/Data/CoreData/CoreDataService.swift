@@ -15,7 +15,7 @@ class CoreDataService: CoreDataServiceProtocol {
         request.returnsObjectsAsFaults = false
         
         do {
-            return try coreDataStack.context.fetch(request)
+            return try coreDataStack.mainContext.fetch(request)
         } catch let error {
             Logger.print(string: "Failed fetching data from database: \(error.localizedDescription)")
             return []
@@ -28,7 +28,7 @@ class CoreDataService: CoreDataServiceProtocol {
         request.returnsObjectsAsFaults = false
         
         do {
-            return try coreDataStack.context.fetch(request).first ?? CDCity()
+            return try coreDataStack.mainContext.fetch(request).first ?? CDCity()
         } catch let error {
             Logger.print(string: "Failed fetching data from database: \(error.localizedDescription)")
             return CDCity()
@@ -41,7 +41,7 @@ class CoreDataService: CoreDataServiceProtocol {
         request.returnsObjectsAsFaults = false
         
         do {
-            return try coreDataStack.context.fetch(request).first
+            return try coreDataStack.mainContext.fetch(request).first
         } catch let error {
             Logger.print(string: "Failed fetching data from database: \(error.localizedDescription)")
             return nil
@@ -52,8 +52,8 @@ class CoreDataService: CoreDataServiceProtocol {
     
     func createCitiesFrom(cities: [City]) -> [CDCity]? {
         let cities: [CDCity] = cities.map({
-            let city = CDCity(context: coreDataStack.context)
-            city.populate(city: $0, context: coreDataStack.context)
+            let city = CDCity(context: coreDataStack.privateContext)
+            city.populate(city: $0, context: coreDataStack.privateContext)
             return city
         })
 
@@ -61,8 +61,8 @@ class CoreDataService: CoreDataServiceProtocol {
     }
     
     func createAirPollutionFrom(pollution: AirPollution, city: CDCity?) -> CDAirPollution? {
-        let airPollution = CDAirPollution(context: coreDataStack.context)
-        airPollution.populate(airPollution: pollution, city: city, context: coreDataStack.context)
+        let airPollution = CDAirPollution(context: coreDataStack.mainContext)
+        airPollution.populate(airPollution: pollution, city: city, context: coreDataStack.mainContext)
         city?.airPollution = airPollution
         return airPollution
     }
@@ -73,10 +73,8 @@ class CoreDataService: CoreDataServiceProtocol {
         let request: NSFetchRequest<CDCity> = CDCity.fetchRequest()
         request.returnsObjectsAsFaults = false
         do {
-            let results = try coreDataStack.context.fetch(request)
-            for object in results {
-                coreDataStack.context.delete(object)
-            }
+            let results = try coreDataStack.mainContext.fetch(request)
+            results.forEach({ coreDataStack.mainContext.delete($0) })
         } catch let error {
             Logger.print(string: "Detele cities data error: \(error.localizedDescription)")
         }
@@ -87,10 +85,8 @@ class CoreDataService: CoreDataServiceProtocol {
         request.predicate = Predicates.airPollutionPredicate(city)
         request.returnsObjectsAsFaults = false
         do {
-            let results = try coreDataStack.context.fetch(request)
-            for object in results {
-                coreDataStack.context.delete(object)
-            }
+            let results = try coreDataStack.mainContext.fetch(request)
+            results.forEach({ coreDataStack.mainContext.delete($0) })
         } catch let error {
             Logger.print(string: "Detele air pollution data error: \(error.localizedDescription)")
         }
@@ -99,6 +95,10 @@ class CoreDataService: CoreDataServiceProtocol {
     // MARK: - Save Changes
     
     func saveChangesSync() {
-        coreDataStack.saveContext()
+        coreDataStack.saveContextSnyc()
+    }
+    
+    func saveChangesAsync(onCompleted completed: @escaping (_ success: Bool, _ error: Error?) -> Void) {
+        coreDataStack.saveContextAsync(onCompleted: completed)
     }
 }

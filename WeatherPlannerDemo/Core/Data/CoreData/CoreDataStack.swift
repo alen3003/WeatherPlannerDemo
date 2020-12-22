@@ -8,10 +8,6 @@ class CoreDataStack: CoreDataStackProtocol {
     init(containerName: String) {
         self.containerName = containerName
     }
-
-    public private(set) lazy var context: NSManagedObjectContext = {
-        return persistentContainer.viewContext
-    }()
     
     public private(set) lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: containerName)
@@ -22,14 +18,35 @@ class CoreDataStack: CoreDataStackProtocol {
         }
         return container
     }()
+
+    public private(set) lazy var mainContext: NSManagedObjectContext = {
+        return persistentContainer.viewContext
+    }()
     
-    func saveContext() {
-        guard context.hasChanges else { return }
-        context.performAndWait {
+    public private(set) lazy var privateContext: NSManagedObjectContext = {
+        return persistentContainer.newBackgroundContext()
+    }()
+    
+    func saveContextSnyc() {
+        guard mainContext.hasChanges else { return }
+        mainContext.performAndWait { [weak self] in
             do {
-                try self.context.save()
+                try self?.mainContext.save()
             } catch let error {
-                Logger.print(string: "Unable to save changes to context: \(error.localizedDescription)")
+                Logger.print(string: "Unable to save changes to context sync: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func saveContextAsync(onCompleted completed: @escaping (_ success: Bool, _ error: Error?) -> Void) {
+        guard privateContext.hasChanges else { return }
+        privateContext.perform { [weak self] in
+            do {
+                try self?.privateContext.save()
+                completed(true, nil)
+            } catch let error {
+                Logger.print(string: "Unable to save changes to context async: \(error.localizedDescription)")
+                completed(false, error)
             }
         }
     }
