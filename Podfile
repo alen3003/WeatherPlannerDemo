@@ -11,6 +11,7 @@ pod 'SwiftLint'
 pod 'ReachabilitySwift'
 pod 'RxSwift'
 pod 'RxCocoa'
+pod 'RxDataSources', '~> 4.0'
 
   target 'WeatherPlannerDemoTests' do
     inherit! :search_paths

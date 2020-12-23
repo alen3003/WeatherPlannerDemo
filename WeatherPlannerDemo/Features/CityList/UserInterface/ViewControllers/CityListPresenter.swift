@@ -10,10 +10,11 @@ final class CityListPresenter {
         }
     }
     
+    private let citiesInRange = 15
+    private let coordinateSubject: PublishSubject<CLLocationCoordinate2D> = PublishSubject()
+    
     weak var coordinator: CoordinatorProtocol?
     private var cityListUseCase: CityListUseCaseProtocol
-    private var citiesInRange = 15
-    private let coordinateSubject: PublishSubject<CLLocationCoordinate2D> = PublishSubject()
     var title: String?
     
     init(cityListUseCase: CityListUseCaseProtocol, coordinator: CoordinatorProtocol) {
