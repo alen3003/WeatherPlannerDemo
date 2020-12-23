@@ -8,6 +8,8 @@ class CityListViewController: UIViewController {
     
     var citiesTableView: UITableView!
     
+    public typealias CityListTableViewDataSource =
+        RxTableViewSectionedAnimatedDataSource<AnimatableSection<CityViewModel>>
     let presenter: CityListPresenter
     var locationManager: CLLocationManager?
     let disposeBag = DisposeBag()
@@ -55,28 +57,29 @@ class CityListViewController: UIViewController {
     }
     
     private func configureDataSource() {
-        /*let dataSource = RxTableViewSectionedAnimatedDataSource<CityViewModelSection>(
+        let dataSource = CityListTableViewDataSource(
             animationConfiguration: AnimationConfiguration(
-                insertAnimation: .automatic,
-                reloadAnimation: .automatic,
-                deleteAnimation: .automatic),
-            configureCell: { (_, tableView, indexPath, element) -> UITableViewCell in
+                insertAnimation: .top,
+                reloadAnimation: .top,
+                deleteAnimation: .top),
+            configureCell: { (_, tableView, indexPath, viewModel) in
                 guard let cell = tableView.dequeueReusableCell(
                         withIdentifier: CityListTableViewCell.reuseIdentifier,
-                        for: indexPath) as? CityListTableViewCell else { return UITableViewCell() }
-                cell.set(viewModel: element)
+                        for: indexPath) as? CityListTableViewCell
+                else {
+                    return UITableViewCell()
+                }
+                
+                cell.set(viewModel: viewModel)
                 return cell
             }
-        )*/
+        )
         
         presenter.cities
             .observeOn(MainScheduler.instance)
-            .bind(to: citiesTableView.rx.items(
-                    cellIdentifier: CityListTableViewCell.reuseIdentifier,
-                    cellType: CityListTableViewCell.self)
-            ) { _, viewModel, cell in
-                cell.set(viewModel: viewModel)
-            }.disposed(by: disposeBag)
+            .mapToAnimatableSection()
+            .bind(to: citiesTableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
     }
     
     private func setOnClickEvent() {

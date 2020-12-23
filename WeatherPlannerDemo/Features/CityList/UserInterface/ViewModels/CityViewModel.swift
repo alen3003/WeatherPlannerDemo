@@ -1,4 +1,5 @@
 import RxDataSources
+import RxCocoa
 
 class CityViewModel {
     
@@ -40,26 +41,11 @@ class CityViewModel {
 
 extension CityViewModel: IdentifiableType, Equatable {
     typealias Identity = Int
-    var identity: Int {
-        return self.cityID
+    var identity: Identity {
+        return cityID
     }
     
     static func == (lhs: CityViewModel, rhs: CityViewModel) -> Bool {
-        return lhs.cityID == rhs.cityID
-    }
-}
-
-struct CityViewModelSection: AnimatableSectionModelType {
-    var items: [CityViewModel]
-    
-    typealias Item = CityViewModel
-    init(original: CityViewModelSection, items: [CityViewModel]) {
-        self = original
-        self.items = items
-    }
-    
-    typealias Identity = String
-    var identity: String {
-        return ""
+        return lhs.identity == rhs.identity
     }
 }
