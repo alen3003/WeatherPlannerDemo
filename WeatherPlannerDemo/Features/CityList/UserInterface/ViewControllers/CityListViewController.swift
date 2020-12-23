@@ -1,7 +1,7 @@
 import UIKit
-import RxSwift
-import RxCocoa
 import CoreLocation
+import RxCocoa
+import RxSwift
 
 class CityListViewController: UIViewController {
     
@@ -28,18 +28,12 @@ class CityListViewController: UIViewController {
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         
-        registerTableViewCells()
-        //configureDataSource()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         askForLocationServicesIfNeeded()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        locationManager?.stopUpdatingLocation()
+        
+        citiesTableView.rx.setDelegate(self).disposed(by: disposeBag)
+        registerTableViewCells()
+        configureDataSource()
+        setOnClickEvent()
     }
     
     private func askForLocationServicesIfNeeded() {
@@ -60,7 +54,7 @@ class CityListViewController: UIViewController {
     }
     
     private func configureDataSource() {
-        presenter.cities?
+        presenter.cities
             .observeOn(MainScheduler.instance)
             .bind(to: citiesTableView.rx.items(
                     cellIdentifier: CityListTableViewCell.reuseIdentifier,
@@ -69,35 +63,27 @@ class CityListViewController: UIViewController {
                 cell.set(viewModel: viewModel)
             }.disposed(by: disposeBag)
     }
+    
+    private func setOnClickEvent() {
+        citiesTableView.rx
+            .modelSelected(CityViewModel.self)
+            .subscribe(onNext: { [weak self] viewModel in
+                guard let self = self else { return }
+                self.presenter.openDetails(cityViewModel: viewModel)
+           }).disposed(by: disposeBag)
+    }
 }
 
 extension CityListViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        locationManager?.stopUpdatingLocation()
+        locationManager?.delegate = nil
         presenter.setLocation(coordinate: locations[0].coordinate)
     }
 }
 
-/*extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.cities.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = citiesTableView.dequeueReusableCell(
-                withIdentifier: CityListTableViewCell.reuseIdentifier,
-                for: indexPath) as? CityListTableViewCell
-        else { return UITableViewCell() }
-        
-        cell.set(viewModel: presenter.cities[indexPath.row])
-        
-        return cell
-    }
-    
+extension CityListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 350
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.openDetails(cityViewModel: presenter.cities[indexPath.row])
-    }
-}*/
+}

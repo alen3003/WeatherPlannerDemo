@@ -13,8 +13,7 @@ final class CityListApiClient: BaseApiClient, CityListApiClientProtocol {
         
         return get(
             path: ApiEndpoints.citiesInCircle.rawValue,
-            queryParameters: parameters,
-            memberType: CitiesInCircle.self)
+            queryParameters: parameters)
     }
     
 }

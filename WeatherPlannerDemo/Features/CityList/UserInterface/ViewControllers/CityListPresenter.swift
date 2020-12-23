@@ -1,14 +1,19 @@
-import RxSwift
 import CoreLocation
+import RxSwift
 
 final class CityListPresenter {
 
-    var cities: Observable<[CityViewModel]>?
+    var cities: Observable<[CityViewModel]> {
+        return coordinateSubject.asObservable().flatMap { [weak self] coordinate -> Observable<[CityViewModel]> in
+            guard let self = self else { return .just([]) }
+            return self.fetchWeather(coordinate: coordinate)
+        }
+    }
     
     weak var coordinator: CoordinatorProtocol?
     private var cityListUseCase: CityListUseCaseProtocol
     private var citiesInRange = 15
-    private var coordinate: CLLocationCoordinate2D?
+    private let coordinateSubject: PublishSubject<CLLocationCoordinate2D> = PublishSubject()
     var title: String?
     
     init(cityListUseCase: CityListUseCaseProtocol, coordinator: CoordinatorProtocol) {
@@ -22,34 +27,17 @@ final class CityListPresenter {
     }
     
     func setLocation(coordinate: CLLocationCoordinate2D) {
-        guard self.coordinate == nil else { return }
-        self.coordinate = coordinate
-        fetchWeather()
+        coordinateSubject.onNext(coordinate)
     }
     
     func openDetails(cityViewModel: CityViewModel) {
         coordinator?.pushCityDetailsViewController(viewModel: cityViewModel)
     }
     
-    private func fetchWeather() {
-        guard let lat = coordinate?.latitude,
-              let lon = coordinate?.longitude
-        else {
-            return
-        }
-        
-        let coordinate = City.Coordination(lat: lat, lon: lon)
-        
-        cities = cityListUseCase.getCitiesInCircle(coordinate, range: citiesInRange).map { citiesInCircle in
+    private func fetchWeather(coordinate: CLLocationCoordinate2D) -> Observable<[CityViewModel]> {
+        let coordinate = City.Coordination(lat: coordinate.latitude, lon: coordinate.longitude)
+        return cityListUseCase.getCitiesInCircle(coordinate, range: citiesInRange).map { citiesInCircle in
             citiesInCircle.list.map({ CityViewModel(city: $0) })
         }
-        
-        
-        
-        /*cityListUseCase.getCitiesInCircle(coordinate, range: citiesInRange) { [weak self] (cities) in
-            guard let self = self else { return }
-            cities.forEach({ self.cities.append(CityViewModel(city: $0)) })
-            self.delegate?.didUpdateDataSource()
-        }*/
     }
 }

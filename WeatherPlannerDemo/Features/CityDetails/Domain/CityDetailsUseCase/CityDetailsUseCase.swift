@@ -1,4 +1,4 @@
-import Foundation
+import RxSwift
 
 class CityDetailsUseCase: CityDetailsUseCaseProtocol {
     private let cityDetailsRepository: CityDetailsRepositoryProtocol
@@ -7,14 +7,7 @@ class CityDetailsUseCase: CityDetailsUseCaseProtocol {
         self.cityDetailsRepository = cityDetailsRepository
     }
     
-    func getPollutionInfo(
-        coordination: City.Coordination,
-        cityID: Int,
-        resultHandler: @escaping (_ airPollutionDetailsViewModel: AirPollution) -> Void
-    ) {
-        cityDetailsRepository.fetchPollutionInfo(
-            coordination: coordination,
-            cityID: cityID,
-            resultHandler: resultHandler)
+    func getPollutionInfo(coordination: City.Coordination, cityID: Int) -> Observable<AirPollutionWrapper> {
+        return cityDetailsRepository.fetchPollutionInfo(coordination: coordination, cityID: cityID)
     }
 }

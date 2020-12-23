@@ -13,8 +13,7 @@ public class BaseApiClient: ApiClientProtocol {
     
     public func get<ResultType: Decodable>(
         path: String,
-        queryParameters: [String: String]?,
-        memberType: ResultType.Type
+        queryParameters: [String: String]?
     ) -> Observable<ResultType> {
         executeAndReturn(path: path, method: .get, parameters: queryParameters)
     }

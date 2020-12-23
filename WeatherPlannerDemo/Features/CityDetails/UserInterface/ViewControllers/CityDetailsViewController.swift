@@ -1,10 +1,13 @@
 import UIKit
+import RxCocoa
+import RxSwift
 
 class CityDetailsViewController: UIViewController {
     
     var cityDetailsTableView: UITableView!
     
     let presenter: CityDetailsPresenter
+    let disposeBag = DisposeBag()
     
     init(presenter: CityDetailsPresenter) {
         self.presenter = presenter
@@ -20,12 +23,9 @@ class CityDetailsViewController: UIViewController {
 
         buildViews()
         
-        cityDetailsTableView.delegate = self
-        cityDetailsTableView.dataSource = self
-        
+        cityDetailsTableView.rx.setDelegate(self).disposed(by: disposeBag)
         registerTableViewCells()
-        
-        presenter.fetchPollutionInfo()
+        configureDataSource()
     }
     
     private func registerTableViewCells() {
@@ -34,24 +34,19 @@ class CityDetailsViewController: UIViewController {
             forCellReuseIdentifier: CityDetailsTableViewCell.reuseIdentifier)
     }
     
+    private func configureDataSource() {
+        presenter.airPollutionDetails
+            .observeOn(MainScheduler.instance)
+            .bind(to: cityDetailsTableView.rx.items(
+                    cellIdentifier: CityDetailsTableViewCell.reuseIdentifier,
+                    cellType: CityDetailsTableViewCell.self)
+            ) { _, viewModel, cell in
+                cell.set(viewModel)
+            }.disposed(by: disposeBag)
+    }
 }
 
-extension CityDetailsViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.airPollutionDetails.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = cityDetailsTableView.dequeueReusableCell(
-                withIdentifier: CityDetailsTableViewCell.reuseIdentifier,
-                for: indexPath) as? CityDetailsTableViewCell
-        else { return UITableViewCell() }
-        
-        cell.set(presenter.airPollutionDetails[indexPath.row])
-        
-        return cell
-    }
-    
+extension CityDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = CityDetailsHeaderView()
         headerView.set(viewModel: presenter.cityViewModel)

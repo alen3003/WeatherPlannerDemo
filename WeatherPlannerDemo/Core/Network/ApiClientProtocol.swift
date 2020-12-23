@@ -4,8 +4,7 @@ public protocol ApiClientProtocol {
 
     func get<ResultType: Decodable>(
         path: String,
-        queryParameters: [String: String]?,
-        memberType: ResultType.Type
+        queryParameters: [String: String]?
     ) -> Observable<ResultType>
 
 }
@@ -17,10 +16,9 @@ public extension ApiClientProtocol {
 
     func get<ResultType: Decodable>(
         path: String,
-        queryParameters: [String: String]? = nil,
-        memberType: ResultType.Type
+        queryParameters: [String: String]? = nil
     ) -> Observable<ResultType> {
-        return get(path: path, queryParameters: queryParameters, memberType: memberType)
+        return get(path: path, queryParameters: queryParameters)
     }
     
 }

@@ -1,8 +1,5 @@
-import Foundation
+import RxSwift
 
 protocol CityDetailsApiClientProtocol {
-    func fetchPollutionInfo(
-        coordination: City.Coordination,
-        resultHandler: @escaping (_ airPollutionDetailsViewModel: AirPollution) -> Void
-    )
+    func fetchPollutionInfo(coordination: City.Coordination) -> Observable<AirPollutionWrapper>
 }

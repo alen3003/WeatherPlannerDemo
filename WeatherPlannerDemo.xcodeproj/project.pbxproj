@@ -39,7 +39,6 @@
 		B453CAAD257FAC5A003D5227 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B453CAAC257FAC5A003D5227 /* Localizable.strings */; };
 		B453CAB2257FB15D003D5227 /* CitiesInCircleQueryParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453CAB1257FB15D003D5227 /* CitiesInCircleQueryParameters.swift */; };
 		B453CAB7257FB58E003D5227 /* CitiesInCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453CAB6257FB58E003D5227 /* CitiesInCircle.swift */; };
-		B453CABC257FC0ED003D5227 /* Completable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453CABB257FC0ED003D5227 /* Completable.swift */; };
 		B453CAC1257FC50D003D5227 /* CityListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453CAC0257FC50D003D5227 /* CityListTableViewCell.swift */; };
 		B453CAC6257FC57F003D5227 /* CityListTableViewCell+Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453CAC5257FC57F003D5227 /* CityListTableViewCell+Design.swift */; };
 		B453CAD52580EF3A003D5227 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -160,7 +159,6 @@
 		B453CAAC257FAC5A003D5227 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		B453CAB1257FB15D003D5227 /* CitiesInCircleQueryParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesInCircleQueryParameters.swift; sourceTree = "<group>"; };
 		B453CAB6257FB58E003D5227 /* CitiesInCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesInCircle.swift; sourceTree = "<group>"; };
-		B453CABB257FC0ED003D5227 /* Completable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Completable.swift; sourceTree = "<group>"; };
 		B453CAC0257FC50D003D5227 /* CityListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListTableViewCell.swift; sourceTree = "<group>"; };
 		B453CAC5257FC57F003D5227 /* CityListTableViewCell+Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CityListTableViewCell+Design.swift"; sourceTree = "<group>"; };
 		B453CB8F258399B1003D5227 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
@@ -378,7 +376,6 @@
 				B4881A382587A6EB00AEEB27 /* Network */,
 				B4C9CA16258B7D150022F99C /* Data */,
 				B453CA73257F9623003D5227 /* ConstructViewsProtocol.swift */,
-				B453CABB257FC0ED003D5227 /* Completable.swift */,
 				B453CA46257E7DF2003D5227 /* Logger.swift */,
 				B4C9C9F7258B67730022F99C /* Reachability+Extension.swift */,
 			);
@@ -1030,7 +1027,6 @@
 				B453CBA92583A383003D5227 /* Color.swift in Sources */,
 				B4881A6F2587B48A00AEEB27 /* CityDetailsRepositoryProtocol.swift in Sources */,
 				B4F5D3D0258B86F200F511C4 /* CDStackProtocol.swift in Sources */,
-				B453CABC257FC0ED003D5227 /* Completable.swift in Sources */,
 				B4881A6A2587B45800AEEB27 /* CityDetailsRepository.swift in Sources */,
 				B453CA47257E7DF2003D5227 /* Logger.swift in Sources */,
 				B453CAB7257FB58E003D5227 /* CitiesInCircle.swift in Sources */,
