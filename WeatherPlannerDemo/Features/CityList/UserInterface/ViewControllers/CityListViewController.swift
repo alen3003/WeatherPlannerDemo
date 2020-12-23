@@ -2,6 +2,7 @@ import UIKit
 import CoreLocation
 import RxCocoa
 import RxSwift
+import RxDataSources
 
 class CityListViewController: UIViewController {
     
@@ -54,6 +55,20 @@ class CityListViewController: UIViewController {
     }
     
     private func configureDataSource() {
+        /*let dataSource = RxTableViewSectionedAnimatedDataSource<CityViewModelSection>(
+            animationConfiguration: AnimationConfiguration(
+                insertAnimation: .automatic,
+                reloadAnimation: .automatic,
+                deleteAnimation: .automatic),
+            configureCell: { (_, tableView, indexPath, element) -> UITableViewCell in
+                guard let cell = tableView.dequeueReusableCell(
+                        withIdentifier: CityListTableViewCell.reuseIdentifier,
+                        for: indexPath) as? CityListTableViewCell else { return UITableViewCell() }
+                cell.set(viewModel: element)
+                return cell
+            }
+        )*/
+        
         presenter.cities
             .observeOn(MainScheduler.instance)
             .bind(to: citiesTableView.rx.items(

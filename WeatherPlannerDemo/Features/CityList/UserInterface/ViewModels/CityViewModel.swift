@@ -1,4 +1,4 @@
-import Foundation
+import RxDataSources
 
 class CityViewModel {
     
@@ -35,5 +35,31 @@ class CityViewModel {
         self.maxTemperature = "\(LocalizationKey.maxTemp.string) \(Int(city.temperature.tempMax))"
             .appendMeasuringUnit(.celsius, spacing: false)
         self.windSpeed = "\(LocalizationKey.windSpeed.string) \(city.wind.speed)".appendMeasuringUnit(.velocityBasic)
+    }
+}
+
+extension CityViewModel: IdentifiableType, Equatable {
+    typealias Identity = Int
+    var identity: Int {
+        return self.cityID
+    }
+    
+    static func == (lhs: CityViewModel, rhs: CityViewModel) -> Bool {
+        return lhs.cityID == rhs.cityID
+    }
+}
+
+struct CityViewModelSection: AnimatableSectionModelType {
+    var items: [CityViewModel]
+    
+    typealias Item = CityViewModel
+    init(original: CityViewModelSection, items: [CityViewModel]) {
+        self = original
+        self.items = items
+    }
+    
+    typealias Identity = String
+    var identity: String {
+        return ""
     }
 }
