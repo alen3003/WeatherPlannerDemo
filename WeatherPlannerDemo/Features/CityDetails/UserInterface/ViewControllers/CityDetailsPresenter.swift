@@ -6,9 +6,7 @@ final class CityDetailsPresenter {
         return cityViewModel.cityName
     }
     
-    var airPollutionDetails: Observable<[AirPollutionDetailsViewModel]> {
-        return fetchPollutionInfo()
-    }
+    var airPollutionDetails: Observable<[AirPollutionDetailsViewModel]>!
     
     var cityViewModel: CityViewModel
     private var cityDetailsUseCase: CityDetailsUseCaseProtocol
@@ -16,6 +14,7 @@ final class CityDetailsPresenter {
     init(cityDetailsUseCase: CityDetailsUseCaseProtocol, cityViewModel: CityViewModel) {
         self.cityViewModel = cityViewModel
         self.cityDetailsUseCase = cityDetailsUseCase
+        airPollutionDetails = fetchPollutionInfo()
     }
     
     

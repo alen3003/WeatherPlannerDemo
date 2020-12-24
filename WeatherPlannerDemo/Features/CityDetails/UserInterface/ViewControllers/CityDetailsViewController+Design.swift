@@ -9,7 +9,7 @@ extension CityDetailsViewController: ConstructViewsProtocol {
     }
     
     func createViews() {
-        cityDetailsTableView = UITableView()
+        cityDetailsTableView = UITableView(frame: .zero, style: .grouped)
         cityDetailsTableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(cityDetailsTableView)
     }
