@@ -10,20 +10,17 @@ final class CityListPresenter {
         }
     }
     
-    private let coordinateSubject: PublishSubject<CLLocationCoordinate2D> = PublishSubject()
+    var title: String {
+        return LocalizationKey.helloMessage.string
+    }
     
+    private let coordinateSubject: PublishSubject<CLLocationCoordinate2D> = PublishSubject()
     weak var coordinator: CoordinatorProtocol?
     private var cityListUseCase: CityListUseCaseProtocol
-    var title: String?
     
     init(cityListUseCase: CityListUseCaseProtocol, coordinator: CoordinatorProtocol) {
         self.cityListUseCase = cityListUseCase
         self.coordinator = coordinator
-        setControllerTitle()
-    }
-    
-    private func setControllerTitle() {
-        title = LocalizationKey.helloMessage.string
     }
     
     func setLocation(coordinate: CLLocationCoordinate2D) {

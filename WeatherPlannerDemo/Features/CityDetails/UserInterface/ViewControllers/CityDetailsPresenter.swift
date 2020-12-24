@@ -2,23 +2,22 @@ import RxSwift
 
 final class CityDetailsPresenter {
     
-    var title: String?
+    var title: String {
+        return cityViewModel.cityName
+    }
+    
+    var airPollutionDetails: Observable<[AirPollutionDetailsViewModel]> {
+        return fetchPollutionInfo()
+    }
     
     var cityViewModel: CityViewModel
-    var airPollutionDetails: Observable<[AirPollutionDetailsViewModel]> = .just([])
-    
     private var cityDetailsUseCase: CityDetailsUseCaseProtocol
     
     init(cityDetailsUseCase: CityDetailsUseCaseProtocol, cityViewModel: CityViewModel) {
         self.cityViewModel = cityViewModel
         self.cityDetailsUseCase = cityDetailsUseCase
-        setControllerTitle()
-        airPollutionDetails = fetchPollutionInfo()
     }
     
-    private func setControllerTitle() {
-        title = cityViewModel.cityName
-    }
     
     private func fetchPollutionInfo() -> Observable<[AirPollutionDetailsViewModel]> {
         return cityDetailsUseCase.getPollutionInfo(

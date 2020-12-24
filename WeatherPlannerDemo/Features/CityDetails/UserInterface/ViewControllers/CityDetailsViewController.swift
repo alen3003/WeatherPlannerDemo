@@ -41,9 +41,9 @@ class CityDetailsViewController: UIViewController {
     private func configureDataSource() {
         let dataSource = CityDetailsTableViewDataSource(
             animationConfiguration: AnimationConfiguration(
-                insertAnimation: .top,
-                reloadAnimation: .top,
-                deleteAnimation: .top),
+                insertAnimation: .fade,
+                reloadAnimation: .fade,
+                deleteAnimation: .fade),
             configureCell: { (_, tableView, indexPath, viewModel) in
                 guard let cell = tableView.dequeueReusableCell(
                         withIdentifier: CityDetailsTableViewCell.reuseIdentifier,
@@ -57,10 +57,9 @@ class CityDetailsViewController: UIViewController {
             }
         )
         
-        
         presenter.airPollutionDetails
-            .observeOn(MainScheduler.instance)
             .mapToAnimatableSection()
+            .observeOn(MainScheduler.instance)
             .bind(to: cityDetailsTableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
     }

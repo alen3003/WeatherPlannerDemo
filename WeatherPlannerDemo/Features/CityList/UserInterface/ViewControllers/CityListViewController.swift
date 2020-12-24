@@ -59,9 +59,9 @@ class CityListViewController: UIViewController {
     private func configureDataSource() {
         let dataSource = CityListTableViewDataSource(
             animationConfiguration: AnimationConfiguration(
-                insertAnimation: .top,
-                reloadAnimation: .top,
-                deleteAnimation: .top),
+                insertAnimation: .fade,
+                reloadAnimation: .fade,
+                deleteAnimation: .fade),
             configureCell: { (_, tableView, indexPath, viewModel) in
                 guard let cell = tableView.dequeueReusableCell(
                         withIdentifier: CityListTableViewCell.reuseIdentifier,
@@ -76,8 +76,8 @@ class CityListViewController: UIViewController {
         )
         
         presenter.cities
-            .observeOn(MainScheduler.instance)
             .mapToAnimatableSection()
+            .observeOn(MainScheduler.instance)
             .bind(to: citiesTableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
     }
