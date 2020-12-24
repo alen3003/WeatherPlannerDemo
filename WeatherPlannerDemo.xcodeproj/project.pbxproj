@@ -11,6 +11,8 @@
 		5AF2BC8878F3C00C0C9823E2 /* Pods_WeatherPlannerDemo_WeatherPlannerDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40A4CE7D6B8137F6761D3A7 /* Pods_WeatherPlannerDemo_WeatherPlannerDemoUITests.framework */; };
 		87C945DCF90E289CA788F9ED /* Pods_WeatherPlannerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A36063A48192A785255E7EE /* Pods_WeatherPlannerDemo.framework */; };
 		B407F9EB2593A301007F221A /* RxDataSources+Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = B407F9EA2593A301007F221A /* RxDataSources+Section.swift */; };
+		B421D88A2594DBD5007F28F7 /* FetchedResultsController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B421D8892594DBD5007F28F7 /* FetchedResultsController+Rx.swift */; };
+		B421D88F2594DC12007F28F7 /* NSManagedObjectContext+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B421D88E2594DC12007F28F7 /* NSManagedObjectContext+Rx.swift */; };
 		B42EA113258CBA0F00FF6DEB /* Predicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42EA112258CBA0F00FF6DEB /* Predicates.swift */; };
 		B453C9A6257E2010003D5227 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453C9A5257E2010003D5227 /* AppDelegate.swift */; };
 		B453C9A8257E2010003D5227 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453C9A7257E2010003D5227 /* SceneDelegate.swift */; };
@@ -127,6 +129,8 @@
 		A8AFFCF5F4FF99AFC91B75E5 /* Pods-WeatherPlannerDemo-WeatherPlannerDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherPlannerDemo-WeatherPlannerDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-WeatherPlannerDemo-WeatherPlannerDemoUITests/Pods-WeatherPlannerDemo-WeatherPlannerDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B3314DDE04066065537C384C /* Pods-WeatherPlannerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherPlannerDemo.release.xcconfig"; path = "Target Support Files/Pods-WeatherPlannerDemo/Pods-WeatherPlannerDemo.release.xcconfig"; sourceTree = "<group>"; };
 		B407F9EA2593A301007F221A /* RxDataSources+Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxDataSources+Section.swift"; sourceTree = "<group>"; };
+		B421D8892594DBD5007F28F7 /* FetchedResultsController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FetchedResultsController+Rx.swift"; sourceTree = "<group>"; };
+		B421D88E2594DC12007F28F7 /* NSManagedObjectContext+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Rx.swift"; sourceTree = "<group>"; };
 		B42EA112258CBA0F00FF6DEB /* Predicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Predicates.swift; sourceTree = "<group>"; };
 		B453C9A2257E2010003D5227 /* WeatherPlannerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherPlannerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B453C9A5257E2010003D5227 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -720,6 +724,8 @@
 			children = (
 				B4F5D3CF258B86F200F511C4 /* CDStackProtocol.swift */,
 				B48EA762258A422A00F87C65 /* CoreDataStack.swift */,
+				B421D8892594DBD5007F28F7 /* FetchedResultsController+Rx.swift */,
+				B421D88E2594DC12007F28F7 /* NSManagedObjectContext+Rx.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -1005,6 +1011,7 @@
 				B453CA08257E38EF003D5227 /* BaseApiClient.swift in Sources */,
 				B453CAF725810857003D5227 /* (null) in Sources */,
 				B453CBC62583A41F003D5227 /* AirPollutionQueryParameters.swift in Sources */,
+				B421D88A2594DBD5007F28F7 /* FetchedResultsController+Rx.swift in Sources */,
 				B48EA74E258A405900F87C65 /* CDWind+CoreDataClass.swift in Sources */,
 				B453CB0125810DB8003D5227 /* (null) in Sources */,
 				B453C9A6257E2010003D5227 /* AppDelegate.swift in Sources */,
@@ -1054,6 +1061,7 @@
 				B4C9C9F8258B67730022F99C /* Reachability+Extension.swift in Sources */,
 				B453CB1925812817003D5227 /* (null) in Sources */,
 				B4ACAFAB2588F204008141E1 /* CityDetailsApiClientProtocol.swift in Sources */,
+				B421D88F2594DC12007F28F7 /* NSManagedObjectContext+Rx.swift in Sources */,
 				B453CBCE2583A438003D5227 /* CityDetailsHeaderView+Design.swift in Sources */,
 				B453CBCF2583A438003D5227 /* CityDetailsTableViewCell.swift in Sources */,
 				B453CAD52580EF3A003D5227 /* (null) in Sources */,
