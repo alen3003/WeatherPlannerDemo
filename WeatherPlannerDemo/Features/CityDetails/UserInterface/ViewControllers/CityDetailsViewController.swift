@@ -1,10 +1,14 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import RxDataSources
 
 class CityDetailsViewController: UIViewController {
     
     var cityDetailsTableView: UITableView!
+    
+    public typealias CityDetailsTableViewDataSource =
+        RxTableViewSectionedAnimatedDataSource<AnimatableSection<AirPollutionDetailsViewModel>>
     
     let presenter: CityDetailsPresenter
     let disposeBag = DisposeBag()
@@ -35,14 +39,30 @@ class CityDetailsViewController: UIViewController {
     }
     
     private func configureDataSource() {
+        let dataSource = CityDetailsTableViewDataSource(
+            animationConfiguration: AnimationConfiguration(
+                insertAnimation: .top,
+                reloadAnimation: .top,
+                deleteAnimation: .top),
+            configureCell: { (_, tableView, indexPath, viewModel) in
+                guard let cell = tableView.dequeueReusableCell(
+                        withIdentifier: CityDetailsTableViewCell.reuseIdentifier,
+                        for: indexPath) as? CityDetailsTableViewCell
+                else {
+                    return UITableViewCell()
+                }
+                
+                cell.set(viewModel: viewModel)
+                return cell
+            }
+        )
+        
+        
         presenter.airPollutionDetails
             .observeOn(MainScheduler.instance)
-            .bind(to: cityDetailsTableView.rx.items(
-                    cellIdentifier: CityDetailsTableViewCell.reuseIdentifier,
-                    cellType: CityDetailsTableViewCell.self)
-            ) { _, viewModel, cell in
-                cell.set(viewModel)
-            }.disposed(by: disposeBag)
+            .mapToAnimatableSection()
+            .bind(to: cityDetailsTableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
     }
 }
 

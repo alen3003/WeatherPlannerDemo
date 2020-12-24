@@ -10,7 +10,6 @@ final class CityListPresenter {
         }
     }
     
-    private let citiesInRange = 15
     private let coordinateSubject: PublishSubject<CLLocationCoordinate2D> = PublishSubject()
     
     weak var coordinator: CoordinatorProtocol?
@@ -37,7 +36,9 @@ final class CityListPresenter {
     
     private func fetchWeather(coordinate: CLLocationCoordinate2D) -> Observable<[CityViewModel]> {
         let coordinate = City.Coordination(lat: coordinate.latitude, lon: coordinate.longitude)
-        return cityListUseCase.getCitiesInCircle(coordinate, range: citiesInRange).map { citiesInCircle in
+        return cityListUseCase.getCitiesInCircle(
+            coordinate,
+            range: Constants.noOfCitiesInCircle).map { citiesInCircle in
             citiesInCircle.list.map({ CityViewModel(city: $0) })
         }
     }

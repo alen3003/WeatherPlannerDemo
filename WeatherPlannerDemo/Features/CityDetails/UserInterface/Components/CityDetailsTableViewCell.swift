@@ -19,7 +19,7 @@ class CityDetailsTableViewCell: UITableViewCell {
         buildViews()
     }
 
-    func set(_ airPollutionDetailsViewModel: AirPollutionDetailsViewModel) {
+    func set(viewModel airPollutionDetailsViewModel: AirPollutionDetailsViewModel) {
         nameLabel.text = airPollutionDetailsViewModel.name
         markLabel.text = airPollutionDetailsViewModel.mark
         valueLabel.text = airPollutionDetailsViewModel.value

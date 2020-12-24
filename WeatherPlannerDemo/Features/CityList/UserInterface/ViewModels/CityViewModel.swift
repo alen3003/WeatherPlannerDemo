@@ -1,5 +1,4 @@
 import RxDataSources
-import RxCocoa
 
 class CityViewModel {
     
