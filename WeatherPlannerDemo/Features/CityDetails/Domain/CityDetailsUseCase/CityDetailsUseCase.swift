@@ -7,7 +7,7 @@ class CityDetailsUseCase: CityDetailsUseCaseProtocol {
         self.cityDetailsRepository = cityDetailsRepository
     }
     
-    func getPollutionInfo(coordination: City.Coordination, cityID: Int) -> Observable<AirPollutionWrapper> {
+    func getPollutionInfo(coordination: City.Coordination, cityID: Int) -> Observable<CDAirPollution?> {
         return cityDetailsRepository.fetchPollutionInfo(coordination: coordination, cityID: cityID)
     }
 }

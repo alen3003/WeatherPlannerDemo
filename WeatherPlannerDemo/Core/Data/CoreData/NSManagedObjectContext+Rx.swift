@@ -3,7 +3,10 @@ import RxSwift
 
 extension NSManagedObjectContext {
     
-    func rx_entities(_ query: NSFetchRequest<NSFetchRequestResult>) -> Observable<[NSManagedObject]> {
+    func rx_entities(_ query: NSFetchRequest<NSFetchRequestResult>?) -> Observable<[NSManagedObject]> {
+        
+        guard let query = query else { return .just([]) }
+        
         return Observable.create { observer in
             let frc = NSFetchedResultsController(
                 fetchRequest: query,

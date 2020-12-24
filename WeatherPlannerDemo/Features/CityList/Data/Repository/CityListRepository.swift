@@ -18,28 +18,24 @@ class CityListRepository: CityListRepositoryProtocol {
         self.reachability?.startReachability()
     }
     
-    func fetchCities(_ coordinate: City.Coordination, range: Int) -> Observable<CitiesInCircle> {
+    func fetchCities(_ coordinate: City.Coordination, range: Int) -> Observable<[CDCity]> {
         switch reachability?.connection {
         case .unavailable:
-            //fetchCities(resultHandler: resultHandler)
-            return Observable<CitiesInCircle>.never()
+            return self.coreDataService.fetchCities()
         default:
             return networkClient.fetchCitiesInCircle(coordinate, range: range)
+                .do { [weak self] cities in
+                    guard let self = self else { return }
+                    self.createAndSaveCities(from: cities)
+                }.flatMap { _ -> Observable<[CDCity]> in
+                    return self.coreDataService.fetchCities()
+                }
         }
     }
     
-    private func saveCitiesAndFetch(cities: [City], resultHandler: @escaping ([City]) -> Void) {
+    private func createAndSaveCities(from citiesInCircle: CitiesInCircle) {
         coreDataService.deleteCities()
+        coreDataService.createCitiesFrom(cities: citiesInCircle.list)
         coreDataService.saveChangesSync()
-        coreDataService.createCitiesFrom(cities: cities)
-        coreDataService.saveChangesAsync { [weak self] (success, _) in
-            guard success else { return }
-            self?.fetchCities(resultHandler: resultHandler)
-        }
-    }
-    
-    private func fetchCities(resultHandler: @escaping ([City]) -> Void) {
-        let cities = coreDataService.fetchCities().map({ City(cdCity: $0) })
-        resultHandler(cities)
     }
 }

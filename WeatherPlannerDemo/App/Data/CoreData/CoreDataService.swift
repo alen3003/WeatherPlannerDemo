@@ -1,4 +1,4 @@
-import Foundation
+import RxSwift
 import CoreData
 
 class CoreDataService: CoreDataServiceProtocol {
@@ -10,60 +10,71 @@ class CoreDataService: CoreDataServiceProtocol {
     
     // MARK: - Fetches
     
-    func fetchCities() -> [CDCity] {
+    func fetchCities() -> Observable<[CDCity]> {
         let request: NSFetchRequest<CDCity> = CDCity.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         request.returnsObjectsAsFaults = false
         
-        do {
-            return try coreDataStack.mainContext.fetch(request)
-        } catch let error {
-            Logger.print(string: "Failed fetching data from database: \(error.localizedDescription)")
-            return []
-        }
+        return coreDataStack.mainContext.rx_entities(request as? NSFetchRequest<NSFetchRequestResult>)
+            .flatMap { fetchedManagedObject -> Observable<[CDCity]> in
+                guard let fetchedCities = fetchedManagedObject as? [CDCity] else { return .just([]) }
+                return .just(fetchedCities)
+            }
     }
     
-    func fetchCityWithID(_ id: Int) -> CDCity {
+    func fetchCityWithID(_ id: Int) -> CDCity? {
         let request: NSFetchRequest<CDCity> = CDCity.fetchRequest()
         request.predicate = Predicates.idPredicate(id)
         request.returnsObjectsAsFaults = false
         
         do {
-            return try coreDataStack.mainContext.fetch(request).first ?? CDCity()
-        } catch let error {
-            Logger.print(string: "Failed fetching data from database: \(error.localizedDescription)")
-            return CDCity()
+            let results = try coreDataStack.mainContext.fetch(request)
+            guard let city = results.first else {
+                return nil
+            }
+            return city
+        } catch {
+            Logger.print(string: "Fetch city with ID error: \(error.localizedDescription)")
+            return nil
         }
     }
     
-    func fetchAirPollutionForCity(_ city: CDCity) -> CDAirPollution? {
+    func fetchAirPollutionForCity(withID id: Int) -> Observable<CDAirPollution?> {
+        
+        guard let city = self.fetchCityWithID(id) else { return .just(nil) }
+        
         let request: NSFetchRequest<CDAirPollution> = CDAirPollution.fetchRequest()
         request.predicate = Predicates.airPollutionPredicate(city)
+        request.sortDescriptors = [NSSortDescriptor(key: "aqi", ascending: true)]
         request.returnsObjectsAsFaults = false
         
-        do {
-            return try coreDataStack.mainContext.fetch(request).first
-        } catch let error {
-            Logger.print(string: "Failed fetching data from database: \(error.localizedDescription)")
-            return nil
-        }
+        return self.coreDataStack.mainContext.rx_entities(request as? NSFetchRequest<NSFetchRequestResult>)
+            .flatMap { fetchedManagedObject -> Observable<CDAirPollution?> in
+                guard let fetchedPollution = fetchedManagedObject.first as? CDAirPollution
+                else {
+                    return .just(nil)
+                }
+                return .just(fetchedPollution)
+            }
     }
     
     // MARK: - Create CoreData Models
     
     func createCitiesFrom(cities: [City]) -> [CDCity]? {
         let cities: [CDCity] = cities.map({
-            let city = CDCity(context: coreDataStack.privateContext)
-            city.populate(city: $0, context: coreDataStack.privateContext)
+            let city = CDCity(context: coreDataStack.mainContext)
+            city.populate(city: $0, context: coreDataStack.mainContext)
             return city
         })
 
         return cities
     }
     
-    func createAirPollutionFrom(pollution: AirPollution, city: CDCity?) -> CDAirPollution? {
+    func createAirPollutionFrom(pollution: AirPollution, city: CDCity) -> CDAirPollution {
+        
         let airPollution = CDAirPollution(context: coreDataStack.mainContext)
         airPollution.populate(airPollution: pollution, city: city, context: coreDataStack.mainContext)
-        city?.airPollution = airPollution
+        city.airPollution = airPollution
         return airPollution
     }
     
@@ -72,24 +83,28 @@ class CoreDataService: CoreDataServiceProtocol {
     func deleteCities() {
         let request: NSFetchRequest<CDCity> = CDCity.fetchRequest()
         request.returnsObjectsAsFaults = false
+        
         do {
             let results = try coreDataStack.mainContext.fetch(request)
-            results.forEach({ coreDataStack.mainContext.delete($0) })
-        } catch let error {
-            Logger.print(string: "Detele cities data error: \(error.localizedDescription)")
-        }
-    }
-    
-    func deleteAirPollutionsForCity(_ city: CDCity) {
-        let request: NSFetchRequest<CDAirPollution> = CDAirPollution.fetchRequest()
-        request.predicate = Predicates.airPollutionPredicate(city)
-        request.returnsObjectsAsFaults = false
-        do {
-            let results = try coreDataStack.mainContext.fetch(request)
-            results.forEach({ coreDataStack.mainContext.delete($0) })
+            results.forEach({ [weak self] in self?.deleteObject($0) })
         } catch let error {
             Logger.print(string: "Detele air pollution data error: \(error.localizedDescription)")
         }
+    }
+    
+    func deleteAirPollutionsForCity(city: CDCity) {
+        
+        let request: NSFetchRequest<CDAirPollution> = CDAirPollution.fetchRequest()
+        request.predicate = Predicates.airPollutionPredicate(city)
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let results = try self.coreDataStack.mainContext.fetch(request)
+            results.forEach({ self.deleteObject($0) })
+        } catch let error {
+            Logger.print(string: "Detele air pollution data error: \(error.localizedDescription)")
+        }
+        
     }
     
     // MARK: - Save Changes
@@ -100,5 +115,11 @@ class CoreDataService: CoreDataServiceProtocol {
     
     func saveChangesAsync(onCompleted completed: @escaping (_ success: Bool, _ error: Error?) -> Void) {
         coreDataStack.saveContextAsync(onCompleted: completed)
+    }
+    
+    // MARK: - Helpers
+    
+    private func deleteObject(_ object: NSManagedObject) {
+        coreDataStack.mainContext.delete(object)
     }
 }

@@ -35,8 +35,8 @@ final class CityListPresenter {
         let coordinate = City.Coordination(lat: coordinate.latitude, lon: coordinate.longitude)
         return cityListUseCase.getCitiesInCircle(
             coordinate,
-            range: Constants.noOfCitiesInCircle).map { citiesInCircle in
-            citiesInCircle.list.map({ CityViewModel(city: $0) })
+            range: Constants.noOfCitiesInCircle).map { cities in
+            cities.map({ CityViewModel(city: $0) })
         }
     }
 }
