@@ -22,23 +22,6 @@ class CoreDataService: CoreDataServiceProtocol {
             }
     }
     
-    func fetchCityWithID(_ id: Int) -> CDCity? {
-        let request: NSFetchRequest<CDCity> = CDCity.fetchRequest()
-        request.predicate = Predicates.idPredicate(id)
-        request.returnsObjectsAsFaults = false
-        
-        do {
-            let results = try coreDataStack.mainContext.fetch(request)
-            guard let city = results.first else {
-                return nil
-            }
-            return city
-        } catch {
-            Logger.print(string: "Fetch city with ID error: \(error.localizedDescription)")
-            return nil
-        }
-    }
-    
     func fetchAirPollutionForCity(withID id: Int) -> Observable<CDAirPollution?> {
         
         guard let city = self.fetchCityWithID(id) else { return .just(nil) }
@@ -60,7 +43,7 @@ class CoreDataService: CoreDataServiceProtocol {
     
     // MARK: - Create CoreData Models
     
-    func createCitiesFrom(cities: [City]) -> [CDCity]? {
+    func createCitiesFrom(cities: [City]) -> [CDCity] {
         let cities: [CDCity] = cities.map({
             let city = CDCity(context: coreDataStack.mainContext)
             city.populate(city: $0, context: coreDataStack.mainContext)
@@ -71,7 +54,6 @@ class CoreDataService: CoreDataServiceProtocol {
     }
     
     func createAirPollutionFrom(pollution: AirPollution, city: CDCity) -> CDAirPollution {
-        
         let airPollution = CDAirPollution(context: coreDataStack.mainContext)
         airPollution.populate(airPollution: pollution, city: city, context: coreDataStack.mainContext)
         city.airPollution = airPollution
@@ -93,7 +75,6 @@ class CoreDataService: CoreDataServiceProtocol {
     }
     
     func deleteAirPollutionsForCity(city: CDCity) {
-        
         let request: NSFetchRequest<CDAirPollution> = CDAirPollution.fetchRequest()
         request.predicate = Predicates.airPollutionPredicate(city)
         request.returnsObjectsAsFaults = false
@@ -104,7 +85,6 @@ class CoreDataService: CoreDataServiceProtocol {
         } catch let error {
             Logger.print(string: "Detele air pollution data error: \(error.localizedDescription)")
         }
-        
     }
     
     // MARK: - Save Changes
@@ -121,5 +101,22 @@ class CoreDataService: CoreDataServiceProtocol {
     
     private func deleteObject(_ object: NSManagedObject) {
         coreDataStack.mainContext.delete(object)
+    }
+    
+    func fetchCityWithID(_ id: Int) -> CDCity? {
+        let request: NSFetchRequest<CDCity> = CDCity.fetchRequest()
+        request.predicate = Predicates.idPredicate(id)
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let results = try coreDataStack.mainContext.fetch(request)
+            guard let city = results.first else {
+                return nil
+            }
+            return city
+        } catch {
+            Logger.print(string: "Fetch city with ID error: \(error.localizedDescription)")
+            return nil
+        }
     }
 }

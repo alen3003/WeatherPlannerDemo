@@ -9,7 +9,7 @@ protocol CoreDataServiceProtocol {
     func deleteAirPollutionsForCity(city: CDCity)
     
     @discardableResult
-    func createCitiesFrom(cities: [City]) -> [CDCity]?
+    func createCitiesFrom(cities: [City]) -> [CDCity]
     @discardableResult
     func createAirPollutionFrom(pollution: AirPollution, city: CDCity) -> CDAirPollution
     
