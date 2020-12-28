@@ -39,11 +39,7 @@ class CityDetailsRepository: CityDetailsRepositoryProtocol {
         }
     }
     
-    private func createAndSaveAirPollution(
-        from airPollution: AirPollution,
-        cityID: Int
-    ) {
-        
+    private func createAndSaveAirPollution(from airPollution: AirPollution, cityID: Int) {
         guard let city = coreDataService.fetchCityWithID(cityID) else { return }
         coreDataService.deleteAirPollutionsForCity(city: city)
         coreDataService.createAirPollutionFrom(pollution: airPollution, city: city)

@@ -8,6 +8,7 @@ class AppCoordinator: CoordinatorProtocol {
     init(window: UIWindow) {
         setRootViewController()
         presentInWindow(window: window)
+        navigationController.navigationBar.prefersLargeTitles = true
     }
     
     func pushCityDetailsViewController(viewModel: CityViewModel) {

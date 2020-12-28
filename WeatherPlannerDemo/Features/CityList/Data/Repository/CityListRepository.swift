@@ -27,7 +27,8 @@ class CityListRepository: CityListRepositoryProtocol {
                 .do { [weak self] cities in
                     guard let self = self else { return }
                     self.createAndSaveCities(from: cities)
-                }.flatMap { _ -> Observable<[CDCity]> in
+                }.flatMap { [weak self] _ -> Observable<[CDCity]> in
+                    guard let self = self else { return .just([]) }
                     return self.coreDataService.fetchCities()
                 }
         }
