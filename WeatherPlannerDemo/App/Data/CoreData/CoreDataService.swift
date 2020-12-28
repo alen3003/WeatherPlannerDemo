@@ -2,9 +2,9 @@ import RxSwift
 import CoreData
 
 class CoreDataService: CoreDataServiceProtocol {
-    private let coreDataStack: CoreDataStack
+    private let coreDataStack: CoreDataStackProtocol
     
-    init(coreDataStack: CoreDataStack) {
+    init(coreDataStack: CoreDataStackProtocol) {
         self.coreDataStack = coreDataStack
     }
     

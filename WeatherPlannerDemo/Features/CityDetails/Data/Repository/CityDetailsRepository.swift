@@ -26,14 +26,16 @@ class CityDetailsRepository: CityDetailsRepositoryProtocol {
         default:
             return networkClient.fetchPollutionInfo(coordination: coordination)
                 .do { [weak self] airPollutionWrapper in
-                    guard let self = self,
-                          let airPollution = airPollutionWrapper.list.first
+                    guard
+                        let self = self,
+                        let airPollution = airPollutionWrapper.list.first
                     else {
                         return
                     }
                     
                     self.createAndSaveAirPollution(from: airPollution, cityID: cityID)
-                }.flatMap { _ -> Observable<CDAirPollution?> in
+                }.flatMap { [weak self] _ -> Observable<CDAirPollution?> in
+                    guard let self = self else { return .just(nil) }
                     return self.coreDataService.fetchAirPollutionForCity(withID: cityID)
                 }
         }
