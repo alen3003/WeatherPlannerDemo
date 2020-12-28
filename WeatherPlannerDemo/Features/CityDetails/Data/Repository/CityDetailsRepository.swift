@@ -1,5 +1,6 @@
 import Foundation
 import Reachability
+import RxSwift
 
 class CityDetailsRepository: CityDetailsRepositoryProtocol {
 
@@ -18,19 +19,14 @@ class CityDetailsRepository: CityDetailsRepositoryProtocol {
         self.reachability?.startReachability()
     }
 
-    func fetchPollutionInfo(
-        coordination: City.Coordination,
-        cityID: Int,
-        resultHandler: @escaping (_ airPollution: AirPollution) -> Void
-    ) {
+    func fetchPollutionInfo(coordination: City.Coordination, cityID: Int) -> Observable<AirPollutionWrapper> {
         switch reachability?.connection {
         case .unavailable:
-            let city = coreDataService.fetchCityWithID(cityID)
-            fetchAirPollutionForCity(city, resultHandler: resultHandler)
+            //let city = coreDataService.fetchCityWithID(cityID)
+            //fetchAirPollutionForCity(city, resultHandler: resultHandler)
+            return Observable<AirPollutionWrapper>.never()
         default:
-            networkClient.fetchPollutionInfo(coordination: coordination) { [weak self] (airPollution) in
-                self?.saveAirPollutionAndFetch(airPollution: airPollution, cityID: cityID, resultHandler: resultHandler)
-            }
+            return networkClient.fetchPollutionInfo(coordination: coordination)
         }
     }
     

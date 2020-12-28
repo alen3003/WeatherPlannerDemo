@@ -1,4 +1,4 @@
-import Foundation
+import RxSwift
 
 class CityListUseCase: CityListUseCaseProtocol {
     private let cityListRepository: CityListRepositoryProtocol
@@ -7,11 +7,7 @@ class CityListUseCase: CityListUseCaseProtocol {
         self.cityListRepository = cityListRepository
     }
     
-    func getCitiesInCircle(
-        _ coordinate: City.Coordination,
-        range: Int,
-        resultHandler: @escaping (_ cities: [City]) -> Void
-    ) {
-        cityListRepository.fetchCities(coordinate, range: range, resultHandler: resultHandler)
+    func getCitiesInCircle(_ coordinate: City.Coordination, range: Int) -> Observable<CitiesInCircle> {
+        return cityListRepository.fetchCities(coordinate, range: range)
     }
 }

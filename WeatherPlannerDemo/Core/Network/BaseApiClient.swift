@@ -1,77 +1,91 @@
-import Foundation
+import RxSwift
+import RxCocoa
 
 public class BaseApiClient: ApiClientProtocol {
     
     private let baseUrl: String
+    private let urlSession: URLSession
     
     public init(baseUrl: String) {
         self.baseUrl = baseUrl
+        self.urlSession = URLSession.shared
     }
     
     public func get<ResultType: Decodable>(
         path: String,
-        queryParameters: [String: String]?,
-        memberType: ResultType.Type,
-        resultHandler: @escaping (Result<ResultType, ApiError>) -> Void
-    ) {
-        executeAndReturn(path: path, method: .get, parameters: queryParameters, resultHandler: resultHandler)
+        queryParameters: [String: String]?
+    ) -> Observable<ResultType> {
+        executeAndReturn(path: path, method: .get, parameters: queryParameters)
     }
     
     private func executeAndReturn<ParamsType: Encodable, ResultType: Decodable>(
         path: String,
         method: HTTPMethod,
-        parameters: ParamsType? = nil,
-        resultHandler: @escaping (Result<ResultType, ApiError>) -> Void
-    ) {
-        let request = buildRequest(path: path, method: method, parameters: parameters)
-
-        let urlTask = URLSession.shared.dataTask(with: request) { [weak self] (data, response, error) in
-            guard
-                let httpReponse = response as? HTTPURLResponse,
-                let self = self,
-                let statusCode = HttpStatusCode(rawValue: httpReponse.statusCode)
-            else { return }
-            
-            if let error = self.mapToApiError(status: statusCode) {
-                resultHandler(.failure(error))
-                return
-            }
-            
-            guard let result: ResultType = self.parse(data: data) else {
-                resultHandler(.failure(ApiError.noData))
-                return
-            }
-            
-            resultHandler(.success(result))
-        }
+        parameters: ParamsType? = nil
+    ) -> Observable<ResultType> {
         
-        urlTask.resume()
+        return Observable<ResultType>.create { [weak self] observer in
+            guard let self = self else { return Disposables.create() }
+            let request = self.buildRequest(path: path, method: method, parameters: parameters)
+            self.urlSession.dataTask(with: request) { [weak self] (data, response, error) in
+                guard
+                    let httpReponse = response as? HTTPURLResponse,
+                    let self = self,
+                    let statusCode = HttpStatusCode(rawValue: httpReponse.statusCode)
+                else {
+                    observer.onError(ApiError.badRequest)
+                    return
+                }
+                
+                if let error = self.mapToApiError(status: statusCode) {
+                    observer.onError(error)
+                    return
+                }
+                
+                guard let result: ResultType = self.parse(data: data) else {
+                    observer.onError(ApiError.noData)
+                    return
+                }
+                
+                observer.onNext(result)
+                observer.onCompleted()
+            }.resume()
+            
+            return Disposables.create()
+        }
     }
 
     private func execute<ParamsType: Encodable>(
         path: String,
         method: HTTPMethod,
-        parameters: ParamsType? = nil,
-        resultHandler: @escaping (Result<Bool, ApiError>) -> Void
-    ) {
-        let request = buildRequest(path: path, method: method, parameters: parameters)
-
-        let urlTask = URLSession.shared.dataTask(with: request) { [weak self] (_, response, error) in
-            guard
-                let httpReponse = response as? HTTPURLResponse,
-                let self = self,
-                let statusCode = HttpStatusCode(rawValue: httpReponse.statusCode)
-            else { return }
-            
-            if let error = self.mapToApiError(status: statusCode) {
-                resultHandler(.failure(error))
-                return
-            }
-            
-            resultHandler(.success(true))
-        }
+        parameters: ParamsType? = nil
+    ) -> Completable {
         
-        urlTask.resume()
+        return Completable.create { [weak self] observer  in
+            guard let self = self else { return Disposables.create() }
+            let request = self.buildRequest(path: path, method: method, parameters: parameters)
+            self.urlSession.dataTask(with: request) { [weak self] (_, response, error) in
+                guard
+                    let httpReponse = response as? HTTPURLResponse,
+                    let self = self,
+                    let statusCode = HttpStatusCode(rawValue: httpReponse.statusCode)
+                else {
+                    observer(.error(ApiError.badRequest))
+                    return
+                }
+                
+                if let error = self.mapToApiError(status: statusCode) {
+                    observer(.error(error))
+                    return
+                }
+                
+                observer(.completed)
+                
+            }.resume()
+            
+            return Disposables.create()
+            
+        }
     }
     
     private func buildRequest<ParamsType: Encodable>(

@@ -1,10 +1,17 @@
 import UIKit
+import RxCocoa
+import RxSwift
+import RxDataSources
 
 class CityDetailsViewController: UIViewController {
     
     var cityDetailsTableView: UITableView!
     
+    public typealias CityDetailsTableViewDataSource =
+        RxTableViewSectionedAnimatedDataSource<AnimatableSection<AirPollutionDetailsViewModel>>
+    
     let presenter: CityDetailsPresenter
+    let disposeBag = DisposeBag()
     
     init(presenter: CityDetailsPresenter) {
         self.presenter = presenter
@@ -20,14 +27,9 @@ class CityDetailsViewController: UIViewController {
 
         buildViews()
         
-        cityDetailsTableView.delegate = self
-        cityDetailsTableView.dataSource = self
-        
-        presenter.delegate = self
-        
+        cityDetailsTableView.rx.setDelegate(self).disposed(by: disposeBag)
         registerTableViewCells()
-        
-        presenter.fetchPollutionInfo()
+        configureDataSource()
     }
     
     private func registerTableViewCells() {
@@ -36,32 +38,34 @@ class CityDetailsViewController: UIViewController {
             forCellReuseIdentifier: CityDetailsTableViewCell.reuseIdentifier)
     }
     
+    private func configureDataSource() {
+        let dataSource = CityDetailsTableViewDataSource(
+            animationConfiguration: AnimationConfiguration(
+                insertAnimation: .fade,
+                reloadAnimation: .fade,
+                deleteAnimation: .fade),
+            configureCell: { (_, tableView, indexPath, viewModel) in
+                guard let cell = tableView.dequeueReusableCell(
+                        withIdentifier: CityDetailsTableViewCell.reuseIdentifier,
+                        for: indexPath) as? CityDetailsTableViewCell
+                else {
+                    return UITableViewCell()
+                }
+                
+                cell.set(viewModel: viewModel)
+                return cell
+            }
+        )
+        
+        presenter.airPollutionDetails
+            .mapToAnimatableSection()
+            .observeOn(MainScheduler.instance)
+            .bind(to: cityDetailsTableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+    }
 }
 
-extension CityDetailsViewController: Completable {
-    func didUpdateDataSource() {
-        DispatchQueue.main.async { [weak self] in
-            self?.cityDetailsTableView.reloadData()
-        }
-    }
-}
-
-extension CityDetailsViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.airPollutionDetails.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = cityDetailsTableView.dequeueReusableCell(
-                withIdentifier: CityDetailsTableViewCell.reuseIdentifier,
-                for: indexPath) as? CityDetailsTableViewCell
-        else { return UITableViewCell() }
-        
-        cell.set(presenter.airPollutionDetails[indexPath.row])
-        
-        return cell
-    }
-    
+extension CityDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = CityDetailsHeaderView()
         headerView.set(viewModel: presenter.cityViewModel)

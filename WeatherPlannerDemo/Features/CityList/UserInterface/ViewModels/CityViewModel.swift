@@ -1,4 +1,4 @@
-import Foundation
+import RxDataSources
 
 class CityViewModel {
     
@@ -35,5 +35,16 @@ class CityViewModel {
         self.maxTemperature = "\(LocalizationKey.maxTemp.string) \(Int(city.temperature.tempMax))"
             .appendMeasuringUnit(.celsius, spacing: false)
         self.windSpeed = "\(LocalizationKey.windSpeed.string) \(city.wind.speed)".appendMeasuringUnit(.velocityBasic)
+    }
+}
+
+extension CityViewModel: IdentifiableType, Equatable {
+    typealias Identity = Int
+    var identity: Identity {
+        return cityID
+    }
+    
+    static func == (lhs: CityViewModel, rhs: CityViewModel) -> Bool {
+        return lhs.identity == rhs.identity
     }
 }

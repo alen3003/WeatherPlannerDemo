@@ -1,34 +1,30 @@
-import Foundation
+import RxSwift
 
 final class CityDetailsPresenter {
     
-    var title: String?
+    var title: String {
+        return cityViewModel.cityName
+    }
+    
+    var airPollutionDetails: Observable<[AirPollutionDetailsViewModel]>!
     
     var cityViewModel: CityViewModel
-    var airPollutionDetails: [AirPollutionDetailsViewModel] = []
-    
-    weak var delegate: Completable?
     private var cityDetailsUseCase: CityDetailsUseCaseProtocol
     
     init(cityDetailsUseCase: CityDetailsUseCaseProtocol, cityViewModel: CityViewModel) {
         self.cityViewModel = cityViewModel
         self.cityDetailsUseCase = cityDetailsUseCase
-        setControllerTitle()
+        airPollutionDetails = fetchPollutionInfo()
     }
     
-    private func setControllerTitle() {
-        title = cityViewModel.cityName
-    }
     
-    func fetchPollutionInfo() {
-        cityDetailsUseCase.getPollutionInfo(
+    private func fetchPollutionInfo() -> Observable<[AirPollutionDetailsViewModel]> {
+        return cityDetailsUseCase.getPollutionInfo(
             coordination: cityViewModel.coordination,
-            cityID: cityViewModel.cityID
-        ) { [weak self] (airPollution) in
-            guard let self = self else { return }
-            let airPollutionDetailsViewModel = AirPollutionViewModel(airPollution: airPollution).airPollutionDetails()
-            self.airPollutionDetails.append(contentsOf: airPollutionDetailsViewModel)
-            self.delegate?.didUpdateDataSource()
-        }
+            cityID: cityViewModel.cityID)
+            .map { airPollutionWrapper in
+                guard let airPollution = airPollutionWrapper.list.first else { return [] }
+                return AirPollutionViewModel(airPollution: airPollution).airPollutionDetailsViewModel
+            }
     }
 }

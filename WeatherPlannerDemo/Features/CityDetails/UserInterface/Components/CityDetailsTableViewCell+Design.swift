@@ -20,6 +20,7 @@ extension CityDetailsTableViewCell: ConstructViewsProtocol {
     
     func styleViews() {
         selectionStyle = .none
+        backgroundColor = .clear
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
