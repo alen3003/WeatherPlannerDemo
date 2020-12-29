@@ -8,7 +8,7 @@ class CityDetailsViewController: UIViewController {
     
     var cityDetailsTableView: UITableView!
     
-    @Injected(container: .custom) var presenter: CityDetailsPresenter
+    @LazyInjected(container: .custom) var presenter: CityDetailsPresenter
     
     private typealias CityDetailsTableViewDataSource =
         RxTableViewSectionedAnimatedDataSource<AnimatableSection<AirPollutionDetailsViewModel>>
@@ -60,10 +60,10 @@ class CityDetailsViewController: UIViewController {
 extension CityDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        //guard let viewModel = presenter.cityViewModel else { return nil }
+        guard let viewModel = presenter.cityViewModel else { return nil }
         
         let headerView = CityDetailsHeaderView()
-        headerView.set(viewModel: presenter.cityViewModel)
+        headerView.set(viewModel: viewModel)
         return headerView
     }
     

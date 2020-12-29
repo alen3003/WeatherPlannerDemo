@@ -59,7 +59,7 @@ class AppDependencies: AppModuleProtocol {
                 return nil
             }
         }
-        .scope(Resolver.application)
+        .scope(Resolver.shared)
     }
     
     private func registerRepositories(in container: Resolver) {
@@ -93,10 +93,10 @@ class AppDependencies: AppModuleProtocol {
         .scope(Resolver.application)
         
         container.register { (_, args) -> CityDetailsPresenter in
-            //guard let viewModel = args.get() as? CityViewModel else { return nil }
-            return CityDetailsPresenter(cityViewModel: args.get())
+            let presenter = CityDetailsPresenter(cityViewModel: args())
+            return presenter
         }
-        .scope(Resolver.application)
+        .scope(Resolver.unique)
     }
     
     private func registerViewControllers(in container: Resolver) {
@@ -105,10 +105,12 @@ class AppDependencies: AppModuleProtocol {
         }
         .scope(Resolver.application)
         
-        container.register {
-            CityDetailsViewController()
+        container.register { (_, args) -> CityDetailsViewController in
+            let cityDetailsVC = CityDetailsViewController()
+            cityDetailsVC.$presenter.args = args()
+            return cityDetailsVC
         }
-        .scope(Resolver.application)
+        .scope(Resolver.unique)
     }
     
     private enum AppNavigationController: String {

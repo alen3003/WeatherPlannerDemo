@@ -10,10 +10,7 @@ class AppCoordinator: CoordinatorProtocol {
     }
     
     func pushCityDetailsViewController(viewModel: CityViewModel) {
-        let cityDetailsViewController: CityDetailsViewController = container.resolve(
-            CityDetailsViewController.self,
-            args: viewModel
-        )
+        let cityDetailsViewController: CityDetailsViewController = container.resolve(args: viewModel)
         navigationController?.pushViewController(cityDetailsViewController, animated: true)
     }
     

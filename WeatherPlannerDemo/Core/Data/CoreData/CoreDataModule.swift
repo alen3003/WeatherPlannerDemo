@@ -16,7 +16,7 @@ public class CoreDataModule: AppModuleProtocol {
     
     private func registerService(in container: Resolver) {
         container.register { _ -> CoreDataServiceProtocol in
-            return CoreDataService(coreDataStack: container.resolve())
+            return CoreDataService()
         }
         .scope(Resolver.application)
     }
