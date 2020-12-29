@@ -1,11 +1,9 @@
+import Resolver
 import RxSwift
 
 class CityDetailsUseCase: CityDetailsUseCaseProtocol {
-    private let cityDetailsRepository: CityDetailsRepositoryProtocol
     
-    init(cityDetailsRepository: CityDetailsRepositoryProtocol) {
-        self.cityDetailsRepository = cityDetailsRepository
-    }
+    @Injected(container: .custom) private var cityDetailsRepository: CityDetailsRepositoryProtocol
     
     func getPollutionInfo(coordination: City.Coordination, cityID: Int) -> Observable<CDAirPollution?> {
         return cityDetailsRepository.fetchPollutionInfo(coordination: coordination, cityID: cityID)

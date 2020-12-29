@@ -1,12 +1,23 @@
-import Foundation
+import Resolver
 
-public class NetworkModule {
-
-    func registerCityListApiClient() -> CityListApiClientProtocol {
-        return CityListApiClient(baseUrl: ApiEndpoints.base.rawValue)
+public class NetworkModule: AppModuleProtocol {
+    
+    public func registerDependencies(in container: Resolver) {
+        registerCityListApiClient(in: container)
+        registerCityDetailsApiClient(in: container)
     }
 
-    func registerCityDetailsApiClient() -> CityDetailsApiClientProtocol {
-        return CityDetailsApiClient(baseUrl: ApiEndpoints.base.rawValue)
+    private func registerCityListApiClient(in container: Resolver) {
+        container.register { _ -> CityListApiClientProtocol in
+            return CityListApiClient(baseUrl: ApiEndpoints.base.rawValue)
+        }
+        .scope(Resolver.application)
+    }
+        
+    private func registerCityDetailsApiClient(in container: Resolver) {
+        container.register { _ -> CityDetailsApiClientProtocol in
+            return CityDetailsApiClient(baseUrl: ApiEndpoints.base.rawValue)
+        }
+        .scope(Resolver.application)
     }
 }

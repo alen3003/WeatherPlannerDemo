@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/alensebalj/Desktop/WeatherPlannerDemo/WeatherPlannerDemo/App/Resolver+Extension.swift">
+   </FileRef>
+   <FileRef
       location = "group:WeatherPlannerDemo.xcodeproj">
    </FileRef>
    <FileRef

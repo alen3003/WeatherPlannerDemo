@@ -1,4 +1,5 @@
 import UIKit
+import Resolver
 import RxCocoa
 import RxSwift
 import RxDataSources
@@ -7,20 +8,11 @@ class CityDetailsViewController: UIViewController {
     
     var cityDetailsTableView: UITableView!
     
-    public typealias CityDetailsTableViewDataSource =
+    @Injected(container: .custom) var presenter: CityDetailsPresenter
+    
+    private typealias CityDetailsTableViewDataSource =
         RxTableViewSectionedAnimatedDataSource<AnimatableSection<AirPollutionDetailsViewModel>>
-    
-    let presenter: CityDetailsPresenter
-    let disposeBag = DisposeBag()
-    
-    init(presenter: CityDetailsPresenter) {
-        self.presenter = presenter
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +59,9 @@ class CityDetailsViewController: UIViewController {
 
 extension CityDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        //guard let viewModel = presenter.cityViewModel else { return nil }
+        
         let headerView = CityDetailsHeaderView()
         headerView.set(viewModel: presenter.cityViewModel)
         return headerView

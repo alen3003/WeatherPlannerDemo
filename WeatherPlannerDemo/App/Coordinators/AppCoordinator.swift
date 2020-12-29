@@ -1,44 +1,32 @@
-import UIKit
+import Resolver
 
 class AppCoordinator: CoordinatorProtocol {
-    private let navigationController = UINavigationController()
-    private let appDependencies = AppDependencies()
-    private var window: UIWindow!
+    private weak var navigationController: UINavigationController?
+    let container: Resolver
     
-    init(window: UIWindow) {
-        setRootViewController()
-        presentInWindow(window: window)
-        navigationController.navigationBar.prefersLargeTitles = true
+    init(navigationController: UINavigationController, container: Resolver) {
+        self.navigationController = navigationController
+        self.container = container
     }
     
     func pushCityDetailsViewController(viewModel: CityViewModel) {
-        let cityDetailsViewController = createCityDetailsViewController(viewModel: viewModel)
-        navigationController.pushViewController(cityDetailsViewController, animated: true)
+        let cityDetailsViewController: CityDetailsViewController = container.resolve(
+            CityDetailsViewController.self,
+            args: viewModel
+        )
+        navigationController?.pushViewController(cityDetailsViewController, animated: true)
     }
     
     private func setRootViewController() {
-        let cityListController = createCityListController()
-        navigationController.viewControllers = [cityListController]
-    }
-    
-    private func createCityListController() -> CityListViewController {
-        let presenter = CityListPresenter(
-            cityListUseCase: appDependencies.buildCityListUseCase(),
-            coordinator: self)
-        return CityListViewController(presenter: presenter)
-    }
-    
-    private func createCityDetailsViewController(viewModel: CityViewModel) -> CityDetailsViewController {
-        let presenter = CityDetailsPresenter(
-            cityDetailsUseCase: appDependencies.buildCityDetilsUseCase(),
-            cityViewModel: viewModel)
-        return CityDetailsViewController(presenter: presenter)
+        let cityListController: CityListViewController = container.resolve()
+        navigationController?.viewControllers = [cityListController]
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
 
-private extension AppCoordinator {
+extension AppCoordinator {
     func presentInWindow(window: UIWindow) {
-        self.window = window
+        setRootViewController()
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }

@@ -1,23 +1,12 @@
-import Foundation
 import Reachability
+import Resolver
 import RxSwift
 
 class CityDetailsRepository: CityDetailsRepositoryProtocol {
 
-    private let networkClient: CityDetailsApiClientProtocol
-    private let coreDataService: CoreDataServiceProtocol
-    private var reachability: Reachability?
-    
-    init(networkClient: CityDetailsApiClientProtocol,
-         coreDataService: CoreDataServiceProtocol,
-         reachability: Reachability?
-    ) {
-        self.networkClient = networkClient
-        self.coreDataService = coreDataService
-        self.reachability = reachability
-        
-        self.reachability?.startReachability()
-    }
+    @Injected(container: .custom) private var networkClient: CityDetailsApiClientProtocol
+    @Injected(container: .custom) private var coreDataService: CoreDataServiceProtocol
+    @OptionalInjected(container: .custom) private var reachability: Reachability?
 
     func fetchPollutionInfo(coordination: City.Coordination, cityID: Int) -> Observable<CDAirPollution?> {
         switch reachability?.connection {
