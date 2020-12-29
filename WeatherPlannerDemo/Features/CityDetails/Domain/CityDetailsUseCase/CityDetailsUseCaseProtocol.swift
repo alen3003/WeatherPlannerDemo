@@ -1,5 +1,5 @@
 import RxSwift
 
 protocol CityDetailsUseCaseProtocol {
-    func getPollutionInfo(coordination: City.Coordination, cityID: Int) -> Observable<AirPollutionWrapper>
+    func getPollutionInfo(coordination: City.Coordination, cityID: Int) -> Observable<CDAirPollution?>
 }

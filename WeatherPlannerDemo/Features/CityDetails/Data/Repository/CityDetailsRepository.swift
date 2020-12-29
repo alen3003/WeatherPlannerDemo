@@ -19,35 +19,32 @@ class CityDetailsRepository: CityDetailsRepositoryProtocol {
         self.reachability?.startReachability()
     }
 
-    func fetchPollutionInfo(coordination: City.Coordination, cityID: Int) -> Observable<AirPollutionWrapper> {
+    func fetchPollutionInfo(coordination: City.Coordination, cityID: Int) -> Observable<CDAirPollution?> {
         switch reachability?.connection {
         case .unavailable:
-            //let city = coreDataService.fetchCityWithID(cityID)
-            //fetchAirPollutionForCity(city, resultHandler: resultHandler)
-            return Observable<AirPollutionWrapper>.never()
+            return coreDataService.fetchAirPollutionForCity(withID: cityID)
         default:
             return networkClient.fetchPollutionInfo(coordination: coordination)
+                .do { [weak self] airPollutionWrapper in
+                    guard
+                        let self = self,
+                        let airPollution = airPollutionWrapper.list.first
+                    else {
+                        return
+                    }
+                    
+                    self.createAndSaveAirPollution(from: airPollution, cityID: cityID)
+                }.flatMap { [weak self] _ -> Observable<CDAirPollution?> in
+                    guard let self = self else { return .just(nil) }
+                    return self.coreDataService.fetchAirPollutionForCity(withID: cityID)
+                }
         }
     }
     
-    private func saveAirPollutionAndFetch(
-        airPollution: AirPollution,
-        cityID: Int,
-        resultHandler: @escaping (_ airPollution: AirPollution) -> Void
-    ) {
-        let city = coreDataService.fetchCityWithID(cityID)
-        coreDataService.deleteAirPollutionsForCity(city)
+    private func createAndSaveAirPollution(from airPollution: AirPollution, cityID: Int) {
+        guard let city = coreDataService.fetchCityWithID(cityID) else { return }
+        coreDataService.deleteAirPollutionsForCity(city: city)
         coreDataService.createAirPollutionFrom(pollution: airPollution, city: city)
         coreDataService.saveChangesSync()
-        fetchAirPollutionForCity(city, resultHandler: resultHandler)
     }
-    
-    private func fetchAirPollutionForCity(
-        _ city: CDCity,
-        resultHandler: @escaping (_ airPollution: AirPollution) -> Void
-    ) {
-        guard let airPollution = coreDataService.fetchAirPollutionForCity(city) else { return }
-        resultHandler(AirPollution(cdAirPollution: airPollution))
-    }
-    
 }

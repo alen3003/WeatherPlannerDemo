@@ -22,9 +22,10 @@ final class CityDetailsPresenter {
         return cityDetailsUseCase.getPollutionInfo(
             coordination: cityViewModel.coordination,
             cityID: cityViewModel.cityID)
-            .map { airPollutionWrapper in
-                guard let airPollution = airPollutionWrapper.list.first else { return [] }
-                return AirPollutionViewModel(airPollution: airPollution).airPollutionDetailsViewModel
+            .flatMap { airPollution -> Observable<[AirPollutionDetailsViewModel]> in
+                guard let airPollution = airPollution else { return .just([]) }
+                return Observable<[AirPollutionDetailsViewModel]>
+                    .just(AirPollutionViewModel(airPollution: airPollution).airPollutionDetailsViewModel)
             }
     }
 }

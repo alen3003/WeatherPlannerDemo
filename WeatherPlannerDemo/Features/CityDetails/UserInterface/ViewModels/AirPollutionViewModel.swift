@@ -24,4 +24,14 @@ class AirPollutionViewModel {
         self.airQualityIndex = airPollutionDescription(airPollution.main.aqi)
     }
     
+    init(airPollution: CDAirPollution) {
+        self.carbonMonoxideLevel = airPollution.co.formatedString().appendMeasuringUnit(.airPollutionLevel)
+        self.nitrogenOxideLevel = airPollution.no.formatedString().appendMeasuringUnit(.airPollutionLevel)
+        self.nitrogenDioxideLevel = airPollution.no2.formatedString().appendMeasuringUnit(.airPollutionLevel)
+        self.ozoneLevel = airPollution.o3.formatedString().appendMeasuringUnit(.airPollutionLevel)
+        self.sulfurDioxideLevel = airPollution.so2.formatedString().appendMeasuringUnit(.airPollutionLevel)
+        self.ammoniaLevel = airPollution.nh3.formatedString().appendMeasuringUnit(.airPollutionLevel)
+        self.airQualityIndex = airPollutionDescription(Int(airPollution.aqi))
+    }
+    
 }
