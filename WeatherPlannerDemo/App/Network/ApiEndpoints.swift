@@ -1,5 +1,3 @@
-import Foundation
-
 enum ApiEndpoints: String {
 
     case base = "http://api.openweathermap.org/data/2.5"

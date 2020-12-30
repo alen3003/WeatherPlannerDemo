@@ -1,5 +1,3 @@
-import Foundation
-
 class AirPollutionViewModel {
 
     let carbonMonoxideLevel: String

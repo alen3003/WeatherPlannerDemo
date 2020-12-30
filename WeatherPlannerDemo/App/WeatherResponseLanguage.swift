@@ -1,5 +1,3 @@
-import Foundation
-
 enum WeatherResponseLanguage: String {
     case de
     case en

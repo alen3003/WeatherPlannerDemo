@@ -1,22 +1,13 @@
 import Foundation
 import Reachability
+import Resolver
 import RxSwift
 
 class CityListRepository: CityListRepositoryProtocol {
-    private let networkClient: CityListApiClientProtocol
-    private let coreDataService: CoreDataServiceProtocol
-    private var reachability: Reachability?
     
-    init(networkClient: CityListApiClientProtocol,
-         coreDataService: CoreDataServiceProtocol,
-         reachability: Reachability?
-    ) {
-        self.networkClient = networkClient
-        self.coreDataService = coreDataService
-        self.reachability = reachability
-        
-        self.reachability?.startReachability()
-    }
+    @Injected(container: .custom) private var networkClient: CityListApiClientProtocol
+    @Injected(container: .custom) private var coreDataService: CoreDataServiceProtocol
+    @OptionalInjected(container: .custom) private var reachability: Reachability?
     
     func fetchCities(_ coordinate: City.Coordination, range: Int) -> Observable<[CDCity]> {
         switch reachability?.connection {

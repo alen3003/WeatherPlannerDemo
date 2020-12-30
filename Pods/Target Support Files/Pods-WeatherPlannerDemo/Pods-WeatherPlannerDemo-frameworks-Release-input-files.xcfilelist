@@ -2,6 +2,7 @@ ${PODS_ROOT}/Target Support Files/Pods-WeatherPlannerDemo/Pods-WeatherPlannerDem
 ${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework
 ${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework
 ${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework
+${BUILT_PRODUCTS_DIR}/Resolver/Resolver.framework
 ${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework
 ${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework
 ${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework

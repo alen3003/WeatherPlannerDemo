@@ -3,7 +3,6 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    var appCoordinator: AppCoordinator!
 
     func scene(
         _ scene: UIScene,
@@ -12,7 +11,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        appCoordinator = AppCoordinator(window: window!)
+        if let window = window {
+            AppDependencies.shared.appRouter.presentInWindow(window: window)
+        }
     }
     
 }

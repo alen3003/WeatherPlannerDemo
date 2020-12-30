@@ -1,5 +1,3 @@
-import Foundation
-
 class Logger {
     static func print(string: String) {
         #if DEBUG

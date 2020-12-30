@@ -1,4 +1,3 @@
-import UIKit
 import PureLayout
 
 extension CityListTableViewCell: ConstructViewsProtocol {

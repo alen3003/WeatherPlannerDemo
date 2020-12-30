@@ -1,5 +1,3 @@
-import Foundation
-
 protocol QueryParameters {
     func propertyPairs() -> [String: String]
 }

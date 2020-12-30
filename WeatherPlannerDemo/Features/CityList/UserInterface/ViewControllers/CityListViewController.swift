@@ -1,27 +1,20 @@
 import UIKit
 import CoreLocation
+import Resolver
 import RxCocoa
-import RxSwift
 import RxDataSources
+import RxSwift
 
 class CityListViewController: UIViewController {
     
     var citiesTableView: UITableView!
     
+    @Injected(container: .custom) var presenter: CityListPresenter
+    
     public typealias CityListTableViewDataSource =
         RxTableViewSectionedAnimatedDataSource<AnimatableSection<CityViewModel>>
-    let presenter: CityListPresenter
     var locationManager: CLLocationManager?
     let disposeBag = DisposeBag()
-    
-    init(presenter: CityListPresenter) {
-        self.presenter = presenter
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

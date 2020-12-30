@@ -1,7 +1,11 @@
 import CoreLocation
+import Resolver
 import RxSwift
 
 final class CityListPresenter {
+    
+    @Injected(container: .custom) private var cityListUseCase: CityListUseCaseProtocol
+    @Injected(container: .custom) private var coordinator: CoordinatorProtocol
 
     var cities: Observable<[CityViewModel]> {
         return coordinateSubject.asObservable().flatMap { [weak self] coordinate -> Observable<[CityViewModel]> in
@@ -10,17 +14,10 @@ final class CityListPresenter {
         }
     }
     
+    private let coordinateSubject: PublishSubject<CLLocationCoordinate2D> = PublishSubject()
+    
     var title: String {
         return LocalizationKey.helloMessage.string
-    }
-    
-    private let coordinateSubject: PublishSubject<CLLocationCoordinate2D> = PublishSubject()
-    weak var coordinator: CoordinatorProtocol?
-    private var cityListUseCase: CityListUseCaseProtocol
-    
-    init(cityListUseCase: CityListUseCaseProtocol, coordinator: CoordinatorProtocol) {
-        self.cityListUseCase = cityListUseCase
-        self.coordinator = coordinator
     }
     
     func setLocation(coordinate: CLLocationCoordinate2D) {
@@ -28,7 +25,7 @@ final class CityListPresenter {
     }
     
     func openDetails(cityViewModel: CityViewModel) {
-        coordinator?.pushCityDetailsViewController(viewModel: cityViewModel)
+        coordinator.pushCityDetailsViewController(viewModel: cityViewModel)
     }
     
     private func fetchWeather(coordinate: CLLocationCoordinate2D) -> Observable<[CityViewModel]> {

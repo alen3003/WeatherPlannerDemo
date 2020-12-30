@@ -1,12 +1,10 @@
-import RxSwift
 import CoreData
+import Resolver
+import RxSwift
 
 class CoreDataService: CoreDataServiceProtocol {
-    private let coreDataStack: CoreDataStackProtocol
     
-    init(coreDataStack: CoreDataStackProtocol) {
-        self.coreDataStack = coreDataStack
-    }
+    @Injected(container: .custom) private var coreDataStack: CoreDataStackProtocol
     
     // MARK: - Fetches
     
