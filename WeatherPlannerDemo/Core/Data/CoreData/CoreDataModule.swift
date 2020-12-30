@@ -8,17 +8,17 @@ public class CoreDataModule: AppModuleProtocol {
     }
     
     private func registerStack(in container: Resolver) {
-        container.register { _ -> CoreDataStackProtocol in
-            return CoreDataStack(containerName: "WeatherPlannerModel")
-        }
-        .scope(Resolver.application)
+        container
+            .register { CoreDataStack(containerName: "WeatherPlannerModel") }
+            .implements(CoreDataStackProtocol.self)
+            .scope(Resolver.application)
     }
     
     private func registerService(in container: Resolver) {
-        container.register { _ -> CoreDataServiceProtocol in
-            return CoreDataService()
-        }
-        .scope(Resolver.application)
+        container
+            .register { CoreDataService() }
+            .implements(CoreDataServiceProtocol.self)
+            .scope(Resolver.application)
     }
     
 }

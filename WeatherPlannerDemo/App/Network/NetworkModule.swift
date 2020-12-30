@@ -8,16 +8,16 @@ public class NetworkModule: AppModuleProtocol {
     }
 
     private func registerCityListApiClient(in container: Resolver) {
-        container.register { _ -> CityListApiClientProtocol in
-            return CityListApiClient(baseUrl: ApiEndpoints.base.rawValue)
-        }
-        .scope(Resolver.application)
+        container
+            .register { CityListApiClient(baseUrl: ApiEndpoints.base.rawValue) }
+            .implements(CityListApiClientProtocol.self)
+            .scope(Resolver.application)
     }
         
     private func registerCityDetailsApiClient(in container: Resolver) {
-        container.register { _ -> CityDetailsApiClientProtocol in
-            return CityDetailsApiClient(baseUrl: ApiEndpoints.base.rawValue)
-        }
-        .scope(Resolver.application)
+        container
+            .register { CityDetailsApiClient(baseUrl: ApiEndpoints.base.rawValue) }
+            .implements(CityDetailsApiClientProtocol.self)
+            .scope(Resolver.application)
     }
 }
