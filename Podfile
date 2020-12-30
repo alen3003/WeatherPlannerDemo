@@ -16,8 +16,12 @@ pod 'Resolver'
 pod 'RxBlocking'
 
   target 'WeatherPlannerDemoTests' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
     inherit! :search_paths
     # Pods for testing
+pod 'Nimble'
   end
 
   target 'WeatherPlannerDemoUITests' do

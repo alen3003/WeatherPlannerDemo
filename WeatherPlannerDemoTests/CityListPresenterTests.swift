@@ -1,5 +1,6 @@
 import XCTest
 import CoreData
+import Nimble
 import Resolver
 import RxBlocking
 import RxSwift
@@ -30,8 +31,7 @@ class CityListPresenterTests: XCTestCase {
             .getCitiesInCircle(City.Coordination(lat: 0, lon: 0), range: 0)
             .map({ $0.count })
         
-        XCTAssertEqual(try citiesCount.toBlocking().first(), 3)
-        
+        expect(try citiesCount.toBlocking().first()) == 3
     }
 
 }
