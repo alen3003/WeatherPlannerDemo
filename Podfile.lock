@@ -3,6 +3,8 @@ PODS:
   - PureLayout (3.1.6)
   - ReachabilitySwift (5.0.0)
   - Resolver (1.2.1)
+  - RxBlocking (5.1.1):
+    - RxSwift (~> 5)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -19,8 +21,9 @@ DEPENDENCIES:
   - PureLayout
   - ReachabilitySwift
   - Resolver
+  - RxBlocking
   - RxCocoa
-  - RxDataSources (~> 4.0)
+  - RxDataSources
   - RxSwift
   - SwiftLint
 
@@ -30,6 +33,7 @@ SPEC REPOS:
     - PureLayout
     - ReachabilitySwift
     - Resolver
+    - RxBlocking
     - RxCocoa
     - RxDataSources
     - RxRelay
@@ -41,12 +45,13 @@ SPEC CHECKSUMS:
   PureLayout: bd3c4ec3a3819ad387c99ebb72c6b129c3ed4d2d
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   Resolver: 764e380b2ddb26bba48c6e45ab393c968894a156
+  RxBlocking: 5f700a78cad61ce253ebd37c9a39b5ccc76477b4
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
 
-PODFILE CHECKSUM: 8c66488adcca96fe860d684846c6e68406b4669b
+PODFILE CHECKSUM: 427c8e9cb98ae0df9d4ac4b57f960ad5da025d1e
 
 COCOAPODS: 1.10.0
