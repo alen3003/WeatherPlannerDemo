@@ -1,5 +1,3 @@
-import Foundation
-
 struct AirPollutionQueryParameters: QueryParameters, CustomReflectable {
     let appid: String = ApiKey.main.rawValue
     let latitude: String

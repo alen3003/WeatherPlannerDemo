@@ -1,5 +1,3 @@
-import Foundation
-
 struct City: Decodable {
     
     struct WeatherInfo: Decodable {

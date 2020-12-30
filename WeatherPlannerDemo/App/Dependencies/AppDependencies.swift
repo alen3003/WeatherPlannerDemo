@@ -1,5 +1,5 @@
-import Resolver
 import Reachability
+import Resolver
 
 class AppDependencies: AppModuleProtocol {
     
@@ -29,7 +29,7 @@ class AppDependencies: AppModuleProtocol {
     }
     
     private func registerRouters(in container: Resolver) {
-        container.register(name: AppNavigationController.navigationControllerRoot.rawValue) {
+        container.register(name: RootNavigationController.navigationControllerRoot.rawValue) {
             UINavigationController()
         }
         .scope(Resolver.application)
@@ -37,7 +37,7 @@ class AppDependencies: AppModuleProtocol {
         container.register { _ -> AppCoordinator in
             let rootNavigationController = container.resolve(
                 UINavigationController.self,
-                name: AppNavigationController.navigationControllerRoot.rawValue)
+                name: RootNavigationController.navigationControllerRoot.rawValue)
                 
             return AppCoordinator(navigationController: rootNavigationController, container: container)
         }
@@ -59,7 +59,7 @@ class AppDependencies: AppModuleProtocol {
                 return nil
             }
         }
-        .scope(Resolver.shared)
+        .scope(Resolver.unique)
     }
     
     private func registerRepositories(in container: Resolver) {
@@ -71,7 +71,7 @@ class AppDependencies: AppModuleProtocol {
         container.register(CityDetailsRepositoryProtocol.self) {
             CityDetailsRepository()
         }
-        .scope(Resolver.application)
+        .scope(Resolver.unique)
     }
     
     private func registerUseCases(in container: Resolver) {
@@ -83,7 +83,7 @@ class AppDependencies: AppModuleProtocol {
         container.register(CityDetailsUseCaseProtocol.self) {
             CityDetailsUseCase()
         }
-        .scope(Resolver.application)
+        .scope(Resolver.unique)
     }
     
     private func registerPresenters(in container: Resolver) {
@@ -113,7 +113,7 @@ class AppDependencies: AppModuleProtocol {
         .scope(Resolver.unique)
     }
     
-    private enum AppNavigationController: String {
+    private enum RootNavigationController: String {
         case navigationControllerRoot = "NavigationController.Root"
     }
 }

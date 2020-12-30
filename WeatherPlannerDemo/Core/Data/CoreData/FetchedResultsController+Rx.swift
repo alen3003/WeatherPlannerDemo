@@ -1,5 +1,5 @@
-import RxSwift
 import CoreData
+import RxSwift
 
 class FetchedResultsControllerEntityObserver: NSObject, NSFetchedResultsControllerDelegate, Disposable {
     

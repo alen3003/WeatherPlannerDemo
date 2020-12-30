@@ -1,5 +1,3 @@
-import Foundation
-
 struct CitiesInCircleQueryParameters: QueryParameters, CustomReflectable {
     let appid: String = ApiKey.main.rawValue
     let latitude: String

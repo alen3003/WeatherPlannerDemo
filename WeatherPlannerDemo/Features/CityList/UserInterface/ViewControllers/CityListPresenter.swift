@@ -1,6 +1,6 @@
 import CoreLocation
-import RxSwift
 import Resolver
+import RxSwift
 
 final class CityListPresenter {
     

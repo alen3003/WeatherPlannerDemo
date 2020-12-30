@@ -1,5 +1,3 @@
-import Foundation
-
 extension AirPollutionViewModel {
     private enum AirPollutionLabelType: String, CaseIterable {
         case airQualityIndex

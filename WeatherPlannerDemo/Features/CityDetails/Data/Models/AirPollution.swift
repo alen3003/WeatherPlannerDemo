@@ -1,5 +1,3 @@
-import Foundation
-
 struct AirPollution: Decodable {
     
     struct AirQuality: Decodable {

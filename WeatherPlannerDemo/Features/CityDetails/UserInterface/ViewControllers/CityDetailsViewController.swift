@@ -1,8 +1,8 @@
 import UIKit
 import Resolver
 import RxCocoa
-import RxSwift
 import RxDataSources
+import RxSwift
 
 class CityDetailsViewController: UIViewController {
     

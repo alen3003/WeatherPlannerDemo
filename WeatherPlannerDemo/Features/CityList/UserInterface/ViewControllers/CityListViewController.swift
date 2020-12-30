@@ -2,8 +2,8 @@ import UIKit
 import CoreLocation
 import Resolver
 import RxCocoa
-import RxSwift
 import RxDataSources
+import RxSwift
 
 class CityListViewController: UIViewController {
     

@@ -1,5 +1,3 @@
-import Foundation
-
 enum LocalizationKey: String {
     case helloMessage
     

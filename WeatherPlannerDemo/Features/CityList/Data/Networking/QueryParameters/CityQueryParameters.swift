@@ -1,5 +1,3 @@
-import Foundation
-
 struct CityQueryParameters: QueryParameters, CustomReflectable {
     let cityName: String
     let appid: String = ApiKey.main.rawValue
