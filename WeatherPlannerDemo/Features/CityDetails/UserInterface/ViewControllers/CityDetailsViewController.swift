@@ -14,10 +14,6 @@ class CityDetailsViewController: UIViewController {
         RxTableViewSectionedAnimatedDataSource<AnimatableSection<AirPollutionDetailsViewModel>>
     private let disposeBag = DisposeBag()
     
-    deinit {
-        print("Deinitialized CityDetailsViewController")
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 

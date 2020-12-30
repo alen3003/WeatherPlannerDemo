@@ -17,10 +17,6 @@ final class CityDetailsPresenter {
         airPollutionDetails = fetchPollutionInfo()
     }
     
-    deinit {
-        print("Deinitialized CityDetailsPresenter")
-    }
-    
     private func fetchPollutionInfo() -> Observable<[AirPollutionDetailsViewModel]> {
         
         guard let viewModel = cityViewModel else { return .just([]) }
