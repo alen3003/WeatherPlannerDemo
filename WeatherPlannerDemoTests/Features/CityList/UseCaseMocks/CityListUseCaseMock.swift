@@ -10,12 +10,10 @@ class CityListUseCaseMock: CityListUseCaseProtocol {
     
     func getCitiesInCircle(_ coordinate: City.Coordination, range: Int) -> Observable<[CDCity]> {
         
-        let cities = [
+        return .just([
             CDCity(context: coreDataStack.mainContext),
             CDCity(context: coreDataStack.mainContext),
             CDCity(context: coreDataStack.mainContext)
-        ]
-        
-        return .just(cities)
+        ])
     }
 }
