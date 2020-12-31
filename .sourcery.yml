@@ -1,0 +1,7 @@
+project:
+  - file: WeatherPlannerDemo.xcodeproj
+    target:
+      name: WeatherPlannerDemoTests
+templates:
+  - WeatherPlannerDemoTests/App/Templates
+output: WeatherPlannerDemoTest/App/Generated

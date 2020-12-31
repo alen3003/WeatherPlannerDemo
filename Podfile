@@ -14,6 +14,7 @@ pod 'RxCocoa'
 pod 'RxDataSources'
 pod 'Resolver'
 pod 'RxBlocking'
+pod 'Sourcery'
 
   target 'WeatherPlannerDemoTests' do
   # Comment the next line if you don't want to use dynamic frameworks
