@@ -17,7 +17,7 @@ final class CityDetailsPresenter {
         airPollutionDetails = fetchPollutionInfo()
     }
     
-    private func fetchPollutionInfo() -> Observable<[AirPollutionDetailsViewModel]> {
+    func fetchPollutionInfo() -> Observable<[AirPollutionDetailsViewModel]> {
         
         guard let viewModel = cityViewModel else { return .just([]) }
         

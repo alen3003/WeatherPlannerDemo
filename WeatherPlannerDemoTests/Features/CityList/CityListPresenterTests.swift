@@ -9,9 +9,7 @@ import RxSwift
 
 class CityListPresenterTests: XCTestCase {
 
-    private var presenter: CityListPresenter!
-    
-    private var disposeBag: DisposeBag!
+    @WeakLazyInjected(container: .custom) private var presenter: CityListPresenter!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -19,25 +17,21 @@ class CityListPresenterTests: XCTestCase {
         Resolver.custom.register { CoordinatorMock() }.implements(CoordinatorProtocol.self)
         Resolver.custom.register { CityListUseCaseMock() }.implements(CityListUseCaseProtocol.self)
         Resolver.custom.register { CoreDataStackMock() }.implements(CoreDataStackProtocol.self)
-        
-        presenter = CityListPresenter()
+        Resolver.custom.register { CityListPresenter() }
     }
 
     override func tearDownWithError() throws {
         try super.tearDownWithError()
         
         presenter = nil
-        disposeBag = nil
     }
     
     func testQueryCitiesInCircle() throws {
-        let cities = presenter
+        let citiesCount = presenter
             .fetchWeather(coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0))
-        
-        let citiesCount = cities.map({ $0.count })
+            .map { $0.count }
         
         expect(try citiesCount.toBlocking().first()) == 3
-        expect(try cities.toBlocking().first()).to(beAnInstanceOf([CityViewModel].self))
         
     }
 

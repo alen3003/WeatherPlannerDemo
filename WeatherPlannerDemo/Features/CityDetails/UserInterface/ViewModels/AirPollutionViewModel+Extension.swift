@@ -1,5 +1,5 @@
 extension AirPollutionViewModel {
-    private enum AirPollutionLabelType: String, CaseIterable {
+    enum AirPollutionLabelType: String, CaseIterable {
         case airQualityIndex
         case carbonMonoxideLevel
         case nitrogenOxideLevel
