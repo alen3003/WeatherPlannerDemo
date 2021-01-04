@@ -9,18 +9,14 @@ import RxSwift
 
 class CityDetailsPresenterTests: XCTestCase {
     
-    @OptionalInjected(container: .custom) private var presenter: CityDetailsPresenter!
-    
-    private var cityViewModel: CityViewModel!
+    @WeakLazyInjected(container: .custom) private var presenter: CityDetailsPresenter!
 
     override func setUpWithError() throws {
-        cityViewModel = CityViewModel(city: CityMock.city)
-        presenter = CityDetailsPresenter(cityViewModel: cityViewModel)
+        $presenter.args = CityViewModelMock.viewModel
     }
 
     override func tearDownWithError() throws {
         presenter = nil
-        cityViewModel = nil
     }
     
     func testQueryAirPollution() throws {

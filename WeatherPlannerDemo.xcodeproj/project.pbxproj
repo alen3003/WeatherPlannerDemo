@@ -80,6 +80,7 @@
 		B480BEC625A36DF800838786 /* AppDependenciesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B480BEC525A36DF800838786 /* AppDependenciesTest.swift */; };
 		B480BECE25A3708200838786 /* TestSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B480BECD25A3708200838786 /* TestSetup.swift */; };
 		B480BED825A3753200838786 /* CityMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B480BED725A3753200838786 /* CityMock.swift */; };
+		B480BEE425A378A200838786 /* CityViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B480BEE325A378A200838786 /* CityViewModelMock.swift */; };
 		B4881A492587AD1200AEEB27 /* CityListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4881A482587AD1200AEEB27 /* CityListUseCase.swift */; };
 		B4881A4E2587AD9B00AEEB27 /* CityListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4881A4D2587AD9B00AEEB27 /* CityListRepository.swift */; };
 		B4881A562587AE2700AEEB27 /* CityListRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4881A552587AE2700AEEB27 /* CityListRepositoryProtocol.swift */; };
@@ -204,6 +205,7 @@
 		B480BEC525A36DF800838786 /* AppDependenciesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependenciesTest.swift; sourceTree = "<group>"; };
 		B480BECD25A3708200838786 /* TestSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSetup.swift; sourceTree = "<group>"; };
 		B480BED725A3753200838786 /* CityMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityMock.swift; sourceTree = "<group>"; };
+		B480BEE325A378A200838786 /* CityViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewModelMock.swift; sourceTree = "<group>"; };
 		B4881A482587AD1200AEEB27 /* CityListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListUseCase.swift; sourceTree = "<group>"; };
 		B4881A4D2587AD9B00AEEB27 /* CityListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListRepository.swift; sourceTree = "<group>"; };
 		B4881A552587AE2700AEEB27 /* CityListRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListRepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -447,6 +449,14 @@
 				B480BED725A3753200838786 /* CityMock.swift */,
 			);
 			path = ModelMocks;
+			sourceTree = "<group>";
+		};
+		B480BEE225A3788A00838786 /* ViewModelMocks */ = {
+			isa = PBXGroup;
+			children = (
+				B480BEE325A378A200838786 /* CityViewModelMock.swift */,
+			);
+			path = ViewModelMocks;
 			sourceTree = "<group>";
 		};
 		B48819F425879EB600AEEB27 /* App */ = {
@@ -888,6 +898,7 @@
 				B4152E38259CAC770070CFA7 /* CityListPresenterTests.swift */,
 				B4152E8E259CD3780070CFA7 /* UseCaseMocks */,
 				B480BED625A3750F00838786 /* ModelMocks */,
+				B480BEE225A3788A00838786 /* ViewModelMocks */,
 			);
 			path = CityList;
 			sourceTree = "<group>";
@@ -1284,6 +1295,7 @@
 				B47D840025A21852005A1179 /* AutoMockable.generated.swift in Sources */,
 				B4FC9C9B25A200FC006F098A /* CityDetailsUseCaseMock.swift in Sources */,
 				B4152E4F259CBE840070CFA7 /* CityListUseCaseMock.swift in Sources */,
+				B480BEE425A378A200838786 /* CityViewModelMock.swift in Sources */,
 				B480BED825A3753200838786 /* CityMock.swift in Sources */,
 				B4152E39259CAC770070CFA7 /* CityListPresenterTests.swift in Sources */,
 				B4152E44259CBA570070CFA7 /* CoordinatorMock.swift in Sources */,

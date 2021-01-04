@@ -24,5 +24,6 @@ class AppDependeciesTest: AppModuleProtocol {
     
     private func registerPresenters(in container: Resolver) {
         container.register { CityListPresenter() }
+        container.register { (_, args) in CityDetailsPresenter(cityViewModel: args()) }
     }
 }
