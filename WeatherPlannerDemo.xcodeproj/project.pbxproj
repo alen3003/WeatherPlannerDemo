@@ -882,7 +882,6 @@
 				B453C99F257E2010003D5227 /* Frameworks */,
 				B453C9A0257E2010003D5227 /* Resources */,
 				28A0452178E62E13926078A8 /* [CP] Embed Pods Frameworks */,
-				B4FFA2B4259DE49A009D4E4D /* Sourcery */,
 			);
 			buildRules = (
 			);
@@ -902,7 +901,6 @@
 				B453C9B5257E2011003D5227 /* Frameworks */,
 				B453C9B6257E2011003D5227 /* Resources */,
 				9B034CC5AA212FB2602FAE21 /* [CP] Embed Pods Frameworks */,
-				B47D83EB25A211D6005A1179 /* Sourcery */,
 			);
 			buildRules = (
 			);
@@ -1117,42 +1115,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
-		};
-		B47D83EB25A211D6005A1179 /* Sourcery */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = Sourcery;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "$PODS_ROOT/Sourcery/bin/sourcery\n";
-		};
-		B4FFA2B4259DE49A009D4E4D /* Sourcery */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = Sourcery;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "$PODS_ROOT/Sourcery/bin/sourcery\n";
 		};
 		B556F3A14D7FE46854E57FE5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

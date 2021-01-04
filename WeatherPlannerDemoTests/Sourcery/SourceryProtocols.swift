@@ -5,4 +5,4 @@ extension CoordinatorProtocol {}
 // sourcery: AutoMockable
 extension CityListUseCaseProtocol {}
 // sourcery: AutoMockable
-extension CityListRepositoryProtocol {}
+extension CityDetailsUseCaseProtocol {}

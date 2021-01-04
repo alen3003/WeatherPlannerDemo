@@ -5,22 +5,22 @@
 
 import RxSwift
 @testable import WeatherPlannerDemo
-class CityListRepositoryProtocolMock: CityListRepositoryProtocol {
+class CityDetailsUseCaseProtocolMock: CityDetailsUseCaseProtocol {
 
-    // MARK: - fetchCities
-    var fetchCitiesRangeCallsCount = 0
-    var fetchCitiesRangeCalled: Bool {
-        return fetchCitiesRangeCallsCount > 0
+    // MARK: - getPollutionInfo
+    var getPollutionInfoCoordinationCityIDCallsCount = 0
+    var getPollutionInfoCoordinationCityIDCalled: Bool {
+        return getPollutionInfoCoordinationCityIDCallsCount > 0
     }
-    var fetchCitiesRangeReceivedArguments: (coordinate: City.Coordination, range: Int)?
-    var fetchCitiesRangeReceivedInvocations: [(coordinate: City.Coordination, range: Int)] = []
-    var fetchCitiesRangeReturnValue: Observable<[CDCity]>!
-    var fetchCitiesRangeClosure: ((City.Coordination, Int) -> Observable<[CDCity]>)?
-    func fetchCities(_ coordinate: City.Coordination, range: Int) -> Observable<[CDCity]> {
-        fetchCitiesRangeCallsCount += 1
-        fetchCitiesRangeReceivedArguments = (coordinate: coordinate, range: range)
-        fetchCitiesRangeReceivedInvocations.append((coordinate: coordinate, range: range))
-        return fetchCitiesRangeClosure.map({ $0(coordinate, range) }) ?? fetchCitiesRangeReturnValue
+    var getPollutionInfoCoordinationCityIDReceivedArguments: (coordination: City.Coordination, cityID: Int)?
+    var getPollutionInfoCoordinationCityIDReceivedInvocations: [(coordination: City.Coordination, cityID: Int)] = []
+    var getPollutionInfoCoordinationCityIDReturnValue: Observable<CDAirPollution?>!
+    var getPollutionInfoCoordinationCityIDClosure: ((City.Coordination, Int) -> Observable<CDAirPollution?>)?
+    func getPollutionInfo(coordination: City.Coordination, cityID: Int) -> Observable<CDAirPollution?> {
+        getPollutionInfoCoordinationCityIDCallsCount += 1
+        getPollutionInfoCoordinationCityIDReceivedArguments = (coordination: coordination, cityID: cityID)
+        getPollutionInfoCoordinationCityIDReceivedInvocations.append((coordination: coordination, cityID: cityID))
+        return getPollutionInfoCoordinationCityIDClosure.map({ $0(coordination, cityID) }) ?? getPollutionInfoCoordinationCityIDReturnValue
     }
 }
 class CityListUseCaseProtocolMock: CityListUseCaseProtocol {
