@@ -9,7 +9,7 @@ import RxSwift
 
 class CityDetailsPresenterTests: XCTestCase {
     
-    @WeakLazyInjected(container: .custom) private var presenter: CityDetailsPresenter!
+    private var presenter: CityDetailsPresenter!
     
     private var temperature: City.TemperatureInfo!
     private var wind: City.WindInfo!
@@ -41,8 +41,7 @@ class CityDetailsPresenterTests: XCTestCase {
             coord: coordination)
         
         cityViewModel = CityViewModel(city: city)
-        
-        Resolver.custom.register { [weak self] in CityDetailsPresenter(cityViewModel: self?.cityViewModel) }
+        presenter = CityDetailsPresenter(cityViewModel: cityViewModel)
     }
 
     override func tearDownWithError() throws {

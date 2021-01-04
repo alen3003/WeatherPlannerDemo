@@ -23,6 +23,7 @@ pod 'Sourcery'
     inherit! :search_paths
     # Pods for testing
 pod 'Nimble'
+pod 'RxTest'
   end
 
   target 'WeatherPlannerDemoUITests' do

@@ -76,6 +76,7 @@
 		B45AFD25259E281500E94FE8 /* CoreDataStackMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45AFD24259E281500E94FE8 /* CoreDataStackMock.swift */; };
 		B47D83FB25A21602005A1179 /* SourceryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FFA2B5259DE6C5009D4E4D /* SourceryProtocols.swift */; };
 		B47D840025A21852005A1179 /* AutoMockable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D83FF25A21852005A1179 /* AutoMockable.generated.swift */; };
+		B480BE9825A323C700838786 /* TestScheduler+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B480BE9725A323C700838786 /* TestScheduler+Extension.swift */; };
 		B4881A492587AD1200AEEB27 /* CityListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4881A482587AD1200AEEB27 /* CityListUseCase.swift */; };
 		B4881A4E2587AD9B00AEEB27 /* CityListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4881A4D2587AD9B00AEEB27 /* CityListRepository.swift */; };
 		B4881A562587AE2700AEEB27 /* CityListRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4881A552587AE2700AEEB27 /* CityListRepositoryProtocol.swift */; };
@@ -196,6 +197,7 @@
 		B453CBCD2583A438003D5227 /* CityDetailsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityDetailsHeaderView.swift; sourceTree = "<group>"; };
 		B45AFD24259E281500E94FE8 /* CoreDataStackMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStackMock.swift; sourceTree = "<group>"; };
 		B47D83FF25A21852005A1179 /* AutoMockable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMockable.generated.swift; sourceTree = "<group>"; };
+		B480BE9725A323C700838786 /* TestScheduler+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestScheduler+Extension.swift"; sourceTree = "<group>"; };
 		B4881A482587AD1200AEEB27 /* CityListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListUseCase.swift; sourceTree = "<group>"; };
 		B4881A4D2587AD9B00AEEB27 /* CityListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListRepository.swift; sourceTree = "<group>"; };
 		B4881A552587AE2700AEEB27 /* CityListRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListRepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 			isa = PBXGroup;
 			children = (
 				B45AFD24259E281500E94FE8 /* CoreDataStackMock.swift */,
+				B480BE9725A323C700838786 /* TestScheduler+Extension.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -1248,6 +1251,7 @@
 				B4152E4F259CBE840070CFA7 /* CityListUseCaseMock.swift in Sources */,
 				B4152E39259CAC770070CFA7 /* CityListPresenterTests.swift in Sources */,
 				B4152E44259CBA570070CFA7 /* CoordinatorMock.swift in Sources */,
+				B480BE9825A323C700838786 /* TestScheduler+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

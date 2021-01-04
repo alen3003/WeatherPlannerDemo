@@ -4,12 +4,14 @@ import Nimble
 import Resolver
 import RxBlocking
 import RxSwift
+import RxTest
 
 @testable import WeatherPlannerDemo
 
 class CityListPresenterTests: XCTestCase {
 
-    @WeakLazyInjected(container: .custom) private var presenter: CityListPresenter!
+    var presenter: CityListPresenter!
+    let disposeBag = DisposeBag()
 
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -17,7 +19,8 @@ class CityListPresenterTests: XCTestCase {
         Resolver.custom.register { CoordinatorMock() }.implements(CoordinatorProtocol.self)
         Resolver.custom.register { CityListUseCaseMock() }.implements(CityListUseCaseProtocol.self)
         Resolver.custom.register { CoreDataStackMock() }.implements(CoreDataStackProtocol.self)
-        Resolver.custom.register { CityListPresenter() }
+        
+        presenter = CityListPresenter()
     }
 
     override func tearDownWithError() throws {
@@ -33,6 +36,23 @@ class CityListPresenterTests: XCTestCase {
         
         expect(try citiesCount.toBlocking().first()) == 3
         
+    }
+    
+    func testSetLocation() throws {
+        let scheduler = TestScheduler(initialClock: 0, resolution: 1)
+        
+        scheduler.scheduleAt(10) {
+            self.presenter.setLocation(coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0))
+        }
+        
+        let observer = scheduler
+            .record(
+                presenter.cities.map { $0.count },
+                disposeBag: disposeBag)
+        
+        scheduler.start()
+        
+        expect(observer.events) == [.next(10, 3)]
     }
 
 }
