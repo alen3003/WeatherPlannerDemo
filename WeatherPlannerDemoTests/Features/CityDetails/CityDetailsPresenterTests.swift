@@ -16,6 +16,7 @@ class CityDetailsPresenterTests: XCTestCase {
     }
 
     override func tearDownWithError() throws {
+        super.tearDownWithError()
         presenter = nil
     }
     
