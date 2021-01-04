@@ -2,6 +2,7 @@
 // DO NOT EDIT
 
 // swiftlint:disable variable_name
+// swiftlint:disable line_length
 
 import RxSwift
 @testable import WeatherPlannerDemo
