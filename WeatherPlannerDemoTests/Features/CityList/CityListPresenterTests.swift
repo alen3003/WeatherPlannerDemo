@@ -10,17 +10,11 @@ import RxTest
 
 class CityListPresenterTests: XCTestCase {
 
-    var presenter: CityListPresenter!
+    @OptionalInjected(container: .custom) var presenter: CityListPresenter!
     let disposeBag = DisposeBag()
 
     override func setUpWithError() throws {
         try super.setUpWithError()
-        
-        Resolver.custom.register { CoordinatorMock() }.implements(CoordinatorProtocol.self)
-        Resolver.custom.register { CityListUseCaseMock() }.implements(CityListUseCaseProtocol.self)
-        Resolver.custom.register { CoreDataStackMock() }.implements(CoreDataStackProtocol.self)
-        
-        presenter = CityListPresenter()
     }
 
     override func tearDownWithError() throws {
