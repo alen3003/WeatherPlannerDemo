@@ -11,16 +11,15 @@ class CityDetailsPresenterTests: XCTestCase {
     
     @WeakLazyInjected(container: .custom) private var presenter: CityDetailsPresenter!
 
-    override func setUpWithError() throws {
+    override func setUp() {
         $presenter.args = CityViewModelMock.viewModel
     }
 
-    override func tearDownWithError() throws {
-        try super.tearDownWithError()
+    override func tearDown() {
         presenter = nil
     }
     
-    func testQueryAirPollution() throws {
+    func testQueryAirPollution() {
         let airPollutionDetailsCount = presenter
             .fetchPollutionInfo()
             .map { $0.count }

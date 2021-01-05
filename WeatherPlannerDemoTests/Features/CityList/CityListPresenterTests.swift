@@ -11,18 +11,18 @@ import RxTest
 class CityListPresenterTests: XCTestCase {
 
     @OptionalInjected(container: .custom) var presenter: CityListPresenter!
-    let disposeBag = DisposeBag()
+    var disposeBag: DisposeBag!
 
-    override func setUpWithError() throws {
-        try super.setUpWithError()
+    override func setUp() {
+        disposeBag = DisposeBag()
     }
 
-    override func tearDownWithError() throws {
-        try super.tearDownWithError()
+    override func tearDown() {
         presenter = nil
+        disposeBag = nil
     }
     
-    func testQueryCitiesInCircle() throws {
+    func testQueryCitiesInCircle() {
         let citiesCount = presenter
             .fetchWeather(coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0))
             .map { $0.count }
@@ -31,7 +31,7 @@ class CityListPresenterTests: XCTestCase {
         
     }
     
-    func testSetLocation() throws {
+    func testSetLocation() {
         let scheduler = TestScheduler(initialClock: 0, resolution: 1)
         
         scheduler.scheduleAt(10) {
