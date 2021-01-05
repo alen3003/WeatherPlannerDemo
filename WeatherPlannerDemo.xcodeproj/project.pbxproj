@@ -10,6 +10,7 @@
 		09CF9761AF028028BFAFC68B /* Pods_WeatherPlannerDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB6AE98C9E668CB646B04414 /* Pods_WeatherPlannerDemoTests.framework */; };
 		5AF2BC8878F3C00C0C9823E2 /* Pods_WeatherPlannerDemo_WeatherPlannerDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40A4CE7D6B8137F6761D3A7 /* Pods_WeatherPlannerDemo_WeatherPlannerDemoUITests.framework */; };
 		87C945DCF90E289CA788F9ED /* Pods_WeatherPlannerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A36063A48192A785255E7EE /* Pods_WeatherPlannerDemo.framework */; };
+		B404C2D925A48F1800977A68 /* AirPollutionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B404C2D825A48F1800977A68 /* AirPollutionMock.swift */; };
 		B407F9EB2593A301007F221A /* RxDataSources+Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = B407F9EA2593A301007F221A /* RxDataSources+Section.swift */; };
 		B4152E39259CAC770070CFA7 /* CityListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4152E38259CAC770070CFA7 /* CityListPresenterTests.swift */; };
 		B4152E44259CBA570070CFA7 /* CoordinatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4152E43259CBA570070CFA7 /* CoordinatorMock.swift */; };
@@ -73,7 +74,6 @@
 		B453CBCF2583A438003D5227 /* CityDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453CBCB2583A437003D5227 /* CityDetailsTableViewCell.swift */; };
 		B453CBD02583A438003D5227 /* CityDetailsTableViewCell+Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453CBCC2583A437003D5227 /* CityDetailsTableViewCell+Design.swift */; };
 		B453CBD12583A438003D5227 /* CityDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453CBCD2583A438003D5227 /* CityDetailsHeaderView.swift */; };
-		B45AFD25259E281500E94FE8 /* CoreDataStackMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45AFD24259E281500E94FE8 /* CoreDataStackMock.swift */; };
 		B47D83FB25A21602005A1179 /* SourceryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FFA2B5259DE6C5009D4E4D /* SourceryProtocols.swift */; };
 		B47D840025A21852005A1179 /* AutoMockable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D83FF25A21852005A1179 /* AutoMockable.generated.swift */; };
 		B480BE9825A323C700838786 /* TestScheduler+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B480BE9725A323C700838786 /* TestScheduler+Extension.swift */; };
@@ -143,6 +143,7 @@
 		77987F981F640C3C2B9CDF74 /* Pods-WeatherPlannerDemo-WeatherPlannerDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherPlannerDemo-WeatherPlannerDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-WeatherPlannerDemo-WeatherPlannerDemoUITests/Pods-WeatherPlannerDemo-WeatherPlannerDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A8AFFCF5F4FF99AFC91B75E5 /* Pods-WeatherPlannerDemo-WeatherPlannerDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherPlannerDemo-WeatherPlannerDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-WeatherPlannerDemo-WeatherPlannerDemoUITests/Pods-WeatherPlannerDemo-WeatherPlannerDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B3314DDE04066065537C384C /* Pods-WeatherPlannerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherPlannerDemo.release.xcconfig"; path = "Target Support Files/Pods-WeatherPlannerDemo/Pods-WeatherPlannerDemo.release.xcconfig"; sourceTree = "<group>"; };
+		B404C2D825A48F1800977A68 /* AirPollutionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPollutionMock.swift; sourceTree = "<group>"; };
 		B407F9EA2593A301007F221A /* RxDataSources+Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxDataSources+Section.swift"; sourceTree = "<group>"; };
 		B4152E38259CAC770070CFA7 /* CityListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListPresenterTests.swift; sourceTree = "<group>"; };
 		B4152E43259CBA570070CFA7 /* CoordinatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorMock.swift; sourceTree = "<group>"; };
@@ -199,7 +200,6 @@
 		B453CBCB2583A437003D5227 /* CityDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		B453CBCC2583A437003D5227 /* CityDetailsTableViewCell+Design.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CityDetailsTableViewCell+Design.swift"; sourceTree = "<group>"; };
 		B453CBCD2583A438003D5227 /* CityDetailsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityDetailsHeaderView.swift; sourceTree = "<group>"; };
-		B45AFD24259E281500E94FE8 /* CoreDataStackMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStackMock.swift; sourceTree = "<group>"; };
 		B47D83FF25A21852005A1179 /* AutoMockable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMockable.generated.swift; sourceTree = "<group>"; };
 		B480BE9725A323C700838786 /* TestScheduler+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestScheduler+Extension.swift"; sourceTree = "<group>"; };
 		B480BEC525A36DF800838786 /* AppDependenciesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependenciesTest.swift; sourceTree = "<group>"; };
@@ -412,7 +412,6 @@
 		B45AFD23259E27EA00E94FE8 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				B45AFD24259E281500E94FE8 /* CoreDataStackMock.swift */,
 				B480BE9725A323C700838786 /* TestScheduler+Extension.swift */,
 			);
 			path = Core;
@@ -439,6 +438,7 @@
 		B480BED525A374EE00838786 /* ModelMocks */ = {
 			isa = PBXGroup;
 			children = (
+				B404C2D825A48F1800977A68 /* AirPollutionMock.swift */,
 			);
 			path = ModelMocks;
 			sourceTree = "<group>";
@@ -1290,7 +1290,6 @@
 				B480BEC625A36DF800838786 /* AppDependenciesTest.swift in Sources */,
 				B47D83FB25A21602005A1179 /* SourceryProtocols.swift in Sources */,
 				B4FC9C9125A2007A006F098A /* CityDetailsPresenterTests.swift in Sources */,
-				B45AFD25259E281500E94FE8 /* CoreDataStackMock.swift in Sources */,
 				B480BECE25A3708200838786 /* TestSetup.swift in Sources */,
 				B47D840025A21852005A1179 /* AutoMockable.generated.swift in Sources */,
 				B4FC9C9B25A200FC006F098A /* CityDetailsUseCaseMock.swift in Sources */,
@@ -1298,6 +1297,7 @@
 				B480BEE425A378A200838786 /* CityViewModelMock.swift in Sources */,
 				B480BED825A3753200838786 /* CityMock.swift in Sources */,
 				B4152E39259CAC770070CFA7 /* CityListPresenterTests.swift in Sources */,
+				B404C2D925A48F1800977A68 /* AirPollutionMock.swift in Sources */,
 				B4152E44259CBA570070CFA7 /* CoordinatorMock.swift in Sources */,
 				B480BE9825A323C700838786 /* TestScheduler+Extension.swift in Sources */,
 			);

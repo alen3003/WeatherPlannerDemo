@@ -6,14 +6,11 @@ import RxSwift
 
 class CityListUseCaseMock: CityListUseCaseProtocol {
     
-    @Injected(container: .custom) private var coreDataStack: CoreDataStackProtocol
-    
-    func getCitiesInCircle(_ coordinate: City.Coordination, range: Int) -> Observable<[CDCity]> {
-        
+    func getCitiesInCircle(_ coordinate: City.Coordination, range: Int) -> Observable<[City]> {
         return .just([
-            CDCity(context: coreDataStack.mainContext),
-            CDCity(context: coreDataStack.mainContext),
-            CDCity(context: coreDataStack.mainContext)
+            CityMock.city,
+            CityMock.city,
+            CityMock.city
         ])
     }
 }

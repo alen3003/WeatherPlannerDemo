@@ -13,7 +13,6 @@ class AppDependeciesTest: AppModuleProtocol {
     }
     
     private func registerServices(in container: Resolver) {
-        container.register { CoreDataStackMock() }.implements(CoreDataStackProtocol.self)
         container.register { CoordinatorMock() }.implements(CoordinatorProtocol.self)
     }
     

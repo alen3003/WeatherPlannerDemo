@@ -15,9 +15,9 @@ class CityDetailsUseCaseProtocolMock: CityDetailsUseCaseProtocol {
     }
     var getPollutionInfoCoordinationCityIDReceivedArguments: (coordination: City.Coordination, cityID: Int)?
     var getPollutionInfoCoordinationCityIDReceivedInvocations: [(coordination: City.Coordination, cityID: Int)] = []
-    var getPollutionInfoCoordinationCityIDReturnValue: Observable<CDAirPollution?>!
-    var getPollutionInfoCoordinationCityIDClosure: ((City.Coordination, Int) -> Observable<CDAirPollution?>)?
-    func getPollutionInfo(coordination: City.Coordination, cityID: Int) -> Observable<CDAirPollution?> {
+    var getPollutionInfoCoordinationCityIDReturnValue: Observable<AirPollution?>!
+    var getPollutionInfoCoordinationCityIDClosure: ((City.Coordination, Int) -> Observable<AirPollution?>)?
+    func getPollutionInfo(coordination: City.Coordination, cityID: Int) -> Observable<AirPollution?> {
         getPollutionInfoCoordinationCityIDCallsCount += 1
         getPollutionInfoCoordinationCityIDReceivedArguments = (coordination: coordination, cityID: cityID)
         getPollutionInfoCoordinationCityIDReceivedInvocations.append((coordination: coordination, cityID: cityID))
@@ -33,9 +33,9 @@ class CityListUseCaseProtocolMock: CityListUseCaseProtocol {
     }
     var getCitiesInCircleRangeReceivedArguments: (coordinate: City.Coordination, range: Int)?
     var getCitiesInCircleRangeReceivedInvocations: [(coordinate: City.Coordination, range: Int)] = []
-    var getCitiesInCircleRangeReturnValue: Observable<[CDCity]>!
-    var getCitiesInCircleRangeClosure: ((City.Coordination, Int) -> Observable<[CDCity]>)?
-    func getCitiesInCircle(_ coordinate: City.Coordination, range: Int) -> Observable<[CDCity]> {
+    var getCitiesInCircleRangeReturnValue: Observable<[City]>!
+    var getCitiesInCircleRangeClosure: ((City.Coordination, Int) -> Observable<[City]>)?
+    func getCitiesInCircle(_ coordinate: City.Coordination, range: Int) -> Observable<[City]> {
         getCitiesInCircleRangeCallsCount += 1
         getCitiesInCircleRangeReceivedArguments = (coordinate: coordinate, range: range)
         getCitiesInCircleRangeReceivedInvocations.append((coordinate: coordinate, range: range))

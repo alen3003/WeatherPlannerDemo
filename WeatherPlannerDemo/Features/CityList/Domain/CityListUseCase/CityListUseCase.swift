@@ -5,7 +5,7 @@ class CityListUseCase: CityListUseCaseProtocol {
     
     @Injected(container: .custom) private var cityListRepository: CityListRepositoryProtocol
     
-    func getCitiesInCircle(_ coordinate: City.Coordination, range: Int) -> Observable<[CDCity]> {
+    func getCitiesInCircle(_ coordinate: City.Coordination, range: Int) -> Observable<[City]> {
         return cityListRepository.fetchCities(coordinate, range: range)
     }
 }
