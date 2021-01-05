@@ -1,0 +1,10 @@
+project:
+  - file: WeatherPlannerDemo.xcodeproj
+    target:
+      name: WeatherPlannerDemo
+  - file: WeatherPlannerDemo.xcodeproj
+    target:
+      name: WeatherPlannerDemoTests
+templates:
+  - WeatherPlannerDemoTests/Sourcery/Templates
+output: WeatherPlannerDemoTests/Sourcery/Generated

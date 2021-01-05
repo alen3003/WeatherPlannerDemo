@@ -1,9 +1,9 @@
 import RxSwift
 
 protocol CoreDataServiceProtocol {
-    func fetchCities() -> Observable<[CDCity]>
+    func fetchCities() -> Observable<[City]>
     func fetchCityWithID(_ id: Int) -> CDCity?
-    func fetchAirPollutionForCity(withID id: Int) -> Observable<CDAirPollution?>
+    func fetchAirPollutionForCity(withID id: Int) -> Observable<AirPollution?>
     
     func deleteCities()
     func deleteAirPollutionsForCity(city: CDCity)

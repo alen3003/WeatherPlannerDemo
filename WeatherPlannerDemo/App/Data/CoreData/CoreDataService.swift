@@ -1,3 +1,5 @@
+// swiftlint:disable force_cast
+
 import CoreData
 import Resolver
 import RxSwift
@@ -8,19 +10,18 @@ class CoreDataService: CoreDataServiceProtocol {
     
     // MARK: - Fetches
     
-    func fetchCities() -> Observable<[CDCity]> {
+    func fetchCities() -> Observable<[City]> {
         let request: NSFetchRequest<CDCity> = CDCity.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         request.returnsObjectsAsFaults = false
         
-        return coreDataStack.mainContext.rx_entities(request as? NSFetchRequest<NSFetchRequestResult>)
-            .flatMap { fetchedManagedObject -> Observable<[CDCity]> in
-                guard let fetchedCities = fetchedManagedObject as? [CDCity] else { return .just([]) }
-                return .just(fetchedCities)
-            }
+        return coreDataStack.mainContext
+            .rx_entities(request as? NSFetchRequest<NSFetchRequestResult>)
+            .map { $0.map { $0 as! CDCity } }
+            .map { $0.map { City(cdCity: $0) } }
     }
     
-    func fetchAirPollutionForCity(withID id: Int) -> Observable<CDAirPollution?> {
+    func fetchAirPollutionForCity(withID id: Int) -> Observable<AirPollution?> {
         
         guard let city = self.fetchCityWithID(id) else { return .just(nil) }
         
@@ -29,13 +30,12 @@ class CoreDataService: CoreDataServiceProtocol {
         request.sortDescriptors = [NSSortDescriptor(key: "aqi", ascending: true)]
         request.returnsObjectsAsFaults = false
         
-        return self.coreDataStack.mainContext.rx_entities(request as? NSFetchRequest<NSFetchRequestResult>)
-            .flatMap { fetchedManagedObject -> Observable<CDAirPollution?> in
-                guard let fetchedPollution = fetchedManagedObject.first as? CDAirPollution
-                else {
-                    return .just(nil)
-                }
-                return .just(fetchedPollution)
+        return self.coreDataStack.mainContext
+            .rx_entities(request as? NSFetchRequest<NSFetchRequestResult>)
+            .map { $0.map { $0 as! CDAirPollution } }
+            .map {
+                guard let airPollution = $0.first else { return nil }
+                return AirPollution(cdAirPollution: airPollution)
             }
     }
     

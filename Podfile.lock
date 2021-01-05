@@ -1,8 +1,11 @@
 PODS:
   - Differentiator (4.0.1)
+  - Nimble (9.0.0)
   - PureLayout (3.1.6)
   - ReachabilitySwift (5.0.0)
   - Resolver (1.2.1)
+  - RxBlocking (5.1.1):
+    - RxSwift (~> 5)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -13,40 +16,55 @@ PODS:
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
+  - RxTest (5.1.1):
+    - RxSwift (~> 5)
+  - Sourcery (1.0.2)
   - SwiftLint (0.41.0)
 
 DEPENDENCIES:
+  - Nimble
   - PureLayout
   - ReachabilitySwift
   - Resolver
+  - RxBlocking
   - RxCocoa
-  - RxDataSources (~> 4.0)
+  - RxDataSources
   - RxSwift
+  - RxTest
+  - Sourcery
   - SwiftLint
 
 SPEC REPOS:
   trunk:
     - Differentiator
+    - Nimble
     - PureLayout
     - ReachabilitySwift
     - Resolver
+    - RxBlocking
     - RxCocoa
     - RxDataSources
     - RxRelay
     - RxSwift
+    - RxTest
+    - Sourcery
     - SwiftLint
 
 SPEC CHECKSUMS:
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
+  Nimble: 3b4ec3fd40f1dc178058e0981107721c615643d8
   PureLayout: bd3c4ec3a3819ad387c99ebb72c6b129c3ed4d2d
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   Resolver: 764e380b2ddb26bba48c6e45ab393c968894a156
+  RxBlocking: 5f700a78cad61ce253ebd37c9a39b5ccc76477b4
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  RxTest: 711632d5644dffbeb62c936a521b5b008a1e1faa
+  Sourcery: e8951e8759ef6a3a0cce412db64832dd23343041
   SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
 
-PODFILE CHECKSUM: 8c66488adcca96fe860d684846c6e68406b4669b
+PODFILE CHECKSUM: d262df10f96ec342dcc0c93fa209035a45130365
 
 COCOAPODS: 1.10.0

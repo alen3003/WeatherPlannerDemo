@@ -11,12 +11,19 @@ pod 'SwiftLint'
 pod 'ReachabilitySwift'
 pod 'RxSwift'
 pod 'RxCocoa'
-pod 'RxDataSources', '~> 4.0'
-pod "Resolver"
+pod 'RxDataSources'
+pod 'Resolver'
+pod 'RxBlocking'
+pod 'Sourcery'
 
   target 'WeatherPlannerDemoTests' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
     inherit! :search_paths
     # Pods for testing
+pod 'Nimble'
+pod 'RxTest'
   end
 
   target 'WeatherPlannerDemoUITests' do

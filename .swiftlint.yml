@@ -19,3 +19,4 @@ disabled_rules:
 
 excluded: # paths to ignore during linting. Takes precedence over `included`.
     - Pods
+    - WeatherPlannerDemo/WeatherPlannerDemoTests

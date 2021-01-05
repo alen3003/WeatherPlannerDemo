@@ -8,7 +8,7 @@ class CityDetailsRepository: CityDetailsRepositoryProtocol {
     @Injected(container: .custom) private var coreDataService: CoreDataServiceProtocol
     @OptionalInjected(container: .custom) private var reachability: Reachability?
 
-    func fetchPollutionInfo(coordination: City.Coordination, cityID: Int) -> Observable<CDAirPollution?> {
+    func fetchPollutionInfo(coordination: City.Coordination, cityID: Int) -> Observable<AirPollution?> {
         switch reachability?.connection {
         case .unavailable:
             return coreDataService.fetchAirPollutionForCity(withID: cityID)
@@ -23,7 +23,7 @@ class CityDetailsRepository: CityDetailsRepositoryProtocol {
                     }
                     
                     self.createAndSaveAirPollution(from: airPollution, cityID: cityID)
-                }.flatMap { [weak self] _ -> Observable<CDAirPollution?> in
+                }.flatMap { [weak self] _ -> Observable<AirPollution?> in
                     guard let self = self else { return .just(nil) }
                     return self.coreDataService.fetchAirPollutionForCity(withID: cityID)
                 }
