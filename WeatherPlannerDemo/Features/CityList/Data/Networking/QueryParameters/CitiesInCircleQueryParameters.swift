@@ -4,7 +4,7 @@ struct CitiesInCircleQueryParameters: QueryParameters, CustomReflectable {
     let longitude: String
     let radius: String
     var unitSystem: String = MeasurementUnit.metric.rawValue
-    var language: String = WeatherResponseLanguage.en.rawValue
+    var language: String = WeatherResponseLanguage.sl.rawValue
     var customMirror: Mirror {
         let children: [(label: String?, value: Any)] = [
             ("lat", latitude),

@@ -10,6 +10,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         options connectionOptions: UIScene.ConnectionOptions
     ) {
         guard let scene = (scene as? UIWindowScene) else { return }
+
         window = UIWindow(windowScene: scene)
         if let window = window {
             AppDependencies.shared.appRouter.presentInWindow(window: window)

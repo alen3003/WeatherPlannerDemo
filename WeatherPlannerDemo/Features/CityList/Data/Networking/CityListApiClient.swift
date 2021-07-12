@@ -8,7 +8,7 @@ final class CityListApiClient: BaseApiClient, CityListApiClientProtocol {
             latitude: "\(coordinate.lat)",
             longitude: "\(coordinate.lon)",
             radius: "\(range)",
-            language: WeatherResponseLanguage.hr.rawValue
+            language: WeatherResponseLanguage.sl.rawValue
         ).propertyPairs()
         
         return get(

@@ -5,20 +5,19 @@ final class CityDetailsPresenter {
     
     @Injected(container: .custom) private var cityDetailsUseCase: CityDetailsUseCaseProtocol
     weak var cityViewModel: CityViewModel?
-    
+
     var title: String? {
-        return cityViewModel?.cityName
+        cityViewModel?.cityName
     }
-    
+
     var airPollutionDetails: Observable<[AirPollutionDetailsViewModel]>!
-    
+
     init(cityViewModel: CityViewModel?) {
         self.cityViewModel = cityViewModel
         airPollutionDetails = fetchPollutionInfo()
     }
-    
+
     func fetchPollutionInfo() -> Observable<[AirPollutionDetailsViewModel]> {
-        
         guard let viewModel = cityViewModel else { return .just([]) }
         
         return cityDetailsUseCase.getPollutionInfo(
@@ -30,4 +29,5 @@ final class CityDetailsPresenter {
                     .just(AirPollutionViewModel(airPollution: airPollution).airPollutionDetailsViewModel)
             }
     }
+
 }

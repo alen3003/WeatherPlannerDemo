@@ -1,9 +1,9 @@
 struct AirPollution: Decodable {
-    
+
     struct AirQuality: Decodable {
         let aqi: Int
     }
-    
+
     struct AirPollutionComponents: Decodable {
         let co: Double
         let no: Double
@@ -12,7 +12,7 @@ struct AirPollution: Decodable {
         let so2: Double
         let nh3: Double
     }
-    
+
     let main: AirQuality
     let components: AirPollutionComponents
 }
@@ -22,13 +22,14 @@ struct AirPollutionWrapper: Decodable {
 }
 
 extension AirPollution {
+
     init(cdAirPollution: CDAirPollution) {
         self.main = AirQuality(aqi: Int(cdAirPollution.aqi))
         self.components = AirPollution.airPollutionComponents(cdAirPollution)
     }
-    
+
     private static func airPollutionComponents(_ airPollution: CDAirPollution) -> AirPollutionComponents {
-        return AirPollutionComponents(
+        AirPollutionComponents(
             co: airPollution.co,
             no: airPollution.no,
             no2: airPollution.no2,
@@ -37,4 +38,5 @@ extension AirPollution {
             nh3: airPollution.nh3
         )
     }
+
 }
