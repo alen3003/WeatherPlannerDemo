@@ -6,49 +6,42 @@ import RxDataSources
 import RxSwift
 
 class CityListViewController: UIViewController {
-    
-    var citiesTableView: UITableView!
-    
+
+    typealias CityListTableViewDataSource = RxTableViewSectionedAnimatedDataSource<AnimatableSection<CityViewModel>>
+
     @Injected(container: .custom) var presenter: CityListPresenter
-    
-    public typealias CityListTableViewDataSource =
-        RxTableViewSectionedAnimatedDataSource<AnimatableSection<CityViewModel>>
+
+    let rowHeight: CGFloat = 350
+
+    var citiesTableView: UITableView!
+
     var locationManager: CLLocationManager?
     let disposeBag = DisposeBag()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         buildViews()
-        
+
         locationManager = CLLocationManager()
         locationManager?.delegate = self
-        
+
         askForLocationServicesIfNeeded()
-        
-        citiesTableView.rx.setDelegate(self).disposed(by: disposeBag)
-        registerTableViewCells()
+
         configureDataSource()
         setOnClickEvent()
     }
-    
+
     private func askForLocationServicesIfNeeded() {
         locationManager?.requestAlwaysAuthorization()
         locationManager?.requestWhenInUseAuthorization()
-       
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager?.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager?.startUpdatingLocation()
-        }
+
+        guard CLLocationManager.locationServicesEnabled() else { return }
+
+        locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager?.startUpdatingLocation()
     }
-    
-    private func registerTableViewCells() {
-        citiesTableView.register(
-            CityListTableViewCell.self,
-            forCellReuseIdentifier: CityListTableViewCell.reuseIdentifier
-        )
-    }
-    
+
     private func configureDataSource() {
         let dataSource = CityListTableViewDataSource(
             animationConfiguration: AnimationConfiguration(
@@ -86,15 +79,19 @@ class CityListViewController: UIViewController {
 }
 
 extension CityListViewController: CLLocationManagerDelegate {
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         locationManager?.stopUpdatingLocation()
         locationManager?.delegate = nil
         presenter.setLocation(coordinate: locations[0].coordinate)
     }
+
 }
 
 extension CityListViewController: UITableViewDelegate {
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 350
+        rowHeight
     }
+
 }

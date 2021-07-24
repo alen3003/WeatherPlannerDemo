@@ -1,7 +1,7 @@
 import RxDataSources
 
 class CityViewModel {
-    
+
     let cityID: Int
     let coordination: City.Coordination
     let cityName: String
@@ -10,7 +10,7 @@ class CityViewModel {
     let minTemperature: String
     let maxTemperature: String
     let windSpeed: String
-    
+
     init(city: City) {
         self.cityID = city.id
         self.coordination = city.coord
@@ -23,7 +23,7 @@ class CityViewModel {
             .appendMeasuringUnit(.celsius, spacing: false)
         self.windSpeed = "\(LocalizationKey.windSpeed.string) \(city.wind.speed)".appendMeasuringUnit(.velocityBasic)
     }
-    
+
     init(city: CDCity) {
         self.cityID = Int(city.id)
         self.coordination = City.Coordination(lat: city.coordination.latitude, lon: city.coordination.longitude)
@@ -36,15 +36,19 @@ class CityViewModel {
             .appendMeasuringUnit(.celsius, spacing: false)
         self.windSpeed = "\(LocalizationKey.windSpeed.string) \(city.wind.speed)".appendMeasuringUnit(.velocityBasic)
     }
+
 }
 
 extension CityViewModel: IdentifiableType, Equatable {
+
     typealias Identity = Int
+
     var identity: Identity {
-        return cityID
+        cityID
     }
-    
+
     static func == (lhs: CityViewModel, rhs: CityViewModel) -> Bool {
-        return lhs.identity == rhs.identity
+        lhs.identity == rhs.identity
     }
+
 }
