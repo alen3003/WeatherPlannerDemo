@@ -1,3 +1,5 @@
-protocol CoordinatorProtocol: class {
+protocol CoordinatorProtocol {
+
     func pushCityDetailsViewController(viewModel: CityViewModel)
+
 }

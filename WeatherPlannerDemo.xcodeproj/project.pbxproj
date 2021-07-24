@@ -602,10 +602,9 @@
 		B4881A262587A4C400AEEB27 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				B4881A302587A6A700AEEB27 /* Networking */,
 				B4881A282587A61400AEEB27 /* Models */,
-				B4ACAF7A2588CFA9008141E1 /* ManagedModels */,
-				B4ACAF7C2588D007008141E1 /* CoreData */,
+				B4ACAF7A2588CFA9008141E1 /* CoreData */,
+				B4881A302587A6A700AEEB27 /* Networking */,
 				B4ACAF7B2588CFCB008141E1 /* Repository */,
 			);
 			path = Data;
@@ -614,10 +613,9 @@
 		B4881A272587A4DE00AEEB27 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				B4881A372587A6CC00AEEB27 /* Networking */,
 				B4881A2C2587A61F00AEEB27 /* Models */,
-				B4ACAF872588D0E9008141E1 /* ManagedModels */,
-				B4ACAF882588D0F8008141E1 /* CoreData */,
+				B4ACAF872588D0E9008141E1 /* CoreData */,
+				B4881A372587A6CC00AEEB27 /* Networking */,
 				B4ACAF892588D107008141E1 /* Repository */,
 			);
 			path = Data;
@@ -671,7 +669,7 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		B4ACAF7A2588CFA9008141E1 /* ManagedModels */ = {
+		B4ACAF7A2588CFA9008141E1 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				B48EA755258A408200F87C65 /* CDCity+CoreDataClass.swift */,
@@ -680,7 +678,7 @@
 				B48EA706258A3E8F00F87C65 /* CDTemperature+CoreDataClass.swift */,
 				B48EA6FC258A3DCC00F87C65 /* CDWeather+CoreDataClass.swift */,
 			);
-			path = ManagedModels;
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		B4ACAF7B2588CFCB008141E1 /* Repository */ = {
@@ -690,13 +688,6 @@
 				B4881A552587AE2700AEEB27 /* CityListRepositoryProtocol.swift */,
 			);
 			path = Repository;
-			sourceTree = "<group>";
-		};
-		B4ACAF7C2588D007008141E1 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CoreData;
 			sourceTree = "<group>";
 		};
 		B4ACAF802588D037008141E1 /* Domain */ = {
@@ -724,17 +715,10 @@
 			path = Domain;
 			sourceTree = "<group>";
 		};
-		B4ACAF872588D0E9008141E1 /* ManagedModels */ = {
+		B4ACAF872588D0E9008141E1 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				B48EA727258A3F9100F87C65 /* CDAirPollution+CoreDataClass.swift */,
-			);
-			path = ManagedModels;
-			sourceTree = "<group>";
-		};
-		B4ACAF882588D0F8008141E1 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			path = CoreData;
 			sourceTree = "<group>";

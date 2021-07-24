@@ -1,6 +1,7 @@
 import Resolver
 
-class AppCoordinator: CoordinatorProtocol {
+class AppCoordinator {
+
     private weak var navigationController: UINavigationController?
     let container: Resolver
     
@@ -8,23 +9,30 @@ class AppCoordinator: CoordinatorProtocol {
         self.navigationController = navigationController
         self.container = container
     }
-    
-    func pushCityDetailsViewController(viewModel: CityViewModel) {
-        let cityDetailsViewController: CityDetailsViewController = container.resolve(args: viewModel)
-        navigationController?.pushViewController(cityDetailsViewController, animated: true)
-    }
-    
+
     private func setRootViewController() {
         let cityListController: CityListViewController = container.resolve()
         navigationController?.viewControllers = [cityListController]
         navigationController?.navigationBar.prefersLargeTitles = true
     }
+
+}
+
+extension AppCoordinator: CoordinatorProtocol {
+
+    func pushCityDetailsViewController(viewModel: CityViewModel) {
+        let cityDetailsViewController: CityDetailsViewController = container.resolve(args: viewModel)
+        navigationController?.pushViewController(cityDetailsViewController, animated: true)
+    }
+
 }
 
 extension AppCoordinator {
+
     func presentInWindow(window: UIWindow) {
         setRootViewController()
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }
+
 }

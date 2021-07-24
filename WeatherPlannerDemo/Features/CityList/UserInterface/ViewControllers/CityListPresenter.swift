@@ -2,7 +2,7 @@ import CoreLocation
 import Resolver
 import RxSwift
 
-final class CityListPresenter {
+class CityListPresenter {
     
     @Injected(container: .custom) private var cityListUseCase: CityListUseCaseProtocol
     @Injected(container: .custom) private var coordinator: CoordinatorProtocol
