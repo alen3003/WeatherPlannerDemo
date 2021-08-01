@@ -15,10 +15,13 @@ struct AirPollution: Decodable {
 
     let main: AirQuality
     let components: AirPollutionComponents
+
 }
 
 struct AirPollutionWrapper: Decodable {
+
     let list: [AirPollution]
+
 }
 
 extension AirPollution {

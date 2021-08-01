@@ -111,6 +111,8 @@
 		B4C9C9F8258B67730022F99C /* Reachability+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9C9F7258B67730022F99C /* Reachability+Extension.swift */; };
 		B4C9CA00258B75CB0022F99C /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9C9FF258B75CB0022F99C /* CoreDataService.swift */; };
 		B4C9CA08258B75E30022F99C /* CoreDataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9CA07258B75E30022F99C /* CoreDataServiceProtocol.swift */; };
+		B4D2CD4E26B752F000CD04A1 /* BundleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D2CD4D26B752F000CD04A1 /* BundleImage.swift */; };
+		B4D2CD5126B75E3200CD04A1 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D2CD5026B75E3200CD04A1 /* CityModel.swift */; };
 		B4EFE2E325948E17002EE0F1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EFE2E225948E17002EE0F1 /* Constants.swift */; };
 		B4F5D3D0258B86F200F511C4 /* CoreDataStackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5D3CF258B86F200F511C4 /* CoreDataStackProtocol.swift */; };
 		B4FC9C9125A2007A006F098A /* CityDetailsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FC9C9025A2007A006F098A /* CityDetailsPresenterTests.swift */; };
@@ -235,6 +237,8 @@
 		B4C9C9F7258B67730022F99C /* Reachability+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reachability+Extension.swift"; sourceTree = "<group>"; };
 		B4C9C9FF258B75CB0022F99C /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		B4C9CA07258B75E30022F99C /* CoreDataServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceProtocol.swift; sourceTree = "<group>"; };
+		B4D2CD4D26B752F000CD04A1 /* BundleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleImage.swift; sourceTree = "<group>"; };
+		B4D2CD5026B75E3200CD04A1 /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
 		B4EFE2E225948E17002EE0F1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B4F5D3CF258B86F200F511C4 /* CoreDataStackProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackProtocol.swift; sourceTree = "<group>"; };
 		B4FC9C9025A2007A006F098A /* CityDetailsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailsPresenterTests.swift; sourceTree = "<group>"; };
@@ -465,6 +469,7 @@
 		B48819F525879EBC00AEEB27 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B4D2CD4D26B752F000CD04A1 /* BundleImage.swift */,
 				B4881A382587A6EB00AEEB27 /* Network */,
 				B4C9CA16258B7D150022F99C /* Data */,
 				B453CA73257F9623003D5227 /* ConstructViewsProtocol.swift */,
@@ -693,6 +698,7 @@
 		B4ACAF802588D037008141E1 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				B4D2CD4F26B75E0800CD04A1 /* Models */,
 				B4ACAF812588D060008141E1 /* CityListUseCase */,
 			);
 			path = Domain;
@@ -797,6 +803,14 @@
 				B4A19B26259B5B2600755804 /* CoreDataModule.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		B4D2CD4F26B75E0800CD04A1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B4D2CD5026B75E3200CD04A1 /* CityModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B4EFE2E725948FC4002EE0F1 /* RxSwift+RxDataSources */ = {
@@ -1174,6 +1188,7 @@
 				B48EA68A258A075500F87C65 /* CityDetailsUseCaseProtocol.swift in Sources */,
 				B4ACAF9C2588E276008141E1 /* CityListApiClient.swift in Sources */,
 				B453CADA2580EF52003D5227 /* (null) in Sources */,
+				B4D2CD4E26B752F000CD04A1 /* BundleImage.swift in Sources */,
 				B453C9F0257E37EA003D5227 /* HttpStatusCode.swift in Sources */,
 				B453CAE32580F220003D5227 /* (null) in Sources */,
 				B453CA9A257FA430003D5227 /* CityListPresenter.swift in Sources */,
@@ -1228,6 +1243,7 @@
 				B4C9CA08258B75E30022F99C /* CoreDataServiceProtocol.swift in Sources */,
 				B453CBB02583A3C0003D5227 /* AirPollutionViewModel.swift in Sources */,
 				B4ACAFB92588FAD7008141E1 /* CoordinatorProtocol.swift in Sources */,
+				B4D2CD5126B75E3200CD04A1 /* CityModel.swift in Sources */,
 				B453CB90258399B1003D5227 /* Font.swift in Sources */,
 				B4ACAFA62588F1F1008141E1 /* CityDetailsApiClient.swift in Sources */,
 				B453CBAA2583A383003D5227 /* AirPollutionViewModel+Extension.swift in Sources */,

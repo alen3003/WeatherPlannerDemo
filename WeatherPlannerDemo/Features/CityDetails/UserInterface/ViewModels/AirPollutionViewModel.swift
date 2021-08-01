@@ -1,4 +1,4 @@
-class AirPollutionViewModel {
+struct AirPollutionViewModel {
 
     let carbonMonoxideLevel: String
     let nitrogenOxideLevel: String
@@ -7,11 +7,11 @@ class AirPollutionViewModel {
     let sulfurDioxideLevel: String
     let ammoniaLevel: String
     var airQualityIndex: String?
-    
-    lazy var airPollutionDetailsViewModel: [AirPollutionDetailsViewModel] = {
-        return airPollutionDetails()
-    }()
-    
+
+}
+
+extension AirPollutionViewModel {
+
     init(airPollution: AirPollution) {
         self.carbonMonoxideLevel = airPollution.components.co.formatedString().appendMeasuringUnit(.airPollutionLevel)
         self.nitrogenOxideLevel = airPollution.components.no.formatedString().appendMeasuringUnit(.airPollutionLevel)
@@ -21,7 +21,7 @@ class AirPollutionViewModel {
         self.ammoniaLevel = airPollution.components.nh3.formatedString().appendMeasuringUnit(.airPollutionLevel)
         self.airQualityIndex = airPollutionDescription(airPollution.main.aqi)
     }
-    
+
     init(airPollution: CDAirPollution) {
         self.carbonMonoxideLevel = airPollution.co.formatedString().appendMeasuringUnit(.airPollutionLevel)
         self.nitrogenOxideLevel = airPollution.no.formatedString().appendMeasuringUnit(.airPollutionLevel)
@@ -31,5 +31,9 @@ class AirPollutionViewModel {
         self.ammoniaLevel = airPollution.nh3.formatedString().appendMeasuringUnit(.airPollutionLevel)
         self.airQualityIndex = airPollutionDescription(Int(airPollution.aqi))
     }
-    
+
+    func airPollutionDetailsViewModel() -> [AirPollutionDetailsViewModel] {
+        airPollutionDetails()
+    }
+
 }

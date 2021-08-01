@@ -30,6 +30,7 @@ struct City: Decodable {
     let wind: WindInfo
     let name: String
     let coord: Coordination
+
 }
 
 extension City {
@@ -58,4 +59,5 @@ extension City {
             temp_max: city.temperature.tempMax,
             humidity: city.temperature.humidity)
     }
+
 }

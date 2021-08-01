@@ -4,7 +4,6 @@ import Nimble
 import Resolver
 import RxBlocking
 import RxSwift
-import RxTest
 
 @testable import WeatherPlannerDemo
 

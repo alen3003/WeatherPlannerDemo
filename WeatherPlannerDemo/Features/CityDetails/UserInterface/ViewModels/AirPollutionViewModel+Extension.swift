@@ -1,4 +1,5 @@
 extension AirPollutionViewModel {
+
     enum AirPollutionLabelType: String, CaseIterable {
         case airQualityIndex
         case carbonMonoxideLevel
@@ -8,7 +9,7 @@ extension AirPollutionViewModel {
         case sulfurDioxideLevel
         case ammoniaLevel
     }
-    
+
     func airPollutionDescription(_ airPollutionIndex: Int) -> String? {
         switch airPollutionIndex {
         case 1:
@@ -28,15 +29,14 @@ extension AirPollutionViewModel {
     
     func airPollutionDetails() -> [AirPollutionDetailsViewModel] {
         var airPollutionDetailsViewModel: [AirPollutionDetailsViewModel] = []
-        
         AirPollutionLabelType.allCases.forEach({ airPollutionDetailsViewModel.append(createAirPollutionDetail($0)) })
+
         return airPollutionDetailsViewModel
     }
     
     private func createAirPollutionDetail(
         _ airPollutionLabelType: AirPollutionLabelType
     ) -> AirPollutionDetailsViewModel {
-        
         switch airPollutionLabelType {
         case .airQualityIndex:
             return AirPollutionDetailsViewModel(

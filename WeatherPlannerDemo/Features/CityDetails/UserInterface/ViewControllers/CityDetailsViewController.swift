@@ -5,13 +5,15 @@ import RxDataSources
 import RxSwift
 
 class CityDetailsViewController: UIViewController {
+
+    let headerHeight: CGFloat = 250
     
     var cityDetailsTableView: UITableView!
     
     @LazyInjected(container: .custom) var presenter: CityDetailsPresenter
     
     private typealias CityDetailsTableViewDataSource =
-        RxTableViewSectionedAnimatedDataSource<AnimatableSection<AirPollutionDetailsViewModel>>
+        RxTableViewSectionedReloadDataSource<Section<AirPollutionDetailsViewModel>>
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -47,7 +49,7 @@ class CityDetailsViewController: UIViewController {
         
         presenter
             .airPollutionDetails
-            .mapToAnimatableSection()
+            .mapToSection()
             .observeOn(MainScheduler.instance)
             .bind(to: cityDetailsTableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
@@ -56,19 +58,18 @@ class CityDetailsViewController: UIViewController {
 
 extension CityDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
         guard let viewModel = presenter.cityViewModel else { return nil }
-        
+
         let headerView = CityDetailsHeaderView()
         headerView.set(viewModel: viewModel)
         return headerView
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 250
+        headerHeight
     }
 }

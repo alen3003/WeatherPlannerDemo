@@ -1,9 +1,8 @@
-import RxDataSources
-
-class CityViewModel {
+struct CityViewModel {
 
     let cityID: Int
-    let coordination: City.Coordination
+    let latitude: Double
+    let longitude: Double
     let cityName: String
     let weatherDescription: String?
     let temperature: String
@@ -11,22 +10,28 @@ class CityViewModel {
     let maxTemperature: String
     let windSpeed: String
 
-    init(city: City) {
+}
+
+extension CityViewModel {
+
+    init(city: CityModel) {
         self.cityID = city.id
-        self.coordination = city.coord
+        self.latitude = city.latitude
+        self.longitude = city.longitude
         self.cityName = city.name
-        self.weatherDescription = city.weather.first?.description.capitalizingFirstLetter()
-        self.temperature = "\(Int(city.main.temp))".appendMeasuringUnit(.celsius, spacing: false)
-        self.minTemperature = "\(LocalizationKey.minTemp.string) \(Int(city.main.temp_min))"
+        self.weatherDescription = city.weatherDescription?.capitalizingFirstLetter()
+        self.temperature = "\(Int(city.temperature))".appendMeasuringUnit(.celsius, spacing: false)
+        self.minTemperature = "\(LocalizationKey.minTemp.string) \(Int(city.minTemperature))"
             .appendMeasuringUnit(.celsius, spacing: false)
-        self.maxTemperature = "\(LocalizationKey.maxTemp.string) \(Int(city.main.temp_max))"
+        self.maxTemperature = "\(LocalizationKey.maxTemp.string) \(Int(city.maxTemperature))"
             .appendMeasuringUnit(.celsius, spacing: false)
-        self.windSpeed = "\(LocalizationKey.windSpeed.string) \(city.wind.speed)".appendMeasuringUnit(.velocityBasic)
+        self.windSpeed = "\(LocalizationKey.windSpeed.string) \(city.windSpeed)".appendMeasuringUnit(.velocityBasic)
     }
 
     init(city: CDCity) {
         self.cityID = Int(city.id)
-        self.coordination = City.Coordination(lat: city.coordination.latitude, lon: city.coordination.longitude)
+        self.latitude = city.coordination.latitude
+        self.longitude = city.coordination.longitude
         self.cityName = city.name
         self.weatherDescription = city.weather.weatherDescription
         self.temperature = "\(Int(city.temperature.temp))".appendMeasuringUnit(.celsius, spacing: false)
@@ -35,20 +40,6 @@ class CityViewModel {
         self.maxTemperature = "\(LocalizationKey.maxTemp.string) \(Int(city.temperature.tempMax))"
             .appendMeasuringUnit(.celsius, spacing: false)
         self.windSpeed = "\(LocalizationKey.windSpeed.string) \(city.wind.speed)".appendMeasuringUnit(.velocityBasic)
-    }
-
-}
-
-extension CityViewModel: IdentifiableType, Equatable {
-
-    typealias Identity = Int
-
-    var identity: Identity {
-        cityID
-    }
-
-    static func == (lhs: CityViewModel, rhs: CityViewModel) -> Bool {
-        lhs.identity == rhs.identity
     }
 
 }

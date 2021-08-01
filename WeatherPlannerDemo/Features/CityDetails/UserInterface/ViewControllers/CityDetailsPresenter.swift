@@ -4,7 +4,8 @@ import RxSwift
 final class CityDetailsPresenter {
     
     @Injected(container: .custom) private var cityDetailsUseCase: CityDetailsUseCaseProtocol
-    weak var cityViewModel: CityViewModel?
+
+    var cityViewModel: CityViewModel!
 
     var title: String? {
         cityViewModel?.cityName
@@ -12,7 +13,7 @@ final class CityDetailsPresenter {
 
     var airPollutionDetails: Observable<[AirPollutionDetailsViewModel]>!
 
-    init(cityViewModel: CityViewModel?) {
+    init(cityViewModel: CityViewModel) {
         self.cityViewModel = cityViewModel
         airPollutionDetails = fetchPollutionInfo()
     }
@@ -21,12 +22,14 @@ final class CityDetailsPresenter {
         guard let viewModel = cityViewModel else { return .just([]) }
         
         return cityDetailsUseCase.getPollutionInfo(
-            coordination: viewModel.coordination,
+            latitude: viewModel.latitude,
+            longitude: viewModel.longitude,
             cityID: viewModel.cityID)
             .flatMap { airPollution -> Observable<[AirPollutionDetailsViewModel]> in
                 guard let airPollution = airPollution else { return .just([]) }
+
                 return Observable<[AirPollutionDetailsViewModel]>
-                    .just(AirPollutionViewModel(airPollution: airPollution).airPollutionDetailsViewModel)
+                    .just(AirPollutionViewModel(airPollution: airPollution).airPollutionDetailsViewModel())
             }
     }
 

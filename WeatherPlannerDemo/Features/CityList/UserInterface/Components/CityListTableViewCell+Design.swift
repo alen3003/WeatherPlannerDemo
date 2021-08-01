@@ -21,12 +21,13 @@ extension CityListTableViewCell: ConstructViewsProtocol {
 
         contentView.addSubview(stackView)
     }
-    
+
     func styleViews() {
         selectionStyle = .none
 
         backgroundImageView.layer.masksToBounds = true
         backgroundImageView.layer.cornerRadius = 15
+        backgroundImageView.image = UIImage(named: BundleImage.backgroundImage.rawValue)
 
         descriptionLabel.textColor = Color.systemWhite
         cityNameLabel.textColor = Color.systemWhite

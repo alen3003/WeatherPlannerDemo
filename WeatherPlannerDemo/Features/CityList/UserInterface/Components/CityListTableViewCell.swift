@@ -24,7 +24,6 @@ class CityListTableViewCell: UITableViewCell {
     }
 
     func set(viewModel: CityViewModel) {
-        backgroundImageView.image = UIImage(named: "cityBackground")
         descriptionLabel.text = viewModel.weatherDescription
         cityNameLabel.text = viewModel.cityName
         temperatureLabel.text = viewModel.temperature

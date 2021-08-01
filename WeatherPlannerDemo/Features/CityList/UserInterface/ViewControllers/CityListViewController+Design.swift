@@ -13,8 +13,8 @@ extension CityListViewController: ConstructViewsProtocol {
         citiesTableView.register(
             CityListTableViewCell.self,
             forCellReuseIdentifier: CityListTableViewCell.reuseIdentifier)
-        citiesTableView.rx.setDelegate(self).disposed(by: disposeBag)
         view.addSubview(citiesTableView)
+        citiesTableView.rx.setDelegate(self).disposed(by: disposeBag)
     }
 
     func styleViews() {
