@@ -2,6 +2,6 @@ import RxSwift
 
 protocol CityListUseCaseProtocol {
 
-    func getCitiesInCircle(_ coordinate: City.Coordination, range: Int) -> Observable<[CityModel]>
+    func getCitiesInCircle(latitude: Double, longitude: Double, range: Int) -> Observable<[CityModel]>
 
 }

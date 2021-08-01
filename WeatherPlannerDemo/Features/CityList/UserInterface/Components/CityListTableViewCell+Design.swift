@@ -52,8 +52,8 @@ extension CityListTableViewCell: ConstructViewsProtocol {
         backgroundImageView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20))
 
         stackView.autoAlignAxis(toSuperviewAxis: .horizontal)
-        stackView.autoPinEdge(.left, to: .left, of: contentView, withOffset: 8)
-        stackView.autoPinEdge(.right, to: .right, of: contentView, withOffset: 8)
+        stackView.autoPinEdge(.leading, to: .leading, of: contentView, withOffset: 8)
+        stackView.autoPinEdge(.trailing, to: .trailing, of: contentView, withOffset: 8)
     }
 
 }

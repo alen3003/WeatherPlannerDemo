@@ -1,5 +1,7 @@
 import RxSwift
 
 protocol CityListRepositoryProtocol {
-    func fetchCities(_ coordinate: City.Coordination, range: Int) -> Observable<[City]>
+
+    func fetchCities(latitude: Double, longitude: Double, range: Int) -> Observable<[City]>
+
 }

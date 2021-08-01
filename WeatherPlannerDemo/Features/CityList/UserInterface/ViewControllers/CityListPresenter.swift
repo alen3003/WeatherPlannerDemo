@@ -29,10 +29,9 @@ class CityListPresenter {
     }
 
     func fetchWeather(coordinate: CLLocationCoordinate2D) -> Observable<[CityViewModel]> {
-        let coordinate = City.Coordination(lat: coordinate.latitude, lon: coordinate.longitude)
-
-        return cityListUseCase.getCitiesInCircle(
-            coordinate,
+        cityListUseCase.getCitiesInCircle(
+            latitude: coordinate.latitude,
+            longitude: coordinate.longitude,
             range: Constants.noOfCitiesInCircle)
             .flatMap({ cities -> Observable<[CityViewModel]> in
                 return Observable<[CityViewModel]>.just(cities.map({ CityViewModel(city: $0) }))

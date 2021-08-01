@@ -9,12 +9,14 @@ class CityListRepository: CityListRepositoryProtocol {
     @Injected(container: .custom) private var coreDataService: CoreDataServiceProtocol
     @OptionalInjected(container: .custom) private var reachability: Reachability?
 
-    func fetchCities(_ coordinate: City.Coordination, range: Int) -> Observable<[City]> {
+    func fetchCities(latitude: Double, longitude: Double, range: Int) -> Observable<[City]> {
         switch reachability?.connection {
         case .unavailable:
-            return self.coreDataService.fetchCities()
+            return coreDataService.fetchCities()
         default:
-            return networkClient.fetchCitiesInCircle(coordinate, range: range)
+            let coordination = City.Coordination(lat: latitude, lon: longitude)
+
+            return networkClient.fetchCitiesInCircle(coordination, range: range)
                 .do { [weak self] cities in
                     guard let self = self else { return }
 
