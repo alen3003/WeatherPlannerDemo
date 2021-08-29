@@ -10,7 +10,7 @@ extension CityDetailsUseCaseProtocol {}
 extension CityModel: StubProtocol {
 
     static func stub(withId id: Int) -> CityModel {
-        CityMock.city(id: id)
+        CityMock.cityModel(id: id)
     }
 
 }

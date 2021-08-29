@@ -3,7 +3,7 @@
 class CityViewModelMock {
 
     static var viewModel: CityViewModel {
-        CityViewModel(city: CityMock.city(id: 0))
+        CityViewModel(city: CityMock.cityModel(id: 0))
     }
 
 }

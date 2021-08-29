@@ -113,6 +113,7 @@
 		B4C9CA08258B75E30022F99C /* CoreDataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9CA07258B75E30022F99C /* CoreDataServiceProtocol.swift */; };
 		B4D2CD4E26B752F000CD04A1 /* BundleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D2CD4D26B752F000CD04A1 /* BundleImage.swift */; };
 		B4D2CD5126B75E3200CD04A1 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D2CD5026B75E3200CD04A1 /* CityModel.swift */; };
+		B4E8ECC326DC43E300221C0A /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E8ECC226DC43E300221C0A /* ExampleTests.swift */; };
 		B4EFE2E325948E17002EE0F1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EFE2E225948E17002EE0F1 /* Constants.swift */; };
 		B4F5D3D0258B86F200F511C4 /* CoreDataStackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5D3CF258B86F200F511C4 /* CoreDataStackProtocol.swift */; };
 		B4FC9C9125A2007A006F098A /* CityDetailsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FC9C9025A2007A006F098A /* CityDetailsPresenterTests.swift */; };
@@ -242,6 +243,7 @@
 		B4C9CA07258B75E30022F99C /* CoreDataServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceProtocol.swift; sourceTree = "<group>"; };
 		B4D2CD4D26B752F000CD04A1 /* BundleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleImage.swift; sourceTree = "<group>"; };
 		B4D2CD5026B75E3200CD04A1 /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
+		B4E8ECC226DC43E300221C0A /* ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
 		B4EFE2E225948E17002EE0F1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B4F5D3CF258B86F200F511C4 /* CoreDataStackProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackProtocol.swift; sourceTree = "<group>"; };
 		B4FC9C9025A2007A006F098A /* CityDetailsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailsPresenterTests.swift; sourceTree = "<group>"; };
@@ -869,6 +871,7 @@
 		B4FFA331259E221F009D4E4D /* CityList */ = {
 			isa = PBXGroup;
 			children = (
+				B4E8ECC226DC43E300221C0A /* ExampleTests.swift */,
 				B4152E38259CAC770070CFA7 /* CityListPresenterTests.swift */,
 				B480BED625A3750F00838786 /* ModelMocks */,
 				B480BEE225A3788A00838786 /* ViewModelMocks */,
@@ -1267,6 +1270,7 @@
 				B480BEC625A36DF800838786 /* AppDependenciesTest.swift in Sources */,
 				B404C2E125A4949100977A68 /* StubProtocol.swift in Sources */,
 				B47D83FB25A21602005A1179 /* SourceryProtocols.swift in Sources */,
+				B4E8ECC326DC43E300221C0A /* ExampleTests.swift in Sources */,
 				B4FC9C9125A2007A006F098A /* CityDetailsPresenterTests.swift in Sources */,
 				B480BECE25A3708200838786 /* TestSetup.swift in Sources */,
 				B47D840025A21852005A1179 /* AutoMockable.generated.swift in Sources */,
