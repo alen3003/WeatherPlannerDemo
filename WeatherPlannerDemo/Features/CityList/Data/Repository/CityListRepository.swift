@@ -20,7 +20,7 @@ class CityListRepository: CityListRepositoryProtocol {
                 .do { [weak self] cities in
                     guard let self = self else { return }
 
-                    self.createAndSaveCities(from: cities)
+                    self.saveToDatabase(cities: cities)
                 }.flatMap { [weak self] _ -> Observable<[City]> in
                     guard let self = self else { return .just([]) }
 
@@ -29,9 +29,9 @@ class CityListRepository: CityListRepositoryProtocol {
         }
     }
 
-    private func createAndSaveCities(from citiesInCircle: CitiesInCircle) {
+    private func saveToDatabase(cities: CitiesInCircle) {
         coreDataService.deleteCities()
-        coreDataService.createCitiesFrom(cities: citiesInCircle.list)
+        coreDataService.createCitiesFrom(cities: cities.list)
         coreDataService.saveChangesSync()
     }
 

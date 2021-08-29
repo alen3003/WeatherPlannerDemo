@@ -19,13 +19,13 @@ class AppDependeciesTest: AppModuleProtocol {
     private func registerUseCases(in container: Resolver) {
         container.register(CityListUseCaseProtocol.self) {
             let useCase = CityListUseCaseProtocolMock()
-            useCase.getCitiesInCircleRangeReturnValue = .just([City].stub(withCount: 3))
+            useCase.getCitiesInCircleLatitudeLongitudeRangeReturnValue = .just([CityModel].stub(withCount: 3))
             return useCase
         }
         
         container.register(CityDetailsUseCaseProtocol.self) {
             let useCase = CityDetailsUseCaseProtocolMock()
-            useCase.getPollutionInfoCoordinationCityIDReturnValue = .just(AirPollutionMock.airPollution)
+            useCase.getPollutionInfoLatitudeLongitudeCityIDReturnValue = .just(AirPollutionMock.airPollution)
             return useCase
         }
     }

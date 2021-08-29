@@ -1,6 +1,6 @@
 PODS:
   - Differentiator (4.0.1)
-  - Nimble (9.0.0)
+  - Nimble (9.2.1)
   - PureLayout (3.1.6)
   - ReachabilitySwift (5.0.0)
   - Resolver (1.2.1)
@@ -35,9 +35,10 @@ DEPENDENCIES:
   - SwiftLint
 
 SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Nimble
   trunk:
     - Differentiator
-    - Nimble
     - PureLayout
     - ReachabilitySwift
     - Resolver
@@ -52,7 +53,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
-  Nimble: 3b4ec3fd40f1dc178058e0981107721c615643d8
+  Nimble: e7e615c0335ee4bf5b0d786685451e62746117d5
   PureLayout: bd3c4ec3a3819ad387c99ebb72c6b129c3ed4d2d
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   Resolver: 764e380b2ddb26bba48c6e45ab393c968894a156
@@ -65,6 +66,6 @@ SPEC CHECKSUMS:
   Sourcery: e8951e8759ef6a3a0cce412db64832dd23343041
   SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
 
-PODFILE CHECKSUM: d262df10f96ec342dcc0c93fa209035a45130365
+PODFILE CHECKSUM: 82177edff23b805eaeebceca4d6725fee5ac940c
 
 COCOAPODS: 1.10.0

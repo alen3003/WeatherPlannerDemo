@@ -19,14 +19,16 @@ class CityMock {
         City.Coordination(lat: 0, lon: 0)
     }
 
-    static func city(id: Int) -> City {
-        City(
+    static func city(id: Int) -> CityModel {
+        let city = City(
             id: id,
             weather: [],
             main: temperature,
             wind: wind,
             name: "",
             coord: coordination)
+
+        return CityModel(from: city)
     }
 
 }

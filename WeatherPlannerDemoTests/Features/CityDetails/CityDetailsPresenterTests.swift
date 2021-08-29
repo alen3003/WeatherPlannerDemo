@@ -1,7 +1,7 @@
 import XCTest
 import CoreData
-import Nimble
 import Resolver
+import Nimble
 import RxBlocking
 import RxSwift
 
@@ -18,14 +18,15 @@ class CityDetailsPresenterTests: XCTestCase {
     override func tearDown() {
         presenter = nil
     }
-    
+
     func testQueryAirPollution() {
         let airPollutionDetailsCount = presenter
             .fetchPollutionInfo()
             .map { $0.count }
-        
-        expect(try airPollutionDetailsCount.toBlocking().first()) ==
-            AirPollutionViewModel.AirPollutionLabelType.allCases.count
+
+        let viewModels = AirPollutionViewModel.AirPollutionLabelType.allCases
+
+        expect(try airPollutionDetailsCount.toBlocking().first()) == viewModels.count
         
     }
 

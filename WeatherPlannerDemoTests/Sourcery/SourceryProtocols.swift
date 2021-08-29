@@ -7,8 +7,10 @@ extension CityListUseCaseProtocol {}
 // sourcery: AutoMockable
 extension CityDetailsUseCaseProtocol {}
 
-extension City: StubProtocol {
-    static func stub(withId id: Int) -> City {
-        return CityMock.city(id: id)
+extension CityModel: StubProtocol {
+
+    static func stub(withId id: Int) -> CityModel {
+        CityMock.city(id: id)
     }
+
 }

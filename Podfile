@@ -1,33 +1,32 @@
-# Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '13.0'
+workspace 'WeatherPlannerDemo.xcworkspace'
+source 'https://github.com/CocoaPods/Specs.git'
+
+def shared_pods
+  pod 'PureLayout'
+  pod 'SwiftLint'
+  pod 'ReachabilitySwift'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'RxDataSources'
+  pod 'Resolver'
+  pod 'Nimble'
+  pod 'RxTest'
+  pod 'RxBlocking'
+  pod 'Sourcery'
+end
 
 target 'WeatherPlannerDemo' do
-  # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
+  shared_pods
+end
 
-  # Pods for WeatherPlannerDemo
-pod 'PureLayout'
-pod 'SwiftLint'
-pod 'ReachabilitySwift'
-pod 'RxSwift'
-pod 'RxCocoa'
-pod 'RxDataSources'
-pod 'Resolver'
-pod 'RxBlocking'
-pod 'Sourcery'
-
-  target 'WeatherPlannerDemoTests' do
-  # Comment the next line if you don't want to use dynamic frameworks
+target 'WeatherPlannerDemoTests' do
   use_frameworks!
+  shared_pods
+end
 
-    inherit! :search_paths
-    # Pods for testing
-pod 'Nimble'
-pod 'RxTest'
-  end
-
-  target 'WeatherPlannerDemoUITests' do
-    # Pods for testing
-  end
-
+target 'WeatherPlannerDemoUITests' do
+  use_frameworks!
+  shared_pods
 end
