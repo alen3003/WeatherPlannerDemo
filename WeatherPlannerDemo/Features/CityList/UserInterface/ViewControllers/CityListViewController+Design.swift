@@ -18,7 +18,7 @@ extension CityListViewController: ConstructViewsProtocol {
     }
 
     func styleViews() {
-        navigationItem.title = presenter.title
+        navigationItem.title = LocalizationKey.helloMessage.string
 
         citiesTableView.separatorStyle = .none
     }

@@ -31,7 +31,7 @@ class CityDetailsViewController: UIViewController {
             CityDetailsTableViewCell.self,
             forCellReuseIdentifier: CityDetailsTableViewCell.reuseIdentifier)
     }
-    
+
     private func configureDataSource() {
         let dataSource = CityDetailsTableViewDataSource(
             configureCell: { (_, tableView, indexPath, viewModel) in
