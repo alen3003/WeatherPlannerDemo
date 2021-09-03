@@ -36,4 +36,5 @@ class CityDetailsRepository: CityDetailsRepositoryProtocol {
         coreDataService.createAirPollutionFrom(pollution: airPollution, city: city)
         coreDataService.saveChangesSync()
     }
+
 }

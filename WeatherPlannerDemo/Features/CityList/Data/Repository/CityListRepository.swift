@@ -1,4 +1,3 @@
-import Foundation
 import Reachability
 import Resolver
 import RxSwift
