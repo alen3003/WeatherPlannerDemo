@@ -8,6 +8,10 @@ struct AirPollutionViewModel {
     let ammoniaLevel: String
     var airQualityIndex: String?
 
+    var airPollutionDetails: [AirPollutionDetailsViewModel] {
+        AirPollutionLabelType.allCases.map { createAirPollutionDetail($0) }
+    }
+
 }
 
 extension AirPollutionViewModel {
@@ -30,10 +34,6 @@ extension AirPollutionViewModel {
         self.sulfurDioxideLevel = airPollution.so2.formatedString().appendMeasuringUnit(.airPollutionLevel)
         self.ammoniaLevel = airPollution.nh3.formatedString().appendMeasuringUnit(.airPollutionLevel)
         self.airQualityIndex = airPollutionDescription(Int(airPollution.aqi))
-    }
-
-    func airPollutionDetailsViewModel() -> [AirPollutionDetailsViewModel] {
-        airPollutionDetails()
     }
 
 }

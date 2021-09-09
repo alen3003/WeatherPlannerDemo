@@ -1,5 +1,4 @@
 import XCTest
-import CoreData
 import Resolver
 import Nimble
 import RxBlocking
@@ -24,9 +23,7 @@ class CityDetailsPresenterTests: XCTestCase {
             .fetchPollutionInfo()
             .map { $0.count }
 
-        let viewModels = AirPollutionViewModel.AirPollutionLabelType.allCases
-
-        expect(try airPollutionDetailsCount.toBlocking().first()) == viewModels.count
+        expect(try airPollutionDetailsCount.toBlocking().first()) == 7
         
     }
 

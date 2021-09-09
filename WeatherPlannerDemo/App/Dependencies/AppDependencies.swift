@@ -89,6 +89,13 @@ class AppDependencies: AppModuleProtocol {
             .implements(CityDetailsUseCaseProtocol.self)
             .scope(Resolver.unique)
     }
+
+    private func registerInteractors(in container: Resolver) {
+        container
+            .register { CityListInteractor() }
+            .implements(CityListInteractorProtocol.self)
+            .scope(Resolver.unique)
+    }
     
     private func registerPresenters(in container: Resolver) {
         container

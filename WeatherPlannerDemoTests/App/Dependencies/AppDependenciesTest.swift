@@ -13,7 +13,9 @@ class AppDependeciesTest: AppModuleProtocol {
     }
     
     private func registerServices(in container: Resolver) {
-        container.register { CoordinatorProtocolMock() }.implements(CoordinatorProtocol.self)
+        container
+            .register { CoordinatorProtocolMock() }
+            .implements(CoordinatorProtocol.self)
     }
     
     private func registerUseCases(in container: Resolver) {
@@ -25,7 +27,7 @@ class AppDependeciesTest: AppModuleProtocol {
         
         container.register(CityDetailsUseCaseProtocol.self) {
             let useCase = CityDetailsUseCaseProtocolMock()
-            useCase.getPollutionInfoLatitudeLongitudeCityIDReturnValue = .just(AirPollutionMock.airPollution)
+            useCase.getPollutionInfoLatitudeLongitudeCityIDReturnValue = .just(AirPollutionMock().airPollution)
             return useCase
         }
     }

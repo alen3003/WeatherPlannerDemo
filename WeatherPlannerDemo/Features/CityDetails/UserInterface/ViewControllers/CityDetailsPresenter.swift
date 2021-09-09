@@ -29,7 +29,7 @@ final class CityDetailsPresenter {
                 guard let airPollution = airPollution else { return .just([]) }
 
                 return Observable<[AirPollutionDetailsViewModel]>
-                    .just(AirPollutionViewModel(airPollution: airPollution).airPollutionDetailsViewModel())
+                    .just(AirPollutionViewModel(airPollution: airPollution).airPollutionDetails)
             }
     }
 

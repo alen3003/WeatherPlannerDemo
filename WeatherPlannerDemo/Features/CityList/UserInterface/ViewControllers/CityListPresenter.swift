@@ -24,7 +24,7 @@ class CityListPresenter {
         coordinator.pushCityDetailsViewController(viewModel: cityViewModel)
     }
 
-    private func fetchWeather(coordinate: CLLocationCoordinate2D) -> Observable<[CityViewModel]> {
+    func fetchWeather(coordinate: CLLocationCoordinate2D) -> Observable<[CityViewModel]> {
         cityListUseCase.getCitiesInCircle(
             latitude: coordinate.latitude,
             longitude: coordinate.longitude,

@@ -1,5 +1,5 @@
 import XCTest
-import CoreData
+import CoreLocation
 import Resolver
 import Nimble
 import RxBlocking
@@ -28,7 +28,6 @@ class CityListPresenterTests: XCTestCase {
             .map { $0.count }
 
         expect(try citiesCount.toBlocking().first()) == 3
-
     }
     
     func testSetLocation() {
@@ -38,10 +37,7 @@ class CityListPresenterTests: XCTestCase {
             self.presenter.setLocation(coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0))
         }
 
-        let observer = scheduler
-            .record(
-                presenter.cities.map { $0.count },
-                disposeBag: disposeBag)
+        let observer = scheduler.record(presenter.cities.map { $0.count }, disposeBag: disposeBag)
 
         scheduler.start()
 

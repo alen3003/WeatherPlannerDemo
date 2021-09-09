@@ -103,7 +103,6 @@
 		B4A19B27259B5B2600755804 /* CoreDataModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A19B26259B5B2600755804 /* CoreDataModule.swift */; };
 		B4A19B59259B7DEF00755804 /* Resolver+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A19B58259B7DEF00755804 /* Resolver+Extension.swift */; };
 		B4ACAF9C2588E276008141E1 /* CityListApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAF9B2588E276008141E1 /* CityListApiClient.swift */; };
-		B4ACAFA12588EA01008141E1 /* CityListApiClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAFA02588EA01008141E1 /* CityListApiClientProtocol.swift */; };
 		B4ACAFA62588F1F1008141E1 /* CityDetailsApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAFA52588F1F1008141E1 /* CityDetailsApiClient.swift */; };
 		B4ACAFAB2588F204008141E1 /* CityDetailsApiClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAFAA2588F204008141E1 /* CityDetailsApiClientProtocol.swift */; };
 		B4ACAFB12588FACC008141E1 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAFB02588FACC008141E1 /* AppCoordinator.swift */; };
@@ -111,9 +110,12 @@
 		B4C9C9F8258B67730022F99C /* Reachability+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9C9F7258B67730022F99C /* Reachability+Extension.swift */; };
 		B4C9CA00258B75CB0022F99C /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9C9FF258B75CB0022F99C /* CoreDataService.swift */; };
 		B4C9CA08258B75E30022F99C /* CoreDataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9CA07258B75E30022F99C /* CoreDataServiceProtocol.swift */; };
+		B4CCCFA126E6750C007CA570 /* CityListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CCCFA026E6750C007CA570 /* CityListInteractor.swift */; };
+		B4CCCFA926E67B6F007CA570 /* CityListInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CCCFA226E67537007CA570 /* CityListInteractorProtocol.swift */; };
 		B4D2CD4E26B752F000CD04A1 /* BundleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D2CD4D26B752F000CD04A1 /* BundleImage.swift */; };
 		B4D2CD5126B75E3200CD04A1 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D2CD5026B75E3200CD04A1 /* CityModel.swift */; };
 		B4E8ECC326DC43E300221C0A /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E8ECC226DC43E300221C0A /* ExampleTests.swift */; };
+		B4ED81F926E2D7DA0010756A /* CityListApiClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACAFA02588EA01008141E1 /* CityListApiClientProtocol.swift */; };
 		B4EFE2E325948E17002EE0F1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EFE2E225948E17002EE0F1 /* Constants.swift */; };
 		B4F5D3D0258B86F200F511C4 /* CoreDataStackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5D3CF258B86F200F511C4 /* CoreDataStackProtocol.swift */; };
 		B4FC9C9125A2007A006F098A /* CityDetailsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FC9C9025A2007A006F098A /* CityDetailsPresenterTests.swift */; };
@@ -241,6 +243,8 @@
 		B4C9C9F7258B67730022F99C /* Reachability+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reachability+Extension.swift"; sourceTree = "<group>"; };
 		B4C9C9FF258B75CB0022F99C /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		B4C9CA07258B75E30022F99C /* CoreDataServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataServiceProtocol.swift; sourceTree = "<group>"; };
+		B4CCCFA026E6750C007CA570 /* CityListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListInteractor.swift; sourceTree = "<group>"; };
+		B4CCCFA226E67537007CA570 /* CityListInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListInteractorProtocol.swift; sourceTree = "<group>"; };
 		B4D2CD4D26B752F000CD04A1 /* BundleImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleImage.swift; sourceTree = "<group>"; };
 		B4D2CD5026B75E3200CD04A1 /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
 		B4E8ECC226DC43E300221C0A /* ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
@@ -611,6 +615,7 @@
 		B4881A262587A4C400AEEB27 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				B4CCCF9E26E674F1007CA570 /* VIPER */,
 				B4881A282587A61400AEEB27 /* Models */,
 				B4ACAF7A2588CFA9008141E1 /* CoreData */,
 				B4881A302587A6A700AEEB27 /* Networking */,
@@ -807,6 +812,23 @@
 				B4A19B26259B5B2600755804 /* CoreDataModule.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		B4CCCF9E26E674F1007CA570 /* VIPER */ = {
+			isa = PBXGroup;
+			children = (
+				B4CCCF9F26E674FD007CA570 /* Interactor */,
+			);
+			path = VIPER;
+			sourceTree = "<group>";
+		};
+		B4CCCF9F26E674FD007CA570 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				B4CCCFA026E6750C007CA570 /* CityListInteractor.swift */,
+				B4CCCFA226E67537007CA570 /* CityListInteractorProtocol.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		B4D2CD4F26B75E0800CD04A1 /* Models */ = {
@@ -1172,6 +1194,7 @@
 			files = (
 				B453CA08257E38EF003D5227 /* BaseApiClient.swift in Sources */,
 				B453CAF725810857003D5227 /* (null) in Sources */,
+				B4CCCFA126E6750C007CA570 /* CityListInteractor.swift in Sources */,
 				B453CBC62583A41F003D5227 /* AirPollutionQueryParameters.swift in Sources */,
 				B421D88A2594DBD5007F28F7 /* FetchedResultsController+Rx.swift in Sources */,
 				B48EA74E258A405900F87C65 /* CDWind+CoreDataClass.swift in Sources */,
@@ -1211,6 +1234,7 @@
 				B48D172F2587673B00511C47 /* AirPollutionDetailsViewModel.swift in Sources */,
 				B453CBA92583A383003D5227 /* Color.swift in Sources */,
 				B4881A6F2587B48A00AEEB27 /* CityDetailsRepositoryProtocol.swift in Sources */,
+				B4CCCFA926E67B6F007CA570 /* CityListInteractorProtocol.swift in Sources */,
 				B4F5D3D0258B86F200F511C4 /* CoreDataStackProtocol.swift in Sources */,
 				B4881A6A2587B45800AEEB27 /* CityDetailsRepository.swift in Sources */,
 				B453CA47257E7DF2003D5227 /* Logger.swift in Sources */,
@@ -1246,7 +1270,6 @@
 				B453CBBB2583A3F0003D5227 /* CityDetailsViewController+Design.swift in Sources */,
 				B453CA3F257E6617003D5227 /* NetworkModule.swift in Sources */,
 				B4A19B22259B5A7A00755804 /* AppModuleProtocol.swift in Sources */,
-				B4ACAFA12588EA01008141E1 /* CityListApiClientProtocol.swift in Sources */,
 				B4C9CA08258B75E30022F99C /* CoreDataServiceProtocol.swift in Sources */,
 				B453CBB02583A3C0003D5227 /* AirPollutionViewModel.swift in Sources */,
 				B4ACAFB92588FAD7008141E1 /* CoordinatorProtocol.swift in Sources */,
@@ -1259,6 +1282,7 @@
 				B407F9EB2593A301007F221A /* RxDataSources+Section.swift in Sources */,
 				B48EA708258A3E8F00F87C65 /* CDTemperature+CoreDataClass.swift in Sources */,
 				B48EA73C258A400200F87C65 /* CDCoordination+CoreDataClass.swift in Sources */,
+				B4ED81F926E2D7DA0010756A /* CityListApiClientProtocol.swift in Sources */,
 				B453CBD02583A438003D5227 /* CityDetailsTableViewCell+Design.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

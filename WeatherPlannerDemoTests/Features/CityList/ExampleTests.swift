@@ -2,17 +2,35 @@ import XCTest
 
 class ExampleTests: XCTestCase {
 
+    struct OperationManager {
+
+        let x: Int
+        let y: Int
+
+        func multiply() -> Int {
+            x * y
+        }
+
+    }
+
+    var x: Int!
+    var y: Int!
+    var manager: OperationManager!
+
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        x = 10
+        y = 5
+        manager = OperationManager(x: x, y: y)
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        x = nil
+        y = nil
+        manager = nil
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testMultiplication() {
+        XCTAssertEqual(manager.multiply(), 50, "Multiplication result does not match the expected value of 50")
     }
 
 }

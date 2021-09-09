@@ -26,15 +26,8 @@ extension AirPollutionViewModel {
             return nil
         }
     }
-    
-    func airPollutionDetails() -> [AirPollutionDetailsViewModel] {
-        var airPollutionDetailsViewModel: [AirPollutionDetailsViewModel] = []
-        AirPollutionLabelType.allCases.forEach({ airPollutionDetailsViewModel.append(createAirPollutionDetail($0)) })
 
-        return airPollutionDetailsViewModel
-    }
-    
-    private func createAirPollutionDetail(
+    func createAirPollutionDetail(
         _ airPollutionLabelType: AirPollutionLabelType
     ) -> AirPollutionDetailsViewModel {
         switch airPollutionLabelType {
