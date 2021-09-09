@@ -22,7 +22,6 @@
 		B453C9A8257E2010003D5227 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453C9A7257E2010003D5227 /* SceneDelegate.swift */; };
 		B453C9AF257E2011003D5227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B453C9AE257E2011003D5227 /* Assets.xcassets */; };
 		B453C9B2257E2011003D5227 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B453C9B0257E2011003D5227 /* LaunchScreen.storyboard */; };
-		B453C9C8257E2011003D5227 /* WeatherPlannerDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453C9C7257E2011003D5227 /* WeatherPlannerDemoUITests.swift */; };
 		B453C9EF257E37EA003D5227 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453C9EC257E37EA003D5227 /* HttpMethod.swift */; };
 		B453C9F0257E37EA003D5227 /* HttpStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453C9EE257E37EA003D5227 /* HttpStatusCode.swift */; };
 		B453C9F1257E37EA003D5227 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453C9ED257E37EA003D5227 /* ApiError.swift */; };
@@ -75,7 +74,6 @@
 		B453CBD02583A438003D5227 /* CityDetailsTableViewCell+Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453CBCC2583A437003D5227 /* CityDetailsTableViewCell+Design.swift */; };
 		B453CBD12583A438003D5227 /* CityDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453CBCD2583A438003D5227 /* CityDetailsHeaderView.swift */; };
 		B47D83FB25A21602005A1179 /* SourceryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FFA2B5259DE6C5009D4E4D /* SourceryProtocols.swift */; };
-		B47D840025A21852005A1179 /* AutoMockable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47D83FF25A21852005A1179 /* AutoMockable.generated.swift */; };
 		B480BE9825A323C700838786 /* TestScheduler+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B480BE9725A323C700838786 /* TestScheduler+Extension.swift */; };
 		B480BEC625A36DF800838786 /* AppDependenciesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B480BEC525A36DF800838786 /* AppDependenciesTest.swift */; };
 		B480BECE25A3708200838786 /* TestSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B480BECD25A3708200838786 /* TestSetup.swift */; };
@@ -99,6 +97,9 @@
 		B48EA74E258A405900F87C65 /* CDWind+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48EA74D258A405900F87C65 /* CDWind+CoreDataClass.swift */; };
 		B48EA756258A408200F87C65 /* CDCity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48EA755258A408200F87C65 /* CDCity+CoreDataClass.swift */; };
 		B48EA763258A422A00F87C65 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48EA762258A422A00F87C65 /* CoreDataStack.swift */; };
+		B49D76AC26EAA2B3005256FA /* AutoMockable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49D76AB26EAA2B3005256FA /* AutoMockable.generated.swift */; };
+		B49D76AE26EAA2CC005256FA /* AutoMockable.stencil in Resources */ = {isa = PBXBuildFile; fileRef = B49D76AD26EAA2CC005256FA /* AutoMockable.stencil */; };
+		B49D76B426EAA3E7005256FA /* WeatherPlannerDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49D76B326EAA3E7005256FA /* WeatherPlannerDemoUITests.swift */; };
 		B4A19B22259B5A7A00755804 /* AppModuleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A19B21259B5A7A00755804 /* AppModuleProtocol.swift */; };
 		B4A19B27259B5B2600755804 /* CoreDataModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A19B26259B5B2600755804 /* CoreDataModule.swift */; };
 		B4A19B59259B7DEF00755804 /* Resolver+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A19B58259B7DEF00755804 /* Resolver+Extension.swift */; };
@@ -119,7 +120,6 @@
 		B4EFE2E325948E17002EE0F1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EFE2E225948E17002EE0F1 /* Constants.swift */; };
 		B4F5D3D0258B86F200F511C4 /* CoreDataStackProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5D3CF258B86F200F511C4 /* CoreDataStackProtocol.swift */; };
 		B4FC9C9125A2007A006F098A /* CityDetailsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FC9C9025A2007A006F098A /* CityDetailsPresenterTests.swift */; };
-		B4FFA2F3259E07ED009D4E4D /* AutoMockable.stencil in Resources */ = {isa = PBXBuildFile; fileRef = B4FFA2F2259E07ED009D4E4D /* AutoMockable.stencil */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,7 +167,6 @@
 		B453C9B8257E2011003D5227 /* WeatherPlannerDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherPlannerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B453C9BE257E2011003D5227 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B453C9C3257E2011003D5227 /* WeatherPlannerDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherPlannerDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B453C9C7257E2011003D5227 /* WeatherPlannerDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPlannerDemoUITests.swift; sourceTree = "<group>"; };
 		B453C9C9257E2011003D5227 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B453C9EC257E37EA003D5227 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		B453C9ED257E37EA003D5227 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
@@ -207,7 +206,6 @@
 		B453CBCB2583A437003D5227 /* CityDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		B453CBCC2583A437003D5227 /* CityDetailsTableViewCell+Design.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CityDetailsTableViewCell+Design.swift"; sourceTree = "<group>"; };
 		B453CBCD2583A438003D5227 /* CityDetailsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityDetailsHeaderView.swift; sourceTree = "<group>"; };
-		B47D83FF25A21852005A1179 /* AutoMockable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMockable.generated.swift; sourceTree = "<group>"; };
 		B480BE9725A323C700838786 /* TestScheduler+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestScheduler+Extension.swift"; sourceTree = "<group>"; };
 		B480BEC525A36DF800838786 /* AppDependenciesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependenciesTest.swift; sourceTree = "<group>"; };
 		B480BECD25A3708200838786 /* TestSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSetup.swift; sourceTree = "<group>"; };
@@ -231,6 +229,10 @@
 		B48EA74D258A405900F87C65 /* CDWind+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDWind+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B48EA755258A408200F87C65 /* CDCity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDCity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B48EA762258A422A00F87C65 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		B49D76AB26EAA2B3005256FA /* AutoMockable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMockable.generated.swift; sourceTree = "<group>"; };
+		B49D76AD26EAA2CC005256FA /* AutoMockable.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AutoMockable.stencil; sourceTree = "<group>"; };
+		B49D76B326EAA3E7005256FA /* WeatherPlannerDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPlannerDemoUITests.swift; sourceTree = "<group>"; };
+		B49D76B526EAA410005256FA /* WeatherPlannerDemoUITests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WeatherPlannerDemoUITests-Bridging-Header.h"; sourceTree = "<group>"; };
 		B4A19B21259B5A7A00755804 /* AppModuleProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModuleProtocol.swift; sourceTree = "<group>"; };
 		B4A19B26259B5B2600755804 /* CoreDataModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModule.swift; sourceTree = "<group>"; };
 		B4A19B58259B7DEF00755804 /* Resolver+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Resolver+Extension.swift"; sourceTree = "<group>"; };
@@ -252,7 +254,6 @@
 		B4F5D3CF258B86F200F511C4 /* CoreDataStackProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackProtocol.swift; sourceTree = "<group>"; };
 		B4FC9C9025A2007A006F098A /* CityDetailsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailsPresenterTests.swift; sourceTree = "<group>"; };
 		B4FFA2B5259DE6C5009D4E4D /* SourceryProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceryProtocols.swift; sourceTree = "<group>"; };
-		B4FFA2F2259E07ED009D4E4D /* AutoMockable.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AutoMockable.stencil; sourceTree = "<group>"; };
 		DB6AE98C9E668CB646B04414 /* Pods_WeatherPlannerDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherPlannerDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -360,8 +361,9 @@
 		B453C9C6257E2011003D5227 /* WeatherPlannerDemoUITests */ = {
 			isa = PBXGroup;
 			children = (
-				B453C9C7257E2011003D5227 /* WeatherPlannerDemoUITests.swift */,
 				B453C9C9257E2011003D5227 /* Info.plist */,
+				B49D76B326EAA3E7005256FA /* WeatherPlannerDemoUITests.swift */,
+				B49D76B526EAA410005256FA /* WeatherPlannerDemoUITests-Bridging-Header.h */,
 			);
 			path = WeatherPlannerDemoUITests;
 			sourceTree = "<group>";
@@ -868,7 +870,7 @@
 		B4FFA2F1259E0533009D4E4D /* Templates */ = {
 			isa = PBXGroup;
 			children = (
-				B4FFA2F2259E07ED009D4E4D /* AutoMockable.stencil */,
+				B49D76AD26EAA2CC005256FA /* AutoMockable.stencil */,
 			);
 			path = Templates;
 			sourceTree = "<group>";
@@ -876,7 +878,7 @@
 		B4FFA2FA259E09D4009D4E4D /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				B47D83FF25A21852005A1179 /* AutoMockable.generated.swift */,
+				B49D76AB26EAA2B3005256FA /* AutoMockable.generated.swift */,
 			);
 			path = Generated;
 			sourceTree = "<group>";
@@ -997,6 +999,7 @@
 					};
 					B453C9C2257E2011003D5227 = {
 						CreatedOnToolsVersion = 12.2;
+						LastSwiftMigration = 1250;
 						TestTargetID = B453C9A1257E2010003D5227;
 					};
 				};
@@ -1036,7 +1039,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4FFA2F3259E07ED009D4E4D /* AutoMockable.stencil in Resources */,
+				B49D76AE26EAA2CC005256FA /* AutoMockable.stencil in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1292,12 +1295,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B480BEC625A36DF800838786 /* AppDependenciesTest.swift in Sources */,
+				B49D76AC26EAA2B3005256FA /* AutoMockable.generated.swift in Sources */,
 				B404C2E125A4949100977A68 /* StubProtocol.swift in Sources */,
 				B47D83FB25A21602005A1179 /* SourceryProtocols.swift in Sources */,
 				B4E8ECC326DC43E300221C0A /* ExampleTests.swift in Sources */,
 				B4FC9C9125A2007A006F098A /* CityDetailsPresenterTests.swift in Sources */,
 				B480BECE25A3708200838786 /* TestSetup.swift in Sources */,
-				B47D840025A21852005A1179 /* AutoMockable.generated.swift in Sources */,
 				B480BEE425A378A200838786 /* CityViewModelMock.swift in Sources */,
 				B480BED825A3753200838786 /* CityMock.swift in Sources */,
 				B4152E39259CAC770070CFA7 /* CityListPresenterTests.swift in Sources */,
@@ -1311,7 +1314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B453C9C8257E2011003D5227 /* WeatherPlannerDemoUITests.swift in Sources */,
+				B49D76B426EAA3E7005256FA /* WeatherPlannerDemoUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1549,6 +1552,7 @@
 			baseConfigurationReference = AD9E321D8EF70C3252E59E8F /* Pods-WeatherPlannerDemoUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3K2KE4S24U;
 				INFOPLIST_FILE = WeatherPlannerDemoUITests/Info.plist;
@@ -1559,6 +1563,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.alensebalj.WeatherPlannerDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WeatherPlannerDemoUITests/WeatherPlannerDemoUITests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = WeatherPlannerDemo;
@@ -1570,6 +1576,7 @@
 			baseConfigurationReference = 23AE00EF436EF99CAE456829 /* Pods-WeatherPlannerDemoUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3K2KE4S24U;
 				INFOPLIST_FILE = WeatherPlannerDemoUITests/Info.plist;
@@ -1580,6 +1587,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.alensebalj.WeatherPlannerDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "WeatherPlannerDemoUITests/WeatherPlannerDemoUITests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = WeatherPlannerDemo;

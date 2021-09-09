@@ -14,7 +14,7 @@ class AppDependeciesTest: AppModuleProtocol {
     
     private func registerServices(in container: Resolver) {
         container
-            .register { CoordinatorProtocolMock() }
+            .register { AppCoordinator(navigationController: UINavigationController(), container: .custom) }
             .implements(CoordinatorProtocol.self)
     }
     
@@ -24,16 +24,9 @@ class AppDependeciesTest: AppModuleProtocol {
             useCase.getCitiesInCircleLatitudeLongitudeRangeReturnValue = .just([CityModel].stub(withCount: 3))
             return useCase
         }
-        
-        container.register(CityDetailsUseCaseProtocol.self) {
-            let useCase = CityDetailsUseCaseProtocolMock()
-            useCase.getPollutionInfoLatitudeLongitudeCityIDReturnValue = .just(AirPollutionMock().airPollution)
-            return useCase
-        }
     }
     
     private func registerPresenters(in container: Resolver) {
         container.register { CityListPresenter() }
-        container.register { (_, args) in CityDetailsPresenter(cityViewModel: args()) }
     }
 }

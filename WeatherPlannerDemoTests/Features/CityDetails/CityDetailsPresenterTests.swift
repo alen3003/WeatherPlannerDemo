@@ -24,7 +24,6 @@ class CityDetailsPresenterTests: XCTestCase {
             .map { $0.count }
 
         expect(try airPollutionDetailsCount.toBlocking().first()) == 7
-        
     }
 
 }

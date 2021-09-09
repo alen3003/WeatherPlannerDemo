@@ -22,14 +22,14 @@ class CityListPresenterTests: XCTestCase {
         disposeBag = nil
     }
 
-    func testQueryCitiesInCircle() {
+    func testQueryCitiesWithWeatherForecast() {
         let citiesCount = presenter
             .fetchWeather(coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0))
             .map { $0.count }
 
         expect(try citiesCount.toBlocking().first()) == 3
     }
-    
+
     func testSetLocation() {
         let scheduler = TestScheduler(initialClock: 0, resolution: 1)
 
