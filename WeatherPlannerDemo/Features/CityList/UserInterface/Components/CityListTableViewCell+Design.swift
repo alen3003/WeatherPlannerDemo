@@ -42,18 +42,20 @@ extension CityListTableViewCell: ConstructViewsProtocol {
 
         innerStackView.alignment = .center
         innerStackView.axis = .vertical
+        innerStackView.distribution = .fillProportionally
 
         stackView.alignment = .center
         stackView.axis = .vertical
         stackView.spacing = 8
+        stackView.distribution = .fillProportionally
     }
 
     func defineLayoutForViews() {
         backgroundImageView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20))
 
         stackView.autoAlignAxis(toSuperviewAxis: .horizontal)
-        stackView.autoPinEdge(.leading, to: .leading, of: contentView, withOffset: 8)
-        stackView.autoPinEdge(.trailing, to: .trailing, of: contentView, withOffset: 8)
+        stackView.autoPinEdge(.leading, to: .leading, of: contentView, withOffset: 28)
+        stackView.autoPinEdge(.trailing, to: .trailing, of: contentView, withOffset: -28)
     }
 
 }
