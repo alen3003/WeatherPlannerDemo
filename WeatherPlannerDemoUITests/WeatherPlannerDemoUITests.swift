@@ -1,4 +1,5 @@
 import XCTest
+import Nimble
 
 class WeatherPlannerDemoUITests: XCTestCase {
 
@@ -11,8 +12,12 @@ class WeatherPlannerDemoUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
+    func testNavigationBarTitle() throws {
 
+        let app = XCUIApplication()
+        let navigationBarTitle = app.navigationBars["Weather Planner"].staticTexts["Weather Planner"]
+
+        expect(navigationBarTitle.exists).to(beTrue())
     }
 
 }
