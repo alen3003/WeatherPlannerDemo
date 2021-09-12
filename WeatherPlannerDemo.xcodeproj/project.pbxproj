@@ -18,6 +18,7 @@
 		B421D88A2594DBD5007F28F7 /* FetchedResultsController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B421D8892594DBD5007F28F7 /* FetchedResultsController+Rx.swift */; };
 		B421D88F2594DC12007F28F7 /* NSManagedObjectContext+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B421D88E2594DC12007F28F7 /* NSManagedObjectContext+Rx.swift */; };
 		B42EA113258CBA0F00FF6DEB /* Predicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42EA112258CBA0F00FF6DEB /* Predicates.swift */; };
+		B43008C426ED75F200DA24DF /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43008C326ED75F200DA24DF /* ExampleTests.swift */; };
 		B453C9A6257E2010003D5227 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453C9A5257E2010003D5227 /* AppDelegate.swift */; };
 		B453C9A8257E2010003D5227 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B453C9A7257E2010003D5227 /* SceneDelegate.swift */; };
 		B453C9AF257E2011003D5227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B453C9AE257E2011003D5227 /* Assets.xcassets */; };
@@ -158,6 +159,7 @@
 		B421D8892594DBD5007F28F7 /* FetchedResultsController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FetchedResultsController+Rx.swift"; sourceTree = "<group>"; };
 		B421D88E2594DC12007F28F7 /* NSManagedObjectContext+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Rx.swift"; sourceTree = "<group>"; };
 		B42EA112258CBA0F00FF6DEB /* Predicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Predicates.swift; sourceTree = "<group>"; };
+		B43008C326ED75F200DA24DF /* ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
 		B453C9A2257E2010003D5227 /* WeatherPlannerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherPlannerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B453C9A5257E2010003D5227 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B453C9A7257E2010003D5227 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 			children = (
 				B453C9C9257E2011003D5227 /* Info.plist */,
 				B49D76B326EAA3E7005256FA /* WeatherPlannerDemoUITests.swift */,
+				B43008C326ED75F200DA24DF /* ExampleTests.swift */,
 				B49D76B526EAA410005256FA /* WeatherPlannerDemoUITests-Bridging-Header.h */,
 			);
 			path = WeatherPlannerDemoUITests;
@@ -1314,6 +1317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B43008C426ED75F200DA24DF /* ExampleTests.swift in Sources */,
 				B49D76B426EAA3E7005256FA /* WeatherPlannerDemoUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

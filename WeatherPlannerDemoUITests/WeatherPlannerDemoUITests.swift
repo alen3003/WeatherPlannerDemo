@@ -3,17 +3,14 @@ import Nimble
 
 class WeatherPlannerDemoUITests: XCTestCase {
 
-    override func setUpWithError() throws {
+    override func setUp() {
         continueAfterFailure = false
         XCUIApplication().launch()
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    override func tearDown() {}
 
-    func testNavigationBarTitle() throws {
-
+    func testNavigationBarTitle() {
         let app = XCUIApplication()
         let navigationBarTitle = app.navigationBars["Weather Planner"].staticTexts["Weather Planner"]
 
