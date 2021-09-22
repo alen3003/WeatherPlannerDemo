@@ -12,9 +12,12 @@ class WeatherPlannerDemoUITests: XCTestCase {
 
     func testNavigationBarTitle() {
         let app = XCUIApplication()
-        let navigationBarTitle = app.navigationBars["Weather Planner"].staticTexts["Weather Planner"]
+        let navigationBarTitle = app
+            .navigationBars["Weather Planner"]
+            .staticTexts["Weather Planner"]
 
-        expect(navigationBarTitle.exists).to(beTrue())
+        expect(navigationBarTitle.exists)
+            .to(beTrue())
     }
 
 }

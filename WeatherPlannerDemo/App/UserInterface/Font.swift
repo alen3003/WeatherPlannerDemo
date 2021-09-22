@@ -10,4 +10,5 @@ class Font {
     static let system15: UIFont = .systemFont(ofSize: 15)
     
     static let systemSemibold14: UIFont = .systemFont(ofSize: 14, weight: .semibold)
+    static let systemSemibold17: UIFont = .systemFont(ofSize: 17, weight: .semibold)
 }

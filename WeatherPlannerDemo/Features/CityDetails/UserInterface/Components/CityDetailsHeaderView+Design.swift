@@ -38,9 +38,9 @@ extension CityDetailsHeaderView: ConstructViewsProtocol {
         windspeedLabel.textColor = Color.systemWhite
         
         temperatureLabel.font = Font.systemBold80
-        maxTempLabel.font = Font.system15
-        minTempLabel.font = Font.system15
-        windspeedLabel.font = Font.system15
+        maxTempLabel.font = Font.systemSemibold17
+        minTempLabel.font = Font.systemSemibold17
+        windspeedLabel.font = Font.systemSemibold17
         
         stackView.axis = .vertical
         stackView.alignment = .center

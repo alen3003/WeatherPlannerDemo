@@ -24,6 +24,12 @@ class AppDependeciesTest: AppModuleProtocol {
             useCase.getCitiesInCircleLatitudeLongitudeRangeReturnValue = .just([CityModel].stub(withCount: 3))
             return useCase
         }
+
+        container.register(CityDetailsUseCaseProtocol.self) {
+            let useCase = CityDetailsUseCaseProtocolMock()
+            useCase.getPollutionInfoLatitudeLongitudeCityIDReturnValue = .just(AirPollutionMock().airPollution)
+            return useCase
+        }
     }
     
     private func registerPresenters(in container: Resolver) {

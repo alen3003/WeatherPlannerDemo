@@ -8,7 +8,10 @@ class CityListRepository: CityListRepositoryProtocol {
     @Injected(container: .custom) private var coreDataService: CoreDataServiceProtocol
     @OptionalInjected(container: .custom) private var reachability: Reachability?
 
-    func fetchCities(latitude: Double, longitude: Double, range: Int) -> Observable<[City]> {
+    func fetchCities(
+        latitude: Double,
+        longitude: Double, range: Int
+    ) -> Observable<[City]> {
         switch reachability?.connection {
         case .unavailable:
             return coreDataService.fetchCities()

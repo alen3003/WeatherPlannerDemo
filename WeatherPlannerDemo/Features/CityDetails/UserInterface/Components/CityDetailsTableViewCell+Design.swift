@@ -28,9 +28,9 @@ extension CityDetailsTableViewCell: ConstructViewsProtocol {
         markLabel.textColor = Color.systemLabel
         valueLabel.textColor = Color.systemLabel
         
-        nameLabel.font = Font.systemSemibold14
-        markLabel.font = Font.systemSemibold14
-        valueLabel.font = Font.systemSemibold14
+        nameLabel.font = Font.systemSemibold17
+        markLabel.font = Font.systemSemibold17
+        valueLabel.font = Font.systemSemibold17
         
         nameLabel.textAlignment = .left
         markLabel.textAlignment = .center

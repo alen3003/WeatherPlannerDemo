@@ -8,7 +8,8 @@ import RxSwift
 
 class CityDetailsPresenterTests: XCTestCase {
     
-    @WeakLazyInjected(container: .custom) private var presenter: CityDetailsPresenter!
+    @WeakLazyInjected(container: .custom)
+    private var presenter: CityDetailsPresenter!
 
     override func setUp() {
         $presenter.args = CityViewModelMock.viewModel
@@ -21,7 +22,9 @@ class CityDetailsPresenterTests: XCTestCase {
     func testQueryAirPollution() {
         let airPollutionDetailsCount = presenter
             .fetchPollutionInfo()
-            .map { $0.count }
+            .map {
+                $0.count
+            }
 
         expect(try airPollutionDetailsCount.toBlocking().first()) == 7
     }

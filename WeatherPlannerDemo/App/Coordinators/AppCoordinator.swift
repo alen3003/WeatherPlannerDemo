@@ -5,7 +5,10 @@ class AppCoordinator {
     private weak var navigationController: UINavigationController?
     let container: Resolver
     
-    init(navigationController: UINavigationController, container: Resolver) {
+    init(
+        navigationController: UINavigationController,
+        container: Resolver
+    ) {
         self.navigationController = navigationController
         self.container = container
     }
@@ -21,8 +24,11 @@ class AppCoordinator {
 extension AppCoordinator: CoordinatorProtocol {
 
     func pushCityDetailsViewController(viewModel: CityViewModel) {
-        let cityDetailsViewController: CityDetailsViewController = container.resolve(args: viewModel)
-        navigationController?.pushViewController(cityDetailsViewController, animated: true)
+        let cityDetailsViewController: CityDetailsViewController
+            = container.resolve(args: viewModel)
+        navigationController?.pushViewController(
+            cityDetailsViewController,
+            animated: true)
     }
 
 }
