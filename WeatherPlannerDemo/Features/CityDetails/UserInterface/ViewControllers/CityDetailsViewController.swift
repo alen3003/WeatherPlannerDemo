@@ -35,8 +35,10 @@ class CityDetailsViewController: UIViewController {
     private func configureDataSource() {
         let dataSource = CityDetailsTableViewDataSource(
             configureCell: { (_, tableView, indexPath, viewModel) in
-                guard let cell = tableView.dequeueReusableCell(
-                        withIdentifier: CityDetailsTableViewCell.reuseIdentifier,
+                guard
+                    let cell = tableView.dequeueReusableCell(
+                        withIdentifier: CityDetailsTableViewCell
+                            .reuseIdentifier,
                         for: indexPath) as? CityDetailsTableViewCell
                 else {
                     return UITableViewCell()
@@ -54,6 +56,7 @@ class CityDetailsViewController: UIViewController {
             .bind(to: cityDetailsTableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
     }
+
 }
 
 extension CityDetailsViewController: UITableViewDelegate {

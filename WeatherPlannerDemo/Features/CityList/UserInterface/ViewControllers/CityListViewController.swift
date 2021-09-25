@@ -45,7 +45,8 @@ class CityListViewController: UIViewController {
     private func configureDataSource() {
         let dataSource = CityListTableViewDataSource(
             configureCell: { (_, tableView, indexPath, viewModel) in
-                guard let cell = tableView.dequeueReusableCell(
+                guard
+                    let cell = tableView.dequeueReusableCell(
                         withIdentifier: CityListTableViewCell.reuseIdentifier,
                         for: indexPath) as? CityListTableViewCell
                 else {

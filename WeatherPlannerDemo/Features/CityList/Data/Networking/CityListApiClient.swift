@@ -1,6 +1,7 @@
 import RxSwift
 
-final class CityListApiClient: BaseApiClient, CityListApiClientProtocol {
+final class CityListApiClient: BaseApiClient,
+                               CityListApiClientProtocol {
 
     func fetchCitiesInCircle(
         _ coordinate: City.Coordination,
@@ -8,7 +9,9 @@ final class CityListApiClient: BaseApiClient, CityListApiClientProtocol {
     ) -> Observable<CitiesInCircle> {
         get(
             path: ApiEndpoints.citiesInCircle.rawValue,
-            queryParameters: parameters(for: coordinate, in: range).propertyPairs())
+            queryParameters: parameters(
+                for: coordinate, in: range)
+                .propertyPairs())
     }
 
     private func parameters(
